@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>测试加载数据 | 字典转模型</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    <link rel="next" href="./0202testingmodel.html" />
+    
+    
+    <link rel="prev" href="./02testing.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book" data-level="0.2.1" data-basepath="." data-revision="1425083520188">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="0.1" data-path="01preparation.html">
+            
+                
+                    <a href="./01preparation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         项目搭建
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="02testing.html">
+            
+                
+                    <a href="./02testing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         测试准备
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter active" data-level="0.2.1" data-path="0201testloadjson.html">
+            
+                
+                    <a href="./0201testloadjson.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.1.</b>
+                        
+                         测试加载数据
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2.2" data-path="0202testingmodel.html">
+            
+                
+                    <a href="./0202testingmodel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.2.</b>
+                        
+                         测试模型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2.3" data-path="0203submodelinfo.html">
+            
+                
+                    <a href="./0203submodelinfo.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.3.</b>
+                        
+                         测试子类
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2.4" data-path="0204modelcache.html">
+            
+                
+                    <a href="./0204modelcache.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.4.</b>
+                        
+                         模型信息缓冲
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2.5" data-path="0205dict2model.html">
+            
+                
+                    <a href="./0205dict2model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.5.</b>
+                        
+                         字典转模型
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >字典转模型</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_2">
+                    
+                        <h1 id="">测试加载数据</h1>
+<h2 id="">测试加载数据</h2>
+<pre><code class="lang-swift"><span class="hljs-comment">///  测试加载 JSON</span>
+<span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">testLoadJSON</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">let</span> bundle = <span class="hljs-type">NSBundle</span>(forClass: <span class="hljs-type">SwiftJSONModelTests</span>.<span class="hljs-keyword">self</span>)
+    <span class="hljs-keyword">let</span> path = bundle.pathForResource(<span class="hljs-string">"Model01.json"</span>, ofType: <span class="hljs-built_in">nil</span>)
+    <span class="hljs-keyword">let</span> json = <span class="hljs-type">NSData</span>(contentsOfFile: path!)
+    <span class="hljs-keyword">let</span> model = <span class="hljs-type">NSJSONSerialization</span>.<span class="hljs-type">JSONObjectWithData</span>(json!, options: <span class="hljs-type">NSJSONReadingOptions</span>.allZeros, error: <span class="hljs-built_in">nil</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSDictionary</span>
+    <span class="hljs-built_in">println</span>(model)
+}
+</code></pre>
+<h3 id="">增加断言</h3>
+<pre><code class="lang-swift">    <span class="hljs-type">XCTAssertNotNil</span>(model!, <span class="hljs-string">"加载模型失败"</span>)
+    <span class="hljs-type">XCTAssert</span>(model!.isKindOfClass(<span class="hljs-type">NSDictionary</span>.<span class="hljs-keyword">self</span>), <span class="hljs-string">"模型类型不正确"</span>)
+</code></pre>
+<p>断言：</p>
+<ul>
+<li>在开发中提前判断满足某一种条件</li>
+<li>如果不满足，在测试的时候会直接崩溃</li>
+<li>断言是所有 C/C++ 程序员的最爱</li>
+</ul>
+<h3 id="-json">测试加载错误的 JSON</h3>
+<ul>
+<li>复制 <code>Modle.json</code> 到 <code>Error.json</code> 并且故意将格式修改错误</li>
+<li>新建测试函数如下</li>
+</ul>
+<pre><code class="lang-swift"><span class="hljs-comment">///  测试加载错误的JSON</span>
+<span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">testLoadErrorJSON</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">let</span> bundle = <span class="hljs-type">NSBundle</span>(forClass: <span class="hljs-type">SwiftJSONModelTests</span>.<span class="hljs-keyword">self</span>)
+    <span class="hljs-keyword">let</span> path = bundle.pathForResource(<span class="hljs-string">"Error.json"</span>, ofType: <span class="hljs-built_in">nil</span>)
+    <span class="hljs-keyword">let</span> json = <span class="hljs-type">NSData</span>(contentsOfFile: path!)
+    <span class="hljs-keyword">let</span> model = <span class="hljs-type">NSJSONSerialization</span>.<span class="hljs-type">JSONObjectWithData</span>(json!, options: <span class="hljs-type">NSJSONReadingOptions</span>.allZeros, error: <span class="hljs-built_in">nil</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSDictionary</span>
+    <span class="hljs-built_in">println</span>(model)
+}
+</code></pre>
+<ul>
+<li>增加断言</li>
+</ul>
+<pre><code>XCTAssertNil(model, &quot;错误的json解析应该为空&quot;)
+</code></pre><h2 id="">代码重构</h2>
+<h3 id="">抽取路径函数</h3>
+<pre><code class="lang-swift"><span class="hljs-comment">///  返回指定数据的路径</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">///  :param: filename 文件名</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">///  :returns: 文件路径</span>
+<span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">dataPath</span><span class="hljs-params">(filename: String)</span> -&gt; <span class="hljs-title">String</span> </span>{
+    <span class="hljs-keyword">let</span> bundle = <span class="hljs-type">NSBundle</span>(forClass: <span class="hljs-type">SwiftJSONModelTests</span>.<span class="hljs-keyword">self</span>)
+    <span class="hljs-keyword">let</span> path = bundle.pathForResource(filename, ofType: <span class="hljs-built_in">nil</span>)
+
+    <span class="hljs-type">XCTAssertNotNil</span>(path, <span class="hljs-string">"数据加载错误"</span>)
+    <span class="hljs-keyword">return</span> path!
+}
+</code></pre>
+<ul>
+<li>调整测试函数</li>
+<li>cmd + u 重新测试</li>
+</ul>
+<h3 id="-json-">新建 <code>JSON</code> 函数</h3>
+<ul>
+<li>在 <code>SwiftJSONModel.swift</code> 中新建 <code>Class</code>-&gt;<code>JSONModelManager</code></li>
+<li>新建函数 json</li>
+</ul>
+<pre><code class="lang-swift"><span class="hljs-comment">///  将二进制数据反序列化为 NSDictionary 或者 NSArray</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">///  :param: data json 数据</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">///  :returns: 如果数据格式正确，返回 NSDictionary 或者 NSArray，否则返回 nil</span>
+<span class="hljs-keyword">class</span> <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">json</span><span class="hljs-params">(data: NSData)</span> -&gt; <span class="hljs-title">AnyObject</span>? </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-type">NSJSONSerialization</span>.<span class="hljs-type">JSONObjectWithData</span>(data, options: .allZeros, error: <span class="hljs-built_in">nil</span>)
+}
+</code></pre>
+<p>重构后的代码如下：</p>
+<pre><code class="lang-swift"><span class="hljs-comment">///  测试加载 JSON</span>
+<span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">testLoadJSON</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">let</span> json = <span class="hljs-type">NSData</span>(contentsOfFile: dataPath(<span class="hljs-string">"Model01.json"</span>))
+    <span class="hljs-keyword">let</span> model = <span class="hljs-type">JSONModelManager</span>.json(json!) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSDictionary</span>
+    <span class="hljs-built_in">println</span>(model)
+
+    <span class="hljs-type">XCTAssertNotNil</span>(model!, <span class="hljs-string">"加载模型失败"</span>)
+    <span class="hljs-type">XCTAssert</span>(model!.isKindOfClass(<span class="hljs-type">NSDictionary</span>.<span class="hljs-keyword">self</span>), <span class="hljs-string">"模型类型不正确"</span>)
+}
+
+<span class="hljs-comment">///  测试加载错误的JSON</span>
+<span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">testLoadErrorJSON</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">let</span> json = <span class="hljs-type">NSData</span>(contentsOfFile: dataPath(<span class="hljs-string">"Error.json"</span>))
+    <span class="hljs-keyword">let</span> model = <span class="hljs-type">JSONModelManager</span>.json(json!) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSDictionary</span>
+
+    <span class="hljs-type">XCTAssertNil</span>(model, <span class="hljs-string">"错误的json解析应该为空"</span>)
+}
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./02testing.html" class="navigation navigation-prev " aria-label="Previous page: 测试准备"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./0202testingmodel.html" class="navigation navigation-next " aria-label="Next page: 测试模型"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
