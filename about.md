@@ -3,9 +3,15 @@ layout: page
 title: 關於我
 permalink: /about/
 ---
+姓名：言十年
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+婚否：單身，要不給你們妹妹一個機會？
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+愛好：繁體字，唱歌
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+居住：帝都
+
+IT技能：PHP，HTML，Linux，C，OC，Swift，jquery等等，這不是寫簡歷，我不敢說什麼熟練跟精通免遭嘲笑，都用過而已
+
+
+
