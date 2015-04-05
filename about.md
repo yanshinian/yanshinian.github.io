@@ -11,7 +11,18 @@ permalink: /about/
 
 居住：帝都
 
-IT技能：PHP，HTML，Linux，C，OC，Swift，jquery等等，這不是寫簡歷，我不敢說什麼熟練跟精通免遭嘲笑，都用過而已
+IT技能：PHP，HTML，Linux，C，OC，Swift，jquery等等，
+
+這不是寫簡歷，我不敢說什麼熟練跟精通免遭嘲笑，都用過而已
 
 
 
+```ruby
+/* hello world demo */
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+        printf("Hello, World!\n");
+        return 0;
+}
+```

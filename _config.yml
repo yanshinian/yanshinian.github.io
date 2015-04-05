@@ -8,6 +8,11 @@ twitter_username: yanshinian
 github_username:  yanshinian
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown
 timezone: Asia/Shanghai
 future: true
+highlighter: pygments
+lsi: true
+markdown: redcarpet
+redcarpet:
+    extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
