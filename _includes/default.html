@@ -41,7 +41,7 @@ if(true)
 {
 $("#sidebar").css({width:'100%'});
 $("#btnblog").click(function(){
-$("#sidebar").animate({width:'33.3333%'},'slow');
+$("#sidebar1").animate({width:'33.3333%'},'slow');
 });
 }
 });
@@ -111,7 +111,11 @@ $("#sidebar").animate({width:'33.3333%'},'slow');
  </div>
 
 <div class=" sidebar hidden-xs" id="sidebar">
-		{% include sidebar.html %}
+  <!-- 小言添加的div  多包裹了一层-->
+  <div class=" sidebar hidden-xs" id="sidebar1">
+    {% include sidebar.html %}
+  </div>
+		
 	</div>
 
 <div class="col-sm-8 col-sm-offset-4" id="container">
