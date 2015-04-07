@@ -84,12 +84,23 @@ footer {
   font-family: 'Ubuntu';
 }
 
+#sidebar1 {
+	position: fixed;
+	padding-top: 8%;
+	height: 100%;
+	/*background-color:#6049df;*/
+	background-image: url("/assets/media/background-cover.jpg");	
+	background-size: 100% 100%;
+	color: #fff;
+	z-index: 5;
+	width: 30.3333%;si
+}
 #sidebar {
 	position: fixed;
 	padding-top: 8%;
 	height: 100%;
-	background-color:#6049df;
-	background-image: url("/assets/media/cover.png"),url("/assets/media/background-cover.jpg");	
+	/*background-color:#6049df;*/
+	/*background-image: url("/assets/media/cover.png"),url("/assets/media/background-cover.jpg");	*/
 	background-size: 100% 100%;
 	color: #fff;
 	z-index: 5;
