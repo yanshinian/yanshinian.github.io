@@ -6,11 +6,9 @@ date:   2015-05-23
 categories: jekyll 
 ---
 
-# isEqual与==的区別
-
 OC 程序中测试两个变量的是否相等有两种方式：isEqual 跟 “==”
 
-###“==”的使用
+##“==”的使用
 
 1.基本数据类型变量。
 
@@ -39,7 +37,7 @@ OC 程序中测试两个变量的是否相等有两种方式：isEqual 跟 “==
 str3 呢，类方法创建出来的对象。运行时创建出来的，放在堆上的。。
 ```
 
-### isEqual 的使用
+## isEqual 的使用
 
 很多时候，程序判断指针变量是否相等，也有时候是判断值是否相等的规则，并不严格要求两个指针变量指向同一个对象。例如，对于两个字符串变量，可能只是要求它们指向的字符串对象里包含的字符序列相同即认为相等，此时就可以利用NSString对象的isEqual:方法来判断。
 
@@ -51,7 +49,7 @@ isEqual的来源。这个方法是NSObject类提供的实例方法，因此，�
 
 NSString 中的isEqual方法，是重写了NSObject的isEqual 的方法。也就是复写了父类的方法。只是判断规则是自定义的跟父类无关。判断规则：两个字符串的包含的字符序列相同，就是真，否则为假。
 
-### 重写isEqual
+## 重写isEqual
 
 父类的方法都是可以重写的。我们可以肆意的重写。可以让“狗类”等于“人类”。判断标准就通过name。狗有狗名。人有人名。狗名跟人名一样，都叫“安倍晋三”那就返回 YES。当然是开玩笑。这种比较不符合业务逻辑。那要判断也是同一类型的来判断是吧！人类跟人类。
 
@@ -65,8 +63,9 @@ NSString 中的isEqual方法，是重写了NSObject的isEqual 的方法。也就
     return [self.goods_id isEqualToString:other.goods_id];
 }
 ```
+参考资料：
 
-* 《疯狂iOS讲义（上）》
+* 《疯狂iOS讲义（上）》 李刚
 
 * Objective-c中 isEqual ，isEqualToString ， == 三者的区别 [http://www.cnblogs.com/skyming/p/3485605.html](http://www.cnblogs.com/skyming/p/3485605.html)
 
