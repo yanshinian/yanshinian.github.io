@@ -36,12 +36,12 @@ var _hmt = _hmt || [];
 	
 <script type="text/javascript">
 $(document).ready(function(){
-
-if(true)
+  alert(window.location.href);
+if(window.location.href=="{{site.BASE_PATH}}")
 {
 $("#sidebar").css({width:'100%'});
 $("#btnblog").click(function(){
-$("#sidebar1").animate({width:'33.3333%'},'slow');
+$("#sidebar").animate({width:'33.3333%'},'slow');
 });
 }
 });
@@ -111,11 +111,7 @@ $("#sidebar1").animate({width:'33.3333%'},'slow');
  </div>
 
 <div class=" sidebar hidden-xs" id="sidebar">
-  <!-- 小言添加的div  多包裹了一层-->
-  <div class=" sidebar hidden-xs" id="sidebar1">
-    {% include sidebar.html %}
-  </div>
-		
+		{% include sidebar.html %}
 	</div>
 
 <div class="col-sm-8 col-sm-offset-4" id="container">
