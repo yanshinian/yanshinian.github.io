@@ -55,8 +55,11 @@ reveal网址是（ http://revealapp.com ），iOS界面调试工具。写过网�
 
 ```
 commandJaliasJreveal_load_simJexprJ(void*) dlopen("/Applications/Reveal.app/Contents/SharedSupport/iOS? Libraries/libReveal.dylib",J0x2);
+
 commandJaliasJreveal_load_devJexprJ(void*)dlopen([(NSString*)[(NSBundle*) [NSBundleJmainBundle]JpathForResource:@"libReveal"JofType:@"dylib"]J cStringUsingEncoding:0x4],J0x2);
+
 commandJaliasJreveal_startJexprJ(void)[(NSNotificationCenter*) [NSNotificationCenterJdefaultCenter]JpostNotificationName: @"IBARevealRequestStart"Jobject:nil];
+
 commandJaliasJreveal_stopJexprJ(void)[(NSNotificationCenter*) [NSNotificationCenterJdefaultCenter]JpostNotificationName: @"IBARevealRequestStop"Jobject:nil];
 ```
 该步骤其实为lldb设置了4个别名，这样可以方便后续的操作。4个别名意义如下：
@@ -79,7 +82,7 @@ commandJaliasJreveal_stopJexprJ(void)[(NSNotificationCenter*) [NSNotificationCen
 
 用真机结合主要是看它人的app的UI界面。前提条件手机必须是越狱机器（盘古越狱[http://www.pangu.io/](http://www.pangu.io/)）。
 
-1>安装􏳃􏲦OpenSSH􏳉 跟 Cydia Substrate（安装过的跳过此步）
+1>安装 OpenSSH跟 Cydia Substrate（安装过的跳过此步）
 * 安装 OpenSSH：找到Cydia app进入，点击搜索 输入 OpenSSH，选择然后安装 （SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。）。OpenSSH是连接传输工具。
 
 ```
