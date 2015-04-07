@@ -90,6 +90,7 @@ footer {
 	padding-top: 8%;
 	height: 100%;
 	/*background-color:#6049df;*/
+	background-repeat:no-repeat;
 	background-image: url("/assets/media/background-cover.jpg");	
 	background-size: 100% 100%;
 	color: #fff;
