@@ -15,7 +15,7 @@ categories_path : categories.html
 tags_path : tags.html
 
 #BASE_PATH : http://blog.ankanbiswas.in/uno-dbyll
-BASE_PATH : http://127.0.0.1:4000/
+BASE_PATH : http://yanshinian.com
 
 title : 言十年的博客
 
