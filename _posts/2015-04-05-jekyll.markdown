@@ -6,7 +6,7 @@ date:   2015-04-03 02:15:48
 categories: jekyll 使用教程
 
 ---
-jekyll是什麼？？
+了解jekyll
 
 ```
 免費的BLog生成工具

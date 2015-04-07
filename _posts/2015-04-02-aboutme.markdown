@@ -5,15 +5,13 @@ category: life
 date:   2015-04-02 
 
 ---
-
-<center> <font size='10'>關於我	</font>
-
 <center>我叫言十年。叫我小言就好了。我的Blog還需要裝修。寫Blog比較費時間。
 
 <center>
 我是一個會iOS開發，php開發的IT青年。
 <center>
-我喜歡唱歌，喜歡繁體字。別誤會我是港澳臺的同胞。
+我喜歡唱歌，喜歡繁體字，喜欢思考。
 <center>
-
+我的联系方式：yan@yanshinian.com ，如果志同道合，我们邮件联系吧！
+<center>
 
