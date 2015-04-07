@@ -8,7 +8,7 @@ categories: jekyll
 
 # UI分析利器 Reveal
 
-reveal网址是（ http://revealapp.com ），iOS界面调试工具。写过网页的都知道firefox还有chrome之流。它们都有这个“审查元素”的功能！那么reveal就是iOS客户端的“审查元素”。
+reveal网址是（ [http://revealapp.com](http://revealapp.com) ），iOS界面调试工具。写过网页的都知道firefox还有chrome之流。它们都有这个“审查元素”的功能！那么reveal就是iOS客户端的“审查元素”。
 
 进入官网我们下载一个适用版的“Download Trial”，不想掏钱，就用试用版，虽然试用期30天，但是有个小方法能让你一直用下去。右上角“打开日期时间偏好设置”，把时间定格在你安装当日加30天之内的时间，建议是加10天，因为之后它会烦人的提示你，还剩几天。
 
