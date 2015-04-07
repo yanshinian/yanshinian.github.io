@@ -6,14 +6,14 @@ date:   2015-04-03 02:15:48
 categories: jekyll update
 ---
 jekyll是啥東東？？
-===
+
 * 免費的BLog生成工具
 * 純靜態，無數據庫支持
 * 支持markdown語法 提高逼格（[開始學習markdown語法][studymarkdown]）
 * 開通`GitPages`，把你的`jekyll`（根目錄下所有文件））網站放上去託管，
 
 GitHub Pages + Jekyll = Your blog!(快速搭建)
-===
+
 
 1. 先搞一個 [GitHub Pages][githubpages]，根據官網步驟來，請先登錄你的GitHub
 	* 1.1 [創建一個倉庫][create a repository]
@@ -33,13 +33,13 @@ GitHub Pages + Jekyll = Your blog!(快速搭建)
 
 2. 再搞個[Jekyll][jekyllrb]當Blog，英文不好看[Jekyll中文站][jekyllcn]
 	
-	```
+	{% highlight ruby %}
 	~ $ gem install jekyll
 	~ $ jekyll new myblog
 	~ $ cd myblog
 	~/myblog $ jekyll serve
 	# => Now browse to http://localhost:4000
-	```
+	{% endhighlight %}
 
 
 [studymarkdown]: http://sspai.com/25137

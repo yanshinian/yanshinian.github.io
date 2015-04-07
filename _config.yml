@@ -1,18 +1,34 @@
-# Site settings
-title: 言十年的博客
-email: yan@yanshinian.com
-description: > # yanshinian 言十年 iOS PHP 
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yanshinian.com" # the base hostname & protocol for your site
-twitter_username: yanshinian
-github_username:  yanshinian
-
-# Build settings
-#markdown: kramdown
-timezone: Asia/Shanghai
-future: true
-highlighter: pygments
-lsi: true
+# This is the default format.
+# For more see: http://jekyllrb.com/docs/permalinks/
+permalink: /:title
+# https://help.github.com/articles/migrating-your-pages-site-from-maruku
 markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
+
+highlighter: pygments
+paginate: 20 # pagination based on number of posts
+paginate_path: "page/:num"
+
+# These paths are to the main pages Jekyll-Bootstrap ships with.
+# Some JB helpers refer to these paths; change them here if needed.
+#
+categories_path : categories.html
+tags_path : tags.html
+
+#BASE_PATH : http://blog.ankanbiswas.in/uno-dbyll
+BASE_PATH : http://127.0.0.1:4000/
+
+title : 言十年的博客
+
+
+
+author:
+  name: 言十年
+  maxim: Stay hungry,Stay foolish
+  role: Jekyll Theme
+  email: yanshinian@yeah.net
+  github: yanshinian
+  twitter: yanshinian
+  facebook: 言十年
+  googleplus: +十年
+  bio: "我是言十年，互相学习，互相进步"
+  uno-dbyll: https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png
