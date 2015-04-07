@@ -36,9 +36,10 @@ var _hmt = _hmt || [];
 	
 <script type="text/javascript">
 $(document).ready(function(){
-  alert(window.location.href);
+
 if(window.location.href=="{{site.BASE_PATH}}")
 {
+  alert(1111);
 $("#sidebar").css({width:'100%'});
 $("#btnblog").click(function(){
 $("#sidebar").animate({width:'33.3333%'},'slow');
