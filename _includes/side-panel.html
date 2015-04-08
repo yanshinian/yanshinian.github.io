@@ -1,4 +1,4 @@
-<header class="panel-cover  {% if post %}panel-cover--collapsed{% endif %}" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+<header class="panel-cover {% if post %}panel-cover--collapsed{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover }})"{% endif %}>
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
