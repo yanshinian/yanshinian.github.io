@@ -51,6 +51,6 @@ $(document).ready(function() {
   });
 });
 $(document.links).filter(function() {
-  alert(this.hostname+window.location.hostname);
+  // alert(this.hostname+window.location.hostname);
     return this.hostname != window.location.hostname;
 }).attr('target', '_blank');
