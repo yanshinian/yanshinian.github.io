@@ -1,4 +1,4 @@
-<header class="panel-cover {{#if post}}panel-cover--collapsed{{/if}}" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+<header class="panel-cover  {% if post %}panel-cover--collapsed{% endif %}" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
@@ -10,7 +10,7 @@
         <h1 class="panel-cover__title panel-title"><a href="{{ site.BASE_PATH }}" title="link to homepage for {{ site.title }}">{{ site.title }}</a></h1>
         <span class="panel-cover__subtitle panel-subtitle">上善若水，人淡如菊</span>
         <hr class="panel-cover__divider" />
-        <p class="panel-cover__description">{{@blog.description}}</p>
+        <p class="panel-cover__description">{{ site.description }}</p>
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
 
         <div class="navigation-wrapper">
@@ -18,8 +18,8 @@
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
               <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
-              <li class="navigation__item"><a href="http://project.onevcat.com" target="_blank" title="我的项目">项目</a></li>
-              <li class="navigation__item"><a href="http://about.onevcat.com/" title="了解更多关于我">关于</a></li>
+              <li class="navigation__item"><a href="###" target="_blank" title="我的项目">项目</a></li>
+              <li class="navigation__item"><a href="###" title="了解更多关于我">关于</a></li>
               <li class="navigation__item"><a href="http://eepurl.com/" title="邮件订阅本站">订阅</a></li>
             </ul>
           </nav>
