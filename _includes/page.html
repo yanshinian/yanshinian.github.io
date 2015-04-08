@@ -1,7 +1,17 @@
-<div class="page-header">
-  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
-</div>
+{% include default.html %}
 
-{{ content }}
+{{#post}}
 
-<br/><br/>
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+
+    <section class="{{post_class}}">
+      {{ content }}
+    </section>
+
+  </article>
+
+{{/post}}

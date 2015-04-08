@@ -1,145 +1,65 @@
 <!DOCTYPE html>
 <html>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?002f12d0eb8f6a834b7134c29f56eb56";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<head>
+    
+    <title>{{ page.title }}</title>
 
-		<title>{{ page.title }}</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	{% if page.description %}
-	<meta name="description" content="{{ page.description }}">
-	{% endif %}
+    <meta name="description" content="{{ page.description }">
 
-	<meta name="author" content="{{ site.author.name }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ page.description }">
+    <meta name="twitter:description" content="{{ page.description }">
 
-		<!-- Enable responsive viewport -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-<link rel="stylesheet" type="text/css" href="/assets/resources/syntax/syntax.css">
-<link rel="stylesheet" type="text/css" href="/assets/resources/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/assets/resources/font-awesome/css/font-awesome.min.css">
-<link rel="icon" href="{{site.BASE_PATH}}/avatar.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ page.description }">
+    <meta property="og:description" content="{{ page.description }">
 
-<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
 
-<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.js"></script>
-	
-<script type="text/javascript">
-$(document).ready(function(){
-if(window.location.href=="{{site.BASE_PATH}}/")
-{
-$("#sidebar").css({width:'100%'});
-$("#btnblog").click(function(){
-$("#sidebar").animate({width:'33.3333%'},'slow');
+    <!-- Styles and Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vno.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/asset s/css/tomorrow.css">
+    
+    <!-- Ghost Head  -->
+   
 
+</head>
+<body class="home-template no-js">
 
-});
-}
-});
-	
-</script>
-	</head>
-<body>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
 
-<nav class="navbar navbar-default visible-xs" role="navigation">
+    {% include side-panel.html %}
 
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+           {{ content }} 
 
- <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarHeaderCollapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      {% if site.author.github %}
-      <a type="button" class="navbar-toggle nav-link" href="http://github.com/{{ site.author.github }}">
-        <i class="fa fa-github"></i>
-      </a>
-      {% endif %}
-      {% if site.author.twitter %}
-      <a type="button" class="navbar-toggle nav-link" href="http://twitter.com/{{ site.author.twitter }}">
-        <i class="fa fa-twitter"></i>
-      </a>
-      {% endif %}
-       {% if site.author.email %}
-      <a type="button" class="navbar-toggle nav-link" href="mailto:{{ site.author.email }}">
-        <i class="fa fa-envelope"></i>
-      </a>
-      {% endif %}
-     
-
-     
-      <a class="navbar-brand" href="{{ site.BASE_PATH }}">
-        <img src="{{site.author.uno-dbyll}}" class="img-circle" style="height:35px;width:35px"/>
-        {{ site.title }}
-      </a>
+            {% include footer.html %}
+        </div>
     </div>
-    
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbarHeaderCollapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{% if BASE_PATH %}{{ site.BASE_PATH }}{% else %}{{ site.BASE_PATH}}{% endif %}">Home</a></li>
-        <li><a href="{{ site.BASE_PATH}}/{{ site.categories_path }}">Categories</a></li>
-        <li><a href="{{ site.BASE_PATH}}/{{ site.tags_path }}">Tags</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+    <!-- Ghost Footer  -->
 
-</nav>
 
-  <!-- nav-menu-dropdown -->
-  <div class="btn-group hidden-xs" id="nav-menu">
-   <button type="button" class="btn btn-default dropdown-toggle pull-right" data-toggle="dropdown">
-     <i class="fa fa-bars"></i>
-   </button>
-   <ul class="dropdown-menu pull-right" role="menu">
-     <li><a href="{% if BASE_PATH %}{{ site.BASE_PATH }}{% else %}{{ site.BASE_PATH}}{% endif %}"><i class="fa fa-home"></i> Home</a></li>
-     <li><a href="{{ site.BASE_PATH}}/{{ site.categories_path }}"><i class="fa fa-folder"></i> Categories</a></li>
-     <li><a href="{{ site.BASE_PATH}}/{{ site.tags_path }}"><i class="fa fa-tags"></i> Tags</a></li>
-     <li class="divider"></li>
-     <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
-   </ul>
- </div>
- <!-- 小言添加的sidebar1，也添加对应的css -->
-<!-- <div class=" sidebar hidden-xs" id="sidebar1">  -->
-    <div class=" sidebar hidden-xs" id="sidebar">
-    		{% include sidebar.html %}
-    	</div>
-<!-- </div> -->
-<div class="col-sm-8 col-sm-offset-4" id="container">
-{{ content }} 
-
-<footer class="navbar navbar-default">
-    <div class="container">
-      <p class="navbar-text pull-left">Some rights reserved &copy; {{ site.time | date: '%Y' }} Ankan Biswas.  </br>
-      使用了<a class="navbar-button" href="https://github.com/twbs/bootstrap">Bootstrap3</a> 跟 <a class="navbar-button" href="https://github.com/jekyll/jekyll">Jekyll 搭建</a>. 主题 : <a class="navbar-button" href="https://github.com/talk2ankan/uno-dbyll">uno-dbyll</a> 感谢 talk2ankan 开源.
- </p>
- </div>
-  </footer>
-</div>
-
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'yanshinian'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
-    
+    <!--  The main JavaScript file -->
+    <script type="text/javascript" src="assets/js/main.js"></script>
+ <!-- Highlight.js /assets/js/ --> 
+    <script type="text/javascript" src="assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

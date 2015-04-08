@@ -1,0 +1,65 @@
+1.	动态修改UINavigationBar的背景色
+
+[http://tech.glowing.com/cn/change-uinavigationbar-backgroundcolor-dynamically/](http://tech.glowing.com/cn/change-uinavigationbar-backgroundcolor-dynamically/)
+
+[https://github.com/ltebean/LTNavigationBar](https://github.com/ltebean/LTNavigationBar)
+
+2.	Emoji表情图标在iOS与PHP之间通信及MySQL存储
+
+[http://wpceo.com/supporting-emoji-on-php-mysql/](http://wpceo.com/supporting-emoji-on-php-mysql/) 
+
+3.	收集了一些Api网站，关于天气、地图等等都有的Api大全网站。
+
+[http://apistore.baidu.com/astore/index](http://apistore.baidu.com/astore/index)
+
+[http://www.juhe.cn/](http://www.juhe.cn/
+)
+
+4.	id<sendMsgToWeChatViewDelegate,NSObject>?
+
+用协议定义变量, 只能调用改协议定义的方法
+
+5.	发现一个比较好的国外iOS网站，英语好的建议听下：[http://www.raywenderlich.com/](http://www.raywenderlich.com/)
+
+6.	app的tabbar跟navigation 在iphone6上 都变大了.字体.这个是怎么回事啊?有大神知道吗?
+
+加个3x的启动图就ok了
+
+7.	我想在xib中画根线. 怎么能UIView让高度变成0.5呢.设置0.5  直接默认为0了.有大神知道吗.（需要验证）
+
+1/[UIScreen mainScreen].scale 
+
+8.	Git push 报错 error: failed to push some refs to
+
+git pull一下就好了，远程仓库跟本地仓库不一样
+(http://www.cxybl.com/html/linux/Ubuntu/20140806/41112.html)[http://www.cxybl.com/html/linux/Ubuntu/20140806/41112.html]
+
+9.第三方登陆事项：
+
+第三方登陆大家注意一个事情，就是如果用户没有第三方登陆的那个应用，比如我就没安装qq，然后你第三方登陆会提示用户安装qq～这个在上架过程会被拒绝的
+
+10.	关于苹果手表开发[http://www.cocoachina.com/bbs/read.php?tid-295649.html](http://www.cocoachina.com/bbs/read.php?tid-295649.html)
+
+11.app进入后台  要无限时间定位  ！这个怎么实现，系统默认一段时间就关掉了
+
+后台模式课程[https://github.com/MollyMmm/iOS-tech-frontier/blob/master/issue-3/%E5%90%8E%E5%8F%B0%E6%A8%A1%E5%BC%8F%E8%AF%BE%E7%A8%8B.md](https://github.com/MollyMmm/iOS-tech-frontier/blob/master/issue-3/%E5%90%8E%E5%8F%B0%E6%A8%A1%E5%BC%8F%E8%AF%BE%E7%A8%8B.md)
+
+12.Objective-C类成员变量深度剖析
+
+[http://quotation.github.io/objc/2015/05/21/objc-runtime-ivar-access.html](http://quotation.github.io/objc/2015/05/21/objc-runtime-ivar-access.html)
+
+13.iOS 学习资料整理
+
+[https://github.com/Aufree/trip-to-iOS](https://github.com/Aufree/trip-to-iOS)
+
+14.
+
+
+
+
+
+
+
+
+
+
