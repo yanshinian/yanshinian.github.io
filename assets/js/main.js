@@ -16,7 +16,6 @@ $(document).ready(function() {
       $('.panel-cover').animate({'max-width': '700px', 'width': '30%'}, 400, swing = 'swing', function() {} );
     }
   });
-  alert(window.location.hash);
   if (window.location.hash && window.location.hash == "#blog") {
     $('.panel-cover').addClass('panel-cover--collapsed');
     $('.main-post-list').removeClass('hidden');
@@ -52,5 +51,7 @@ $(document).ready(function() {
   });
 });
 $(document.links).filter(function() {
+  alert(this.hostname);
+  alert(window.location.hostname);
     return this.hostname != window.location.hostname;
 }).attr('target', '_blank');
