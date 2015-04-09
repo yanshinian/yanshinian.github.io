@@ -223,7 +223,7 @@ ZWTabBarController.m 中
     [self addChildController:[[ZWProfileViewController alloc] init] title:[NSString currentLanguageText:@"我"] image:@"tabbar_profile"];
 }
 ```
-![](images/guojihua/guojihua18.png)
+![](/images/guojihua/guojihua18.png)
 
 
 **4. IB的國際化**
@@ -234,7 +234,7 @@ ZWTabBarController.m 中
 
 4.1｀ZWScanCode.storyboard｀（二維碼掃描界面）的国际化，我里面有个二维码的story，我設置完多語言之後，它沒有自動生成多語言的文件，那麼怎麼生成呢？還是選中，右側文件信息點擊`Localize`,之前都操作過了動作了，就不在重複。操作完之後。就會出現幾個語言配置文件。鍵值是自動生成的。把對應的文字設置好。就ok了！
 
-![](images/guojihua/guojihua19.png)
+![](/images/guojihua/guojihua19.png)
 
 **總結**
 1.國際化文件，是可以用xml的形式的
