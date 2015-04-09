@@ -71,7 +71,7 @@ categories: jekyll
 
 1.5 把列表中的，你想配置的語言勾選住，右側 Localizable.strings下面多了文件，那麼以後英文的就在`Localizable.strings(English)`,中文的就在`Localizable.strings(Chinese(Simplified))`，如還有其他文件，以此類推
 
-![](images/guojihua/guojihua11.png)
+![](/images/guojihua/guojihua11.png)
 
 2.5 配置多語言文件
 
