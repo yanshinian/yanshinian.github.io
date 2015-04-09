@@ -5,7 +5,7 @@ category: jekyll
 date:   2015-04-03 02:15:48
 categories: jekyll 
 ---
-jekyll是啥東東？？
+jekyll是什麼？？
 
 ```
 免費的BLog生成工具
@@ -46,13 +46,13 @@ clone完，在myblog下有個*yanshinian.github.io*文件夾
 
 2.再搞個[Jekyll][jekyllrb]當Blog，英文不好看[Jekyll中文站][jekyllcn]
 	
-	{% highlight ruby %}
+```
 	~ $ gem install jekyll
 	~ $ jekyll new myblog
 	~ $ cd myblog
 	~/myblog $ jekyll serve
 	然後再瀏覽器輸入，http://localhost:4000，讓你的博客跑起來
-	{% endhighlig}
+```
 
 3.更換主題
 
