@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "搭建jekyll博客"
-category: jekyll
 date:   2015-04-03 02:15:48
-categories: jekyll 使用教程
+categorie: jekyll 使用教程
 
 ---
 了解jekyll
