@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "關於我"
+category: life
+date:   2015-04-02 
+
+---
+
 <center> <font size='10'>關於我	</font>
 
 <center>我叫言十年。叫我小言就好了。我的Blog還需要裝修。寫Blog比較費時間。
