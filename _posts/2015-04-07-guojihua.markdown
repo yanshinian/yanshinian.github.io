@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "iOS程序的國際化"
-category: sample
+category: iOS
 date:   2015-04-07 
 categories: jekyll 
 ---
