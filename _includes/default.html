@@ -21,12 +21,12 @@
 
 <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.js"></script>
 	
 <script type="text/javascript">
 $(document).ready(function(){
-if(window.location.href=="http://blog.ankanbiswas.in/uno-dbyll/")
+if(window.location.href=="{{site.BASE_PATH}}")
 {
 $("#sidebar").css({width:'100%'});
 $("#btnblog").click(function(){
@@ -99,7 +99,7 @@ $("#sidebar").animate({width:'33.3333%'},'slow');
    </ul>
  </div>
 
-<div class="col-sm-4 sidebar hidden-xs" id="sidebar">
+<div class=" sidebar hidden-xs" id="sidebar">
 		{% include sidebar.html %}
 	</div>
 

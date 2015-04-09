@@ -1,0 +1,243 @@
+---
+layout: post
+title:  "iOS程序的國際化"
+category: sample
+date:   2015-04-07 
+categories: jekyll 
+---
+####國際化
+工作環境：Xcode 6.1 ，真機 5c
+##### 國際化第一步
+1.在xcode中添加你所支持的語言，那麼國際化之後，程序會根據手機系統的語言環境顯示對應的語言
+
+![](/images/guojihua/guojihua01.png)
+
+
+##### app基本信息的國際化，程序內部中文字的國際化，IB的國際化
+
+**1.app基本信息的國際化**
+
+![](/images/guojihua/guojihua00.png)
+
+1.1 app基本信息的國際化，創建一個InfoPlist.strings 的文件（這個文件，設置的app的基本信息的，應用程序中info.plist中的）
+
+![](/images/guojihua/guojihua02.png)
+
+1.2 鼠標選中InfoPlist.strings，在右側查看文件的信息，點擊 localize
+
+![](/images/guojihua/guojihua03.png)
+
+1.3 在彈框中選擇，base，然後，點擊localize
+
+![](/images/guojihua/guojihua04.png)
+
+1.4 右側文件信息，原來是“localize”按鈕，變成了一個列表
+
+![](/images/guojihua/guojihua05.png)
+
+1.5 把列表中的，你想配置的語言勾選住，右側 InfoPlist.strings下面多了文件，那麼以後英文的就在`InfoPlist.strings(English)`,中文的就在`InfoPlist.strings(Chinese(Simplified))`，如還有其他文件，以此類推
+
+![](/images/guojihua/guojihua06.png)
+
+![](/images/guojihua/guojihua07.png)
+
+1.6 我們先修改下app的名稱，由於序列化的strings文件，是鍵值對應，那麼我們先獲取到app的名稱對應的鍵，在infoPlist文件中提取,xcode之前名稱都是 Bundle DisplayName ,所以我們現在info.plist文件中添加Bundle DisplayName,然後提取鍵值“CFBundleDisplayName”
+
+![](/images/guojihua/guojihua08.png)
+
+![](/images/guojihua/guojihua09.png)
+
+1.7 配置，多語言文件
+```
+在 InfoPlist.strings(English)文件中寫
+"CFBundleDisplayName" = "Chinese micro-blog";
+在 InfoPlist.strings(Chinese(Simplified))中寫
+"CFBundleDisplayName" = "中国微博";
+```
+
+1.8 模擬器，真機測試，我都測成功了
+
+**2.程序中的國際化(第一種方法)**
+
+![](/images/guojihua/guojihua10.png)
+
+2.1 創建Localizable.strings（跟InfoPlist.strings）
+
+2.2 鼠標選中Localizable.strings，在右側查看文件的信息，點擊 localize
+
+2.3 在彈框中選擇，base，然後，點擊localize
+
+2.4 右側文件信息，原來是“localize”按鈕，變成了一個列表
+
+1.5 把列表中的，你想配置的語言勾選住，右側 Localizable.strings下面多了文件，那麼以後英文的就在`Localizable.strings(English)`,中文的就在`Localizable.strings(Chinese(Simplified))`，如還有其他文件，以此類推
+
+![](images/guojihua/guojihua11.png)
+
+2.5 配置多語言文件
+
+```
+在 InfoPlist.strings(English)文件中寫
+"首页" = "Home";
+在 InfoPlist.strings(Chinese(Simplified))中寫
+"首页" = "首页";
+在 InfoPlist.strings(Chinese(Traditional))中寫
+"首页" = "首頁";
+```
+2.6 程序中如何讀取？
+
+```
+根據當前系統的語言取出對應的語言值
+利用NSLocalizedString就可以根據當前系統的語言取出對應語言的值
+第一個參數：值對應的key
+第二個參數：註釋信息（可以不寫）
+通過NSLocalizedString方法，會自動到系統的Localizable.strings 文件中加載對應的數據
+NSString *home = NSLocalizedString(@"首页",nill);
+```
+**3.程序中的國際化(第二種方法) 模仿下新浪微博**
+
+上面的第一種方法，在企業開發的時候不常用，我們把新浪app下載下來，顯示包內容,我們發現有幾個文件比如：`language_ch.plist` ， `language_english.plist`，`language_tw.plist`，我們一眼就能看出來，對應的是哪個國家的語言文件，對吧
+
+![](/images/guojihua/guojihua12.png)
+
+然後，再打開 `language_ch.plist` ， `language_english.plist`，`language_tw.plist`我們一看究竟
+
+![](/images/guojihua/guojihua13.png)
+
+![](/images/guojihua/guojihua14.png)
+
+![](/images/guojihua/guojihua15.png)
+
+你發現 `language_ch.plist`內容是最少的，那麼，我分析，系統默認的是簡體，我們開始實現
+
+3.1 分別創建`Localizable_en.strings`，`Localizable_zh-Hant.strings`，`Localizable_zh-Hans.strings`，創建方式跟上面的一樣，為什麼跟新浪命名不一樣呢，我是為了方便，切換語言的過程中我打印了下當前的語言是什麼，分別打印出`en,zh-Hant,zh-Hans`，那麼我是為切換語言拼接文件方便，文件名字可以隨便起`xxxen.strings`也行
+
+```
+查看當前語言
+NSArray *languageArr = [NSLocale preferredLanguages];
+[languageArr objectAtIndex:0]
+```
+3.2 寫語言的配置文件,`Localizable_zh-Hans.strings`我就什麼都不寫了，新浪裡面中文簡體plist是裡面東西是最少的，那麼以後我用到時候我再寫入內容
+
+```
+Localizable_en.strings
+"首页" = "Home";
+"消息" = "Messages";
+"发现" = "Discover";
+"我" = "Me";
+"取消" = "Cancel";
+"发送" = "Send";
+"赞" = "Like";
+"评论" = "Comment";
+"转发" = "Repost";
+```
+```
+Localizable_zh-Hant.strings
+"首页" = "首頁";
+"消息" = "消息";
+"发现" = "發現";
+"我" = "我";
+"取消" = "取消";
+"发送" = "發送";
+"赞" = "贊";
+"评论" = "評論";
+"转发" = "轉發";
+```
+
+3.3 如何讀取？
+
+```
+第一個參數：key （比如：“首页”）
+第二個參數：自定義的文件（比如：“Localizable_en.strings”）
+第三個參數：註釋信息（可以不寫）
+NSString *home = NSLocalizedStringFromTable(@"首页", @"Localizable_en.strings",  nil);
+那麼取出來的值，就是“Home”了！
+```
+
+3.4 根據當前系統語言去對應的語言，新浪微博有個手動設置語言
+
+![](/images/guojihua/guojihua17.png)
+
+那麼我們可以看到有，四個選項，`跟隨系統`、`簡體中文`、`繁體中文`、`English`。
+
+首先，我們不能說是，根據3.3步那樣，寫死文件
+
+AppDelegate.m 文件中添加一個函數`- (void)judgeLanguage `,在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions`調用，那麼程序一啟動就開始判斷了，`judgeLanguage`會自動判斷，是否保存當前系統的。
+`BOOL set = [defaults boolForKey:@"LangugeSet"];`這句是，判斷用戶是否手動設置語言，如果手動設置了，取出來的就是`YES`。那麼就不保存當前系統的。按照用戶的存。再設置語言界面，會按照用戶的習慣繼續存一次。保存到偏好中。
+
+其實這一點，我猜測新浪是這麼干的，不妨，我打開新浪的文件`com.sina.weibo.plist`裡面有個字段`MulanguageSetAuto`，於是我在我程序中使用了`LangugeSet` 用來分別是跟隨系統還是不跟隨。新浪裡面還有個字段`MulanguageSet`存的是number。我分析，是存的是什麼語言，要麼是用戶選額，要麼是系統的。我也來一個字段`CurrentLanguage`，我存字符串，為了好拼接。
+
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //  判斷 當前系統的語言是神馬
+        [self judgeLanguage];
+    return YES;
+}
+
+/**
+ *  判斷是什麼語言，然後進行存成偏好
+ */
+- (void)judgeLanguage {
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // 在這裡做個判斷，如果，用戶打開了語言的設定，那麼 就選用戶的語言，如果是跟隨系統，每次啟動就必須存，然後隨後的程序都開始讀取
+    BOOL set = [defaults boolForKey:@"LangugeSet"];
+    if (set) return;
+    NSArray *languageArr = [NSLocale preferredLanguages];
+    [defaults setBool:NO forKey:@"LangugeSet"];
+    [defaults setObject:[languageArr objectAtIndex:0] forKey:@"CurrentLanguage"];
+    [defaults synchronize];
+}
+
+```
+
+上面是保存當前語言到偏好文件中，那麼如何讀呢？
+
+我創建了`NSString+extension`以後存放，處理字符串相關的函數。裡面實現了一個類方法。
+
+```
++ (NSString *)currentLanguageText:(NSString *)key {
+    // 1.從偏好裡面讀當前語言
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *currentLanguage = [defaults stringForKey:@"CurrentLanguage"];
+    //如果是簡體，直接返回key，我的key就是“簡體”
+    //我為什麼註釋掉了呢，我發現，當再簡體文件中找不到對應的時候，自然就是 key，於是，我就註釋掉了
+//    if ([currentLanguage isEqualToString:@"zh-Hans"]) return key;
+    // 2.拼接文件
+    NSString *localizableName = [@"Localizable_" stringByAppendingString:currentLanguage];
+    // 3.返回堆區內容
+    return NSLocalizedStringFromTable(key, localizableName, nil);
+}
+```
+
+程序中調用
+
+```
+ZWTabBarController.m 中
+- (void)setChildControllers {
+   // 1. 添加 首頁
+    [self addChildController:[[ZWHomeViewController alloc] init] title:[NSString currentLanguageText:@"首页"] image:@"tabbar_home"];
+    // 2. 添加 消息
+    [self addChildController:[[ZWMessageViewController alloc] init] title:[NSString currentLanguageText:@"消息"] image:@"tabbar_message_center"];
+    // 3.發現
+    [self addChildController:[[ZWDiscoverViewController alloc] init] title:[NSString currentLanguageText:@"发现"] image:@"tabbar_discover"];
+    // 4. 我
+    [self addChildController:[[ZWProfileViewController alloc] init] title:[NSString currentLanguageText:@"我"] image:@"tabbar_profile"];
+}
+```
+![](images/guojihua/guojihua18.png)
+
+
+**4. IB的國際化**
+
+當我們設置好多語言之後，有的IB下面就會多出一些東西，跟InfoPlist.strings下面多的東西，但是有的我見，沒有，我們手動添加  ，還是跟Info.plist設置一樣。但是有些區別，區別就是，文件中`鍵值`都自動生成了
+
+注意：IB設置多語言，界面設置好再設置，鍵值會自動獲取，如果再更改界面，那麼重新設置多語言，你更改的界面上的文字，又自動獲取了
+
+4.1｀ZWScanCode.storyboard｀（二維碼掃描界面）的国际化，我里面有个二维码的story，我設置完多語言之後，它沒有自動生成多語言的文件，那麼怎麼生成呢？還是選中，右側文件信息點擊`Localize`,之前都操作過了動作了，就不在重複。操作完之後。就會出現幾個語言配置文件。鍵值是自動生成的。把對應的文字設置好。就ok了！
+
+![](images/guojihua/guojihua19.png)
+
+**總結**
+1.國際化文件，是可以用xml的形式的
+2.我看到網上，還有關於圖片的國際化，音頻的國際化，由於我沒用到，後續我用到了，會更新
+3.這裡我遺留一個問題，IB的國際化，是跟隨系統的，還記得我說，用戶設置自己的語言，也可以跟隨系統。如果不是IB，我可以根據偏好中存的查看存的是什麼語言，如果是中文，但是系統是英文。IB會跟隨系統而不是我存的偏好。這是是一個小問題
+

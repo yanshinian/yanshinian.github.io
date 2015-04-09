@@ -5,17 +5,17 @@
   
 <article>
 
-  <div class="col-sm-10">
+  <div class="col-sm-12">
    <span class="post-date">
-     {% assign d = page.date | date: "%d" | plus:'0' %}
+<!--      {% assign d = page.date | date: "%d" | plus:'0' %}
      {{ page.date | date: "%B" }} 
      {% case d %}
        {% when 1 or 21 or 31 %}{{ d }}st,
        {% when 2 or 22 %}{{ d }}nd,
        {% when 3 or 23 %}{{ d }}rd,
        {% else %}{{ d }}th,
-     {% endcase %}
-     {{ page.date | date: "%Y" }}
+     {% endcase %} -->
+     {{ page.date | date: "%Y-%m-%d"}}
      {% if page.tagline %}<small style="text-transform:none">{{page.tagline}}</small>{% endif %} {% if post.tagline %}<small>{{post.tagline}}</small>{% endif %}
    </span>
     <div class="article_body" id="article_body">
