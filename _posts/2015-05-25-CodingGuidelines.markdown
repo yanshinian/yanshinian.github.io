@@ -11,13 +11,18 @@ category: 效率开发
 命名的心得，那就是多向苹果多学学。学学苹果的命名的方式
 
 * NSString 类，方法的命名。长的跟句子，但是一读便明了，还有它分类的声明与分组。有时候为了方便。把分类写到一起。当然也可以分文件处理。
+
 * UITableViewController类，代理的命名，代理方法的命名。
+
 * UIKit/NSAttributedString.h 类，常量的命名（`能用const就少用#define`）。
+
 * UIButton.h 类，工厂方法创建不同的button。
+
 * UIControl.h 类，学习下枚举的命名方式。
+
 * UINavigationController.h 类，学习下严格的属性声明，能不让外界修改就不让外界修改。
 
-当然出了以上的类，还有其他的类，值得我们去学习，无论是封装还是代码的整洁便于阅读都可看做一个参考标准了。下面是整理的 Cocoa 编码规范。
+当然出了以上的类，还有其他的类，值得我们去学习，无论是封装还是代码的整洁便于阅读都可看做一个参考标准了。下面是整理的 `Cocoa 编码规范`。
 
 ##代码命名的基本知识
 
@@ -64,7 +69,7 @@ displayNmae //是展示一个名称？还是在用户界面接受一个标题呢
 
 ```
 - (NSInteger)tag //NSView, NSCell, NSControl中都有定义
-- (void)(void)setStringValue:(NSString *) //在Cocoa 一些类中也有定义
+- (void)setStringValue:(NSString *) //在Cocoa 一些类中也有定义
 ```
 ####不要自我引用
 
@@ -118,7 +123,7 @@ IB  Interface Builder
 
 协议的命名应该根据使用协议的相应类行为命名 
 
-* 大多数协议包含的相关方法，不与任何特定的类关联。这种协议的应该命名为使协议与类不能混淆。一个通常的规则是用动名词(...ing)。
+* 大多数协议包含的相关方法，不与任何特定的类关联。这种协议的应该命名为使协议与类不能混淆。一个通常的规则是用动名词(...ing),比如：`NSCopying`、`NSCoding`等。
  	
 	```
 NSLocking  Good
@@ -137,14 +142,14 @@ NSLock     一看就是类名称
 * 声明一个独立的类/协议：如果一个类/协议不是一个文件中的一部分，将其声明独立成一个文件，这个文件的名字表明了该类/协议；
 
 	```
-   NSLocale.h  NSLocale类。	
-   ```
+	NSLocale.h  NSLocale类。	
+	```
 
 * 声明联系的类/协议：如果有一些联系的声明（类、协议、分类），将它们声明放到一个文件中，文件的命名根据基础的类、协议、分类；
 
 	```
-  NSString.h	NSString和NSSMutableString
-  NSLock.h      NSLocking协议、NSLock、NSConditionLock、NSRecursive类
+    NSString.h	NSString和NSSMutableString
+    NSLock.h      NSLocking协议、NSLock、NSConditionLock、NSRecursive类
 	```
 * 包含框架的头文件:所有的框架都有一个头文件，以框架命名，包含框架里所有公开的头文件。
 
@@ -216,6 +221,7 @@ NSLock     一看就是类名称
 * 如果属性表示的是名词意思，格式如：
    
 	\- (type)noun; 
+	
 	\- (void)setNoun:(type)aNoun; 
    
 	```
@@ -237,6 +243,7 @@ NSLock     一看就是类名称
 * 如果属性表示的是动词意思 ， 格式如：
 
 	\- (BOOL)verbObject; 
+	
 	\- (void)setVerbObject:(BOOL)flag; (注意type为BOOL)
    
 	```
@@ -272,12 +279,13 @@ NSLock     一看就是类名称
 	
 ###代理方法
 
-代理方法是那些当发生特定事件对象使用它delegate调用的方法(如果delegate实现了它)，它们有着特定的格式，这些格式也适用于对象的datesource方法。
+代理方法是那些当发生特定事件对象使用它delegate调用的方法(如果delegate实现了它)，它们有着特定的格式，这些格式也适用于对象的`data source`方法。
 
 * 名字的开头指明发消息的对象类型。
 
 	```
-	- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row; 	- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename; 
+	- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+	- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)
 	```
 	类名省略了它的前缀并且小写开头。 
 
@@ -296,25 +304,23 @@ NSLock     一看就是类名称
 * 命名中使用did或will这类词，告诉delegate某些事情已经发生或将要发生；
 
 	```
-	- (void)browserDidScroll:(NSBrowser *)sender; 
-	- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window;
+	- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath; 
+	- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 	```
 * 虽然你可以在命名中是使用did或will这类词，告诉delegate去做某些事情，但有时“should”更合适；
 
 	```
-	-  (BOOL)windowShouldClose:(id)sender;
-	
+	- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath;
 	```
 	
 ###集合方法(`Array、Set、Dictionary`等)
 
 要管理对象(每一个叫做对象的元素)的集合，命名方法以下格式：
 
-\- (void)addElement:(elementType)anObj;
+\- (void)addObject:(id)anObject;
 
-\- (void)removeElement:(elementType)anObj;
+\- (void)removeObjectAtIndex:(NSUInteger)index;
 
-\- (NSArray *)elements;
 
 例如：
 
@@ -502,11 +508,12 @@ NSDeallocateObject
 ####const修饰的常数
 
 * 使用const去创建浮点型常量。可以创建整形常量，如果各整形常量之间没有什么联系，否则，使用枚举。
+
 * const修饰的常数命名规则，举例说明：const float NSLightGray; 命名规则类似函数，参考函数命名小节。
 
 ####其他类型常数
 
-* 通常不使用#define预编译命令去创建常数。像上文说的，整形常数用枚举，浮点型常数用const修饰。
+* 通常不使用`#define`预编译命令去创建常数。像上文说的，整形常数用枚举，浮点型常数用`const`修饰。
 
 * 使用大写字母符号让编译器决定某段代码是否编译。例如：
 
@@ -517,7 +524,10 @@ NSDeallocateObject
 * 注意由编译器定义的宏，有前后各俩个下划线。例如：
 
 	```
-	__MACH__；
+	__FUNCTION__
+	__FILE__
+	__LINE__
+	__VA_ARGS__
 	```
 
 * 定义字符串常数，例如作方法名或字典的key等，你要确保编译器识别字符串常数(编译语法检查)。Cocoa提供了许多字符串常量例子，如：
