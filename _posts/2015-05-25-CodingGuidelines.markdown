@@ -248,6 +248,144 @@ NSLock     一看就是类名称
 	- (void)setGlyphInfoAccepted:(BOOL)flag; 	错误
 	- (BOOL)glyphInfoAccepted; 	错误
 	```
+* 可以使用情态动词(动词前面“can”、“should”、“will”等)进一步说明属性意思，但不要使用'do'或'does'。
+
+	```
+	- (void)setCanHide:(BOOL)flag; 	正确
+	- (BOOL)canHide; 	正确
+	- (void)setShouldCloseDocument:(BOOL)flag; 正确
+	- (BOOL)shouldCloseDocument; 	正确
+	- (void)setDoesAcceptGlyphInfo:(BOOL)flag; 错误
+	- (BOOL)doesAcceptGlyphInfo; 	错误
+	```
+
+* 当使用get这个词时，只有当方法间接返回多个对象/值。
+
+	```
+	- (void)getLineDash:(float *)pattern count:(int *)count phase:(float *)phase; 
+	注意，这种形式的方法，其中的引用型参数应该能接收NULL，因为方法调用者可能并不需要多个返回值。
+	``` 
+	
+###代理方法
+
+代理方法是那些当发生特定事件对象使用它delegate调用的方法(如果delegate实现了它)，它们有着特定的格式，这些格式也适用于对象的datesource方法。
+
+* 名字的开头指明发消息的对象类型。
+
+	```
+	- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row; 	- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename; 
+	```
+	类名省略了它的前缀并且小写开头。 
+
+* 如果方法只有一个参数，格式为：冒号+类名(调用代理的对象)+sender；
+
+	```
+	- (BOOL)applicationOpenUntitledFile:(NSApplication *)sender; 
+	```
+
+* 一个例外是方法用来发送通知，如果这样的话，方法参数为通知对象；
+
+	```
+	- (void)windowDidChangeScreen:(NSNotification *)notification; 
+	```
+
+* 命名中使用did或will这类词，告诉delegate某些事情已经发生或将要发生；
+
+	```
+	- (void)browserDidScroll:(NSBrowser *)sender; 
+	- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window;
+	```
+* 虽然你可以在命名中是使用did或will这类词，告诉delegate去做某些事情，但有时“should”更合适；
+
+	```
+	-  (BOOL)windowShouldClose:(id)sender;
+	
+	```
+	
+###集合方法(`Array、Set、Dictionary`等)
+
+要管理对象(每一个叫做对象的元素)的集合，命名方法以下格式：
+
+\- (void)addElement:(elementType)anObj;
+
+\- (void)removeElement:(elementType)anObj;
+
+\- (NSArray *)elements;
+
+例如：
+
+	- (void)addLayoutManager:(NSLayoutManager *)obj;
+	- (void)removeLayoutManager:(NSLayoutManager *)obj;
+	
+
+以下是一些重要、有用的的规格： 
+
+* 如果集合没有顺序，返回NSSet比NSArray更好； 
+* 如果在集合中插入元素，位置很重要的话，使用以下的格式比前面提到的更好： 
+
+	```
+	- (void)insertLayoutManager:(NSLayoutManager *)obj atIndex:(int)index; 
+	- (void)removeLayoutManagerAtIndex:(int)index; 
+	```
+ 
+以下一些实现细节要注意： 
+
+* 这些方法通常暗含插入对象的拥有权(ownership)的管理，所以添加/插入元素的时候retain它们，移除的时候remove它们；
+
+* 如 果插入对象想保持它原来的持有的对象，通常对该对象的setter方法不用retain，例如insertLayoutManager:atIndex: method方法。NSLayoutManager类在以下的方法中同样这样处理：
+
+	```
+	- (void)setTextStorage:(NSTextStorage *)textStorage; 
+	- (NSTextStorage *)textStorage; 
+	```
+
+	通常你不用调用setTextStorage方法，但是你可能需要重写它。 
+
+(这段难理解，上面属于个人见解，参考原文：If the inserted objects need to have a pointer back to the main object, you do this (typically) with a set...method that sets the back pointer but does not retain. In the case of the insertLayoutManager:atIndex: method, the NSLayoutManager class does this in these methods: - (void)setTextStorage:(NSTextStorage *)textStorage; - (NSTextStorage *)textStorage; You would normally not call setTextStorage: directly, but might want to override it.) 以上说的集合方法的规则在NSWindow类中都有
+
+```
+	- (void)addChildWindow:(NSWindow *)childWin ordered:(NSWindowOrderingMode)place;
+	- (void)removeChildWindow:(NSWindow *)childWin;
+	- (NSArray *)childWindows;
+	- (NSWindow *)parentWindow;
+	- (void)setParentWindow:(NSWindow *)window;
+```
+
+
+###方法参数
+
+在命名方法参数时候有几个基本规则： ----参数的名字也是骆驼风格 ----不要使用“pointer”或ptr这些词，参数的类型比参数的名字更能说明它是否是指针。 ----避免一俩个字母做参数的名字 ----避免缩写，参数名不差多这几个字母。 一般来讲，以下的一些方法中的关键词通常跟固定的参数搭配：
+
+```
+	...action:(SEL)aSelector
+	...alignment:(int)mode
+	...atIndex:(int)index
+	...content:(NSRect)aRect
+	...doubleValue:(double)aDouble
+	...floatValue:(float)aFloat
+	...font:(NSFont *)fontObj
+	...frame:(NSRect)frameRect
+	...intValue:(int)anInt
+	...keyEquivalent:(NSString *)charCode
+	...length:(int)numBytes
+	...point:(NSPoint)aPoint
+	...stringValue:(NSString *)aString
+	...tag:(int)anInt
+	...target:(id)anObject
+```
+
+###私有方法
+
+在大多数情况下，私有的方法名称一般跟公共方法的名称都遵循同样的规则作为。然而，还有一个普遍的规则是给私有方法一个前缀，所以很容易区分他们跟公共方法。
+
+即使遵循这些规则，私有方法名称还是可以引起一些特殊问题。当你你编写的Cocoa框架类的子类，你不知道你的私有方法是否无意中重写方法里同名称的私有方法。 在Cocoa框架中命名大多数私有的方法用下划线前缀开头（例如，_foodata），标记方法为私有。对于这条规则，有两个建议： 
+
+* 对于你自己的私有方法，不要使用下划线前缀。Apple约定了这条规则； 
+* 如果是一个大cocoa框架类（如NSView）的子类，你要绝对确保你的私有的方法不同于父类的方法，您可以通过添加你自己独有的前缀来区分。前缀应尽可能的唯一的，也许是一个基于在你公司或项目的形式”xx_”。所以如果你的项目被称为Byte Flogger，前缀可以是BF_addobject； 
+	
+	虽然之前建议用前缀给私有方法命名，这看起来跟之前说的规则矛盾。但这块情况特殊，我们必须确保子类无意间重写父类的私有方法。 
+
+
 
 参考资料：
 
