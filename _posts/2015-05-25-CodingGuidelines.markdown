@@ -5,6 +5,9 @@ description: "Cocoa编码规范"
 date: 2015-05-25 02:15:48
 category: 效率开发
 ---
+
+##个人学习心得
+
 命名的心得，那就是多向苹果多学学。学学苹果的命名的方式
 
 * NSString 类，方法的命名。长的跟句子，但是一读便明了，还有它分类的声明与分组。有时候为了方便。把分类写到一起。当然也可以分文件处理。
@@ -205,6 +208,7 @@ NSLock     一看就是类名称
 	```
 	- (BOOL)openFile:(NSString *)fullPath withApplication:(NSString *)appName andDeactivate:(BOOL)flag;   NSWorkspace
 	```
+	
 ###存取器（Set，Get）方法
 
 存取器放方法是指那些读/写对象属性的方法，根据属性意义的不同，它们有不同的通用格式。(备注：不同格式代表不同对应实例变量的写法，存取器方法形式就是intanceVariables 和 setIntanceVariables俩种形式) 
@@ -341,7 +345,7 @@ NSLock     一看就是类名称
 
 	通常你不用调用setTextStorage方法，但是你可能需要重写它。 
 
-(这段难理解，上面属于个人见解，参考原文：If the inserted objects need to have a pointer back to the main object, you do this (typically) with a set...method that sets the back pointer but does not retain. In the case of the insertLayoutManager:atIndex: method, the NSLayoutManager class does this in these methods: - (void)setTextStorage:(NSTextStorage *)textStorage; - (NSTextStorage *)textStorage; You would normally not call setTextStorage: directly, but might want to override it.) 以上说的集合方法的规则在NSWindow类中都有
+另一个关于集合约定的例子来自 NSWindow 类：
 
 ```
 	- (void)addChildWindow:(NSWindow *)childWin ordered:(NSWindowOrderingMode)place;
@@ -387,53 +391,236 @@ NSLock     一看就是类名称
 
 
 ###函数命名
-Objective-c中实现一个功能可以通过函数和方法。当你的对象是单实例或者处理一个子功能时候，更适合用函数。 函数命名有几下基本原则： ----函数名类似方法名，但有一些例外： 它们用你在类/常数中的前缀开头，并且前缀后的首字母大写。 ----许多函数名字已动词开头，描述函数实现的功能：NSHighlightRect NSDeallocateObject ----函数如果是查询一些属性，命名有一些特别的规定： 1.如果函数返回第一个参数的属性，省略动词：unsigned int NSEventMaskFromType(NSEventType type) float NSHeight(NSRect aRect) 2.如果函数返回值是指针，使用Get：const char *NSGetSizeAndAlignment(const char *typePtr, unsigned int *sizep, unsigned int *alignp) 3.如果函数返回值是布尔型，函数名用变化的(inflected)动词开头：BOOL NSDecimalIsNotANumber(const NSDecimal *decimal) =========================================章节分割线=========================================
---属性和数据类型命名
+Objective-c中实现一个功能可以通过函数和方法。当你的对象是单实例或者处理一个子功能时候，更适合用函数。 函数命名有几下基本原则：
+
+* 函数名类似方法名，但有一些例外： 
+	
+	* 它们用你在类/常数中的前缀开头
+	* 前缀后的首字母大写。 
+
+* 许多函数名字已动词开头，描述函数实现的功能：
+
+```
+NSHighlightRect 
+NSDeallocateObject
+```
+
+函数如果是查询一些属性，命名有一些特别的规定：
+
+* 如果函数返回第一个参数的属性，省略动词：
+
+	```
+	unsigned int NSEventMaskFromType(NSEventType type) float 	NSHeight(NSRect aRect) 
+	```
+* 如果函数返回值是指针，使用Get：
+
+	```
+	const char *NSGetSizeAndAlignment(const char *typePtr, unsigned int *sizep, unsigned int *alignp) 
+	```
+
+* 如果函数返回值是布尔型，函数名用变化的(inflected)动词开头：
+	
+	```
+	BOOL NSDecimalIsNotANumber(const NSDecimal *decimal) 
+	```
+
+##属性和数据类型命名
+
 这部分讲命名属性、实例变量、常数、通知、异常。
-----属性和实例变量命名
-因为属性和存取器方法的对应性质(get方法和set后那部分名称即是属性名字，对应实例变量)，所以对于属性的命名基本类似存取器方法的名字，参考存取器方法小节。 ----如果属性是名称/动词意思，格式是：@property (…) type nounOrVerb 例：@property (strong) NSString *title; @property (assign) BOOL showsAlpha; -----如果属性是形容词意思，属性名称省略is前缀，并且指定存取器get方法的命名。例如：@property (assign, getter=isEditable) BOOL editable; 在许多情况，当你声明一个了属性，你同时也确定(synthesize)了相应的实例变量。 确保实例变量简明的描述存储的属性，通常你不直接访问实例变量，而是通过存取器方法(在类内部直接访问)，为了区别，用下划线前缀；例：
 
+###属性和实例变量命名
+
+因为属性和存取器方法的对应性质(get方法和set后那部分名称即是属性名字，对应实例变量)，所以对于属性的命名基本类似存取器方法的名字，参考存取器方法小节。 
+
+如果属性是名称/动词意思，格式是：@property (…) type nounOrVerb 
+
+例如：
+
+```
+@property (strong) NSString *title;
+@property (assign) BOOL showsAlpha; 
+```
+
+如果属性是形容词意思，属性名称省略is前缀，并且指定存取器get方法的命名。例如：
+
+```
+@property (assign, getter=isEditable) BOOL editable; 
+```
+在许多情况，当你声明一个了属性，你同时也确定(synthesize)了相应的实例变量。 确保实例变量简明的描述存储的属性，通常你不直接访问实例变量，而是通过存取器方法(在类内部直接访问)，为了区别，用下划线前缀；例：
+
+```
 @implementation MyClass {
-BOOL _showsTitle;
+	BOOL _showsTitle;
 }
+```
 
-如果你想用某实例变量对应某个属性，在@synthesize中说明：@implementation MyClass @synthesize showsTitle=_showsTitle; 当添加实例变量的时候，有以下几条规则： -----避免显示的声明公共的实例变量。开发者只会关心对象的接口，不关心实现的细节。通过声明属性和相应的(synthesizing)实例变量，避免显示声明实例变量。 -----如果需要声明实例变量，用@private 或者 @protected声明。如要继承的实例变量用@protected声明。 -----如果一个实例变量是实例的访问属性(accessible attribute)，确保你已经写了相应的存取器方法。
---常数
+如果你想用某实例变量对应某个属性，在@synthesize中说明：
+		
+```
+@implementation MyClass 
+@synthesize showsTitle=_showsTitle; 
+```
+当添加实例变量的时候，有以下几条规则： 
+
+* 避免显示的声明公共的实例变量。开发者只会关心对象的接口，不关心实现的细节。通过声明属性和相应的(synthesizing)实例变量，避免显示声明实例变量。
+
+* 如果需要声明实例变量，用@private 或者 @protected声明。如要继承的实例变量用@protected声明。 
+* 如果一个实例变量是实例的访问属性(accessible attribute)，确保你已经写了相应的存取器方法。
+
+###常数
 常数的命名规则跟常数是怎么产生的息息相关。
---枚举常数
 
-----对于有取值相联系的常数集合，使用枚举(说什么情况使用枚举，跟命名没关系)
-----枚举常数和typedef后面枚举名的命名跟函数的命名规则类似，参考函数命名小节。例：
+####枚举常数
 
-typedef enum _NSMatrixMode {
-NSRadioModeMatrix = 0,
-NSHighlightModeMatrix = 1,
-NSListModeMatrix = 2,
-NSTrackModeMatrix = 3
-} NSMatrixMode;
+* 对于有取值相联系的常数集合，使用枚举(说什么情况使用枚举，跟命名没关系)
+* 枚举常数和typedef后面枚举名的命名跟函数的命名规则类似，参考函数命名小节。例：
 
-注意上文中_NSMatrixMode 在typedef中没有用。
-
- 
-
-----你也可以使用不命名的枚举，比如位掩码(bit masks)，例如：
-
-enum {
-NSBorderlessWindowMask = 0,
-NSTitledWindowMask = 1 << 0,
-NSClosableWindowMask = 1 << 1,
-NSMiniaturizableWindowMask = 1 << 2,
-NSResizableWindowMask = 1 << 3
-};
+	```
+	typedef enum _NSMatrixMode {
+		NSRadioModeMatrix = 0,
+		NSHighlightModeMatrix = 1,
+		NSListModeMatrix = 2,
+		NSTrackModeMatrix = 3
+	} NSMatrixMode;
+	```
+	注意上文中_NSMatrixMode 在typedef中没有用。
 
  
---const修饰的常数
+
+* 你也可以使用不命名的枚举，比如位掩码(bit masks)，例如：
+
+	```
+	enum {
+		NSBorderlessWindowMask = 0,
+		NSTitledWindowMask = 1 << 0,
+		NSClosableWindowMask = 1 << 1,
+		NSMiniaturizableWindowMask = 1 << 2,
+		NSResizableWindowMask = 1 << 3
+	};
+	```
+ 
+####const修饰的常数
+
+* 使用const去创建浮点型常量。可以创建整形常量，如果各整形常量之间没有什么联系，否则，使用枚举。
+* const修饰的常数命名规则，举例说明：const float NSLightGray; 命名规则类似函数，参考函数命名小节。
+
+####其他类型常数
+
+* 通常不使用#define预编译命令去创建常数。像上文说的，整形常数用枚举，浮点型常数用const修饰。
+
+* 使用大写字母符号让编译器决定某段代码是否编译。例如：
+
+	```
+	#ifdef DEBUG
+	```
+	
+* 注意由编译器定义的宏，有前后各俩个下划线。例如：
+
+	```
+	__MACH__；
+	```
+
+* 定义字符串常数，例如作方法名或字典的key等，你要确保编译器识别字符串常数(编译语法检查)。Cocoa提供了许多字符串常量例子，如：
+
+	```
+	APPKIT_EXTERN NSString *NSPrintCopies; 
+	```
+
+	字符串的值被指定了常量（注意APPKIT_EXTERN 宏在Objective-C中的像extern声明的作用）
+
+
+###通知和异常
+
+通知和异常的命名规则基本相同，但它们有各自特点
+
+####通知
+
+如果一个类有delegate，许多通知都会被delegate接收通过delegate方法。这些通知的名称应该反应相应的delegate方法。例如，一个全局的NSApplication类对象自动注册去接收applicationDidBecomeActive消息，当应用程序发送NSApplicationDidBecomeActiveNotification.消息的时候。通知通过全局的字符串对象定义，格式如下：[Name of associated class] + [Did | Will] + [UniquePartOfName] + Notification； 例：
+
+NSApplicationDidBecomeActiveNotification
+NSWindowDidMiniaturizeNotification
+NSTextViewDidChangeSelectionNotification
+NSColorPanelColorDidChangeNotification
+
+ 
+####异常
+
+尽管你可以为了一些目的自由的使用异常(由NSException类和相关函数提供)，Cocoa将编程中出现错误，例如数组越界，看做异常。Cocoa不使用异常去处理常规的、预料的错误情况，例如，返回值为`nil、NULL、NO`或一些错误代码。详细参考`《Error Handling Programming Guide》`。
+
+异常通过全局的字符串对象定义，格式如下：
+
+```
+[Prefix] + [UniquePartOfName] + Exception； 
+```
+
+其中unique part of the name是由单词组合而成，每个首字母大写。例如：
+
+```
+NSColorListIOException
+NSColorListNotEditableException
+NSDraggingException
+NSFontUnavailableException
+NSIllegalSelectorException
+```
+
+###通用的缩写和简称
+
+通常你不用缩写你的命名，当你编写接口时候。参考基本命名规则章节。然而，下面所列举的缩写都是众所周知的，你可以继续使用它们。有以下几点需要注意：
+
+* 缩写的替代格式使用在标准C语音库中被允许。例如：`“alloc” `and `“getc”`。
+* 你可以在参数中更自由的使用缩写。例如：`“imageRep”`, `“col”` (for `“column”`),`“obj”`, and `“otherWin”`
+
+
+缩写 	意义
+
+alloc 	Allocate
+
+alt 	Alternate
+
+app 	应用程序，例, NSApp全局应用程序对象。 “application” 全拼在delegate方法、通知中等
+
+calc 	Calculate.
+
+dealloc 	Deallocate.
+
+func 	Function.
+
+horiz 	Horizontal.
+
+info 	Information
+
+init 	Initialize
+
+max/min 	Maximum/Minimum.
+
+msg 	Message
+
+nib 	Interface Builder archive.
+
+pboard 	Pasteboard (but only in constants
+
+rect 	Rectangle.
+
+Rep 	Representation (used in class name such as NSBitmapImageRep
+
+temp 	Temporary.
+
+vert 	Vertical.
+
+你也可以使用一些计算机行业通用的缩写，例：
+
+ASCII、PDF、XML、HTML、URL、RTF、
+HTTP、TIFF、JPG、PNG、GIF、LZW、ROM、RGB、CMYK、MIDI、FTP
+
 
 
 
 参考资料：
 
 * iOS开发规范[http://blog.csdn.net/pjk1129/article/details/45146955](http://blog.csdn.net/pjk1129/article/details/45146955)
+
 * Coding Guidelines for Cocoa[https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH ](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH )
-* iOS:Cocoa编码规范 -[译]Coding Guidelines for Cocoa (http://www.2cto.com/kf/201406/305877.html)[http://www.2cto.com/kf/201406/305877.html]
-* [Cocoa]苹果 Cocoa 编码规范(http://blog.csdn.net/kesalin/article/details/6928929)[http://blog.csdn.net/kesalin/article/details/6928929]
+
+* iOS:Cocoa编码规范 -[译]Coding Guidelines for Cocoa  [http://www.2cto.com/kf/201406/305877.html](http://www.2cto.com/kf/201406/305877.html)
+
+* [Cocoa]苹果 Cocoa 编码规范 [http://blog.csdn.net/kesalin/article/details/6928929](http://blog.csdn.net/kesalin/article/details/6928929)
