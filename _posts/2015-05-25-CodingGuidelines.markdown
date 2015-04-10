@@ -386,6 +386,50 @@ NSLock     一看就是类名称
 	虽然之前建议用前缀给私有方法命名，这看起来跟之前说的规则矛盾。但这块情况特殊，我们必须确保子类无意间重写父类的私有方法。 
 
 
+###函数命名
+Objective-c中实现一个功能可以通过函数和方法。当你的对象是单实例或者处理一个子功能时候，更适合用函数。 函数命名有几下基本原则： ----函数名类似方法名，但有一些例外： 它们用你在类/常数中的前缀开头，并且前缀后的首字母大写。 ----许多函数名字已动词开头，描述函数实现的功能：NSHighlightRect NSDeallocateObject ----函数如果是查询一些属性，命名有一些特别的规定： 1.如果函数返回第一个参数的属性，省略动词：unsigned int NSEventMaskFromType(NSEventType type) float NSHeight(NSRect aRect) 2.如果函数返回值是指针，使用Get：const char *NSGetSizeAndAlignment(const char *typePtr, unsigned int *sizep, unsigned int *alignp) 3.如果函数返回值是布尔型，函数名用变化的(inflected)动词开头：BOOL NSDecimalIsNotANumber(const NSDecimal *decimal) =========================================章节分割线=========================================
+--属性和数据类型命名
+这部分讲命名属性、实例变量、常数、通知、异常。
+----属性和实例变量命名
+因为属性和存取器方法的对应性质(get方法和set后那部分名称即是属性名字，对应实例变量)，所以对于属性的命名基本类似存取器方法的名字，参考存取器方法小节。 ----如果属性是名称/动词意思，格式是：@property (…) type nounOrVerb 例：@property (strong) NSString *title; @property (assign) BOOL showsAlpha; -----如果属性是形容词意思，属性名称省略is前缀，并且指定存取器get方法的命名。例如：@property (assign, getter=isEditable) BOOL editable; 在许多情况，当你声明一个了属性，你同时也确定(synthesize)了相应的实例变量。 确保实例变量简明的描述存储的属性，通常你不直接访问实例变量，而是通过存取器方法(在类内部直接访问)，为了区别，用下划线前缀；例：
+
+@implementation MyClass {
+BOOL _showsTitle;
+}
+
+如果你想用某实例变量对应某个属性，在@synthesize中说明：@implementation MyClass @synthesize showsTitle=_showsTitle; 当添加实例变量的时候，有以下几条规则： -----避免显示的声明公共的实例变量。开发者只会关心对象的接口，不关心实现的细节。通过声明属性和相应的(synthesizing)实例变量，避免显示声明实例变量。 -----如果需要声明实例变量，用@private 或者 @protected声明。如要继承的实例变量用@protected声明。 -----如果一个实例变量是实例的访问属性(accessible attribute)，确保你已经写了相应的存取器方法。
+--常数
+常数的命名规则跟常数是怎么产生的息息相关。
+--枚举常数
+
+----对于有取值相联系的常数集合，使用枚举(说什么情况使用枚举，跟命名没关系)
+----枚举常数和typedef后面枚举名的命名跟函数的命名规则类似，参考函数命名小节。例：
+
+typedef enum _NSMatrixMode {
+NSRadioModeMatrix = 0,
+NSHighlightModeMatrix = 1,
+NSListModeMatrix = 2,
+NSTrackModeMatrix = 3
+} NSMatrixMode;
+
+注意上文中_NSMatrixMode 在typedef中没有用。
+
+ 
+
+----你也可以使用不命名的枚举，比如位掩码(bit masks)，例如：
+
+enum {
+NSBorderlessWindowMask = 0,
+NSTitledWindowMask = 1 << 0,
+NSClosableWindowMask = 1 << 1,
+NSMiniaturizableWindowMask = 1 << 2,
+NSResizableWindowMask = 1 << 3
+};
+
+ 
+--const修饰的常数
+
+
 
 参考资料：
 
