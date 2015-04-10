@@ -117,7 +117,7 @@ IB  Interface Builder
 
 * 大多数协议包含的相关方法，不与任何特定的类关联。这种协议的应该命名为使协议与类不能混淆。一个通常的规则是用动名词(...ing)。
  	
- 	```
+	```
 NSLocking  Good
 NSLock     一看就是类名称
  	```
@@ -133,21 +133,21 @@ NSLock     一看就是类名称
 
 * 声明一个独立的类/协议：如果一个类/协议不是一个文件中的一部分，将其声明独立成一个文件，这个文件的名字表明了该类/协议；
 
-   ```
-   NSLocale.h  NSLocale类。
+	```
+   NSLocale.h  NSLocale类。	
    ```
 
 * 声明联系的类/协议：如果有一些联系的声明（类、协议、分类），将它们声明放到一个文件中，文件的命名根据基础的类、协议、分类；
 
-  ```
+	```
   NSString.h	NSString和NSSMutableString
   NSLock.h      NSLocking协议、NSLock、NSConditionLock、NSRecursive类
-  ```
+	```
 * 包含框架的头文件:所有的框架都有一个头文件，以框架命名，包含框架里所有公开的头文件。
 
-  ```
+	```
 	Foundation.h  Foundation.framwork。
-  ```
+	```
 * 为别的框架中类增加API：如果你在一个框架中声明的方法，是另一个框架中类的分类，名字为原来类的名字拼接上“Additions”。一个例子为Applicatiion kit 的NSBuddleAdditions.h头文件。 --相联系的函数和数据类型：如果你有一些相联系的函数、常数、结构体等其他数据类型，将它们放到合适命名的头文件中。例如NSGraphics.h(Applicatiion kit )。
 
 ##方法命名
@@ -174,10 +174,10 @@ NSLock     一看就是类名称
   ```
 * 在所有的参数前使用关键词
 
-  ```
-   - (void)sendAction:(SEL)aSelector toObject:(id)anObject forAllCells:(BOOL)flag; 	正确
-  - (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag; 	错误
-  ```
+	```
+    - (void)sendAction:(SEL)aSelector toObject:(id)anObject forAllCells:(BOOL)flag; 	正确
+    - (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag; 	错误
+	```
 * 参数前的单词描述参数的意义
 
 	```
@@ -193,10 +193,10 @@ NSLock     一看就是类名称
 ```
 * 不要使用and去连接多个参数的关键词(对象属性名)
 
-  ```
-  - (int)runModalForDirectory:(NSString *)path file:(NSString *) name types:(NSArray *)fileTypes; 	正确
-  - (int)runModalForDirectory:(NSString *)path andFile:(NSString *)name andTypes:(NSArray *)fileTypes; 	错误
-```
+	```
+    - (int)runModalForDirectory:(NSString *)path file:(NSString *) name types:(NSArray *)fileTypes; 	正确
+    - (int)runModalForDirectory:(NSString *)path andFile:(NSString *)name andTypes:(NSArray *)fileTypes; 	错误
+	```
 尽管在这个例子中and看起来还不错，但是当方法中有许多参数的时候，再用and就不行了。 
 
 * 如果方法包含着俩个分开的动作，用and去连接它们；
@@ -221,9 +221,9 @@ NSLock     一看就是类名称
    
 * 如果属性表示的是形容词意思，格式如：
  
-  \- (BOOL)isAdjective;
+	\- (BOOL)isAdjective;
   
-   \- (void)setAdjective:(BOOL)flag; (注意type是BOOL) 
+	\- (void)setAdjective:(BOOL)flag; (注意type是BOOL) 
    
    ```
    - (BOOL)isEditable; 
@@ -232,21 +232,22 @@ NSLock     一看就是类名称
    
 * 如果属性表示的是动词意思 ， 格式如：
 
-   \- (BOOL)verbObject; 
-   \- (void)setVerbObject:(BOOL)flag; (注意type为BOOL)
+	\- (BOOL)verbObject; 
+	\- (void)setVerbObject:(BOOL)flag; (注意type为BOOL)
    
-   ```
-   - (BOOL)showsAlpha; 
-   - (void)setShowsAlpha:(BOOL)flag; 
+	```
+    - (BOOL)showsAlpha; 
+    - (void)setShowsAlpha:(BOOL)flag; 
+	```
    动词是现在时；    
 * 在属性的名称中，不要通过用分词形式将动词转换为形容词；
 
-  ```
-  - (void)setAcceptsGlyphInfo:(BOOL)flag; 	正确
-  - (BOOL)acceptsGlyphInfo; 	正确
-  - (void)setGlyphInfoAccepted:(BOOL)flag; 	错误
-  - (BOOL)glyphInfoAccepted; 	错误
-```
+	```
+	- (void)setAcceptsGlyphInfo:(BOOL)flag; 	正确
+	- (BOOL)acceptsGlyphInfo; 	正确
+	- (void)setGlyphInfoAccepted:(BOOL)flag; 	错误
+	- (BOOL)glyphInfoAccepted; 	错误
+	```
 
 参考资料：
 
