@@ -211,14 +211,13 @@ NSLock     一看就是类名称
 
 * 如果属性表示的是名词意思，格式如：
    
-   \- (type)noun; 
+	\- (type)noun; 
+	\- (void)setNoun:(type)aNoun; 
    
-   \- (void)setNoun:(type)aNoun; 
-   
-   ```
+	```
     - (NSString *)title;
     - (void)setTitle:(NSString *)aTitle;
-   ```
+	```
    
 * 如果属性表示的是形容词意思，格式如：
  
@@ -226,10 +225,10 @@ NSLock     一看就是类名称
   
 	\- (void)setAdjective:(BOOL)flag; (注意type是BOOL) 
    
-   ```
-   - (BOOL)isEditable; 
-   - (void)setEditable:(BOOL)flag;
-   ```
+	```
+    - (BOOL)isEditable; 
+    - (void)setEditable:(BOOL)flag;
+	```
    
 * 如果属性表示的是动词意思 ， 格式如：
 
