@@ -52,6 +52,7 @@ NSDate *firstDate = [dates firstObject];
 
 不要用alloc、new、copy或者mutableCopy开头。因为以上述几个词汇开头，调用者拥有返回的对象，对象的引用计数器会加一，调用者必须负责释放。
 
+##属性跟实例变量
 ##多用字面量语法，少用与之等价的语法
 
 使用字面量语法来创建字符串、数值、数组、字典。与创建此类对象的常规方法相比，这么做更加简明扼要。
@@ -80,6 +81,70 @@ NSDate *firstDate = [dates firstObject];
 ```
 NSAssert(x == 4, @"x must be four");
 ```
+如果测试条件返回NO，NSAssert就会抛出一个异常。异常处理程序捕获异常之后，会调用abort结束程序。iOS开发中，不管是在哪个线程中发生异常，默认行为都是调用abort结束程序。
+
+建议在发布版本的时候禁用断言。可以在编译设置面板的`“Preprocessor Macros”（GCC_PREPROCESSOR_DEFINITIONS）`中设置`NS_BLOCK_ASSERTIONS`以禁用NSAssert。设置之后会再程序中完全删除断言。
+
+建议在对断言做些改动以便在日志中留下记录。下面的RNLog（NSLog）的别名函数可以用来记录日志。`不建议经常使用#define`，这里使用很有必要，因为需要把`__FILE
+__`跟`__LINE__`转换为调用者代码所在的文件和行号。
+
+把NSCAssert包装成 RNCAssert,在C语言中使用断言应该使用这个。
+
+```
+define RNLogBug NSLog //如果使用的是Lumberjack日志框架，要把NSLog换成DDLogError。
+#define RNAssert(condition, desc, ...) \
+if(!(condition)) { \
+    RNLogBug((desc), ## __VA_ARGS__); \
+    NSAssert((condition), (desc), ## __VA_ARGS__); \
+}
+
+#define RNCAssert(condition, desc, ...) \
+if(!(condition)) { \
+    RNLogBug((desc), ## __VA_ARGS__); \
+    NSCAssert((condition), (desc), ## __VA_ARGS__); \
+}
+
+```
+
+断言的使用应该放在程序崩溃之前。下面举两个例子。
+
+if条件中的使用。如果断言条件跟if条件不匹配，就可能产生BUG。
+```
+if (foo != nil) {
+	[arry addObject:foo];
+} else {
+	RNAssert(NO, @"foo 不能为 nil");
+}
+```
+
+switch中，断言建议放在default分支处：
+
+```
+switch (foo) {
+        case kFooOptionOne:
+            ...
+            break;
+        case kFooOptionTwo:
+            ...
+            break;
+        default:
+            RNAssert(NO, @"Unexpected value for foo: %d", foo);
+            break;
+    }
+```
+##异常
+
+OC中异常不是处理错误的方式。异常是用来处理那些永远不应该发生却发生的错误，这时候应该结束程序运行。NSSAssert 就是作为异常实现的。
+
+不建议使用@trow 和 @catch这些异常的处理指令。如果希望抛出异常表明程序错误，最好是用NSAssert抛出`NSInternalInconsistencyException`异常，或者自定义的异常对象（继承自NSException）。通常使用NSAssert，毕竟简洁也更有用。
+
+#收集崩溃报告
+
+
+
+
+
+
 
 ##封装
 `软件设计的黄金法则：变动需要抽象`
