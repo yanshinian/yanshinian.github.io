@@ -1,11 +1,20 @@
 ---
 layout: post
-title: "Cocoa编码规范"
+title: "Cocoa编码规范【整理】"
 description: "Cocoa编码规范"
 date: 2015-05-25 02:15:48
 category: 效率开发
 ---
 命名的心得，那就是多向苹果多学学。学学苹果的命名的方式
+
+* NSString 类，方法的命名。长的跟句子，但是一读便明了，还有它分类的声明与分组。有时候为了方便。把分类写到一起。当然也可以分文件处理。
+* UITableViewController类，代理的命名，代理方法的命名。
+* UIKit/NSAttributedString.h 类，常量的命名（`能用const就少用#define`）。
+* UIButton.h 类，工厂方法创建不同的button。
+* UIControl.h 类，学习下枚举的命名方式。
+* UINavigationController.h 类，学习下严格的属性声明，能不让外界修改就不让外界修改。
+
+当然出了以上的类，还有其他的类，值得我们去学习，无论是封装还是代码的整洁便于阅读都可看做一个参考标准了。下面是整理的 Cocoa 编码规范。
 
 ##代码命名的基本知识
 
@@ -134,10 +143,110 @@ NSLock     一看就是类名称
   NSString.h	NSString和NSSMutableString
   NSLock.h      NSLocking协议、NSLock、NSConditionLock、NSRecursive类
   ```
-* 
+* 包含框架的头文件:所有的框架都有一个头文件，以框架命名，包含框架里所有公开的头文件。
 
+  ```
+	Foundation.h  Foundation.framwork。
+  ```
+* 为别的框架中类增加API：如果你在一个框架中声明的方法，是另一个框架中类的分类，名字为原来类的名字拼接上“Additions”。一个例子为Applicatiion kit 的NSBuddleAdditions.h头文件。 --相联系的函数和数据类型：如果你有一些相联系的函数、常数、结构体等其他数据类型，将它们放到合适命名的头文件中。例如NSGraphics.h(Applicatiion kit )。
 
+##方法命名
 
+###基本规则
+
+* 方法名采用小驼峰命名。不使用前缀。有两个情况是例外的，方法用到了众所周知的缩写(例如TIFF或PDF)，还有就是你可能定义一些私有的方法
+* 如果方法代表对象的某个动作，方法用动词开头：
+
+  ```
+  - (void)invokeWithTarget:(id)target;
+
+  - (void)selectTabViewItem:(NSTabViewItem *)tabViewItem
+  ```
+  不要使用`do`或`does`，它们没有什么含义，并且不要在动词之前使用副词或形容词
+* 如果方法返回的是消息发送者(对象)的属性，用属性命名方法。get这个词不需要，除非有多个间接返回的值。
+
+  ```
+  - (NSSize)cellSize;        正确
+
+  - (NSSize)calcCellSize;    错误
+
+  - (NSSize)getCellSize;	  错误
+  ```
+* 在所有的参数前使用关键词
+
+  ```
+   - (void)sendAction:(SEL)aSelector toObject:(id)anObject forAllCells:(BOOL)flag; 	正确
+  - (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag; 	错误
+  ```
+* 参数前的单词描述参数的意义
+
+	```
+     - (id)viewWithTag:(NSInteger)aTag; 	正确
+     - (id)taggedView:(int)aTag; 	错误
+	```
+	
+* 当你创建一个基于现有方法的新方法，在一个已有的方法上添加关键词
+
+	```
+     - (id)initWithFrame:(CGRect)frameRect; 	NSView,UIView
+     - (id)initWithFrame:(NSRect)frameRect mode:(int)aMode cellClass:(Class)factoryId numberOfRows:(int)rowsHigh numberOfColumns:(int)colsWide; 	NSMatrix,NSView的一个子类
+```
+* 不要使用and去连接多个参数的关键词(对象属性名)
+
+  ```
+  - (int)runModalForDirectory:(NSString *)path file:(NSString *) name types:(NSArray *)fileTypes; 	正确
+  - (int)runModalForDirectory:(NSString *)path andFile:(NSString *)name andTypes:(NSArray *)fileTypes; 	错误
+```
+尽管在这个例子中and看起来还不错，但是当方法中有许多参数的时候，再用and就不行了。 
+
+* 如果方法包含着俩个分开的动作，用and去连接它们；
+
+  ```
+  - (BOOL)openFile:(NSString *)fullPath withApplication:(NSString *)appName andDeactivate:(BOOL)flag;   NSWorkspace
+  ```
+###存取器（Set，Get）方法
+
+存取器放方法是指那些读/写对象属性的方法，根据属性意义的不同，它们有不同的通用格式。(备注：不同格式代表不同对应实例变量的写法，存取器方法形式就是intanceVariables 和 setIntanceVariables俩种形式) 
+
+* 如果属性表示的是名词意思，格式如：
+   
+   \- (type)noun; 
+   
+   \- (void)setNoun:(type)aNoun; 
+   
+   ```
+    - (NSString *)title;
+    - (void)setTitle:(NSString *)aTitle;
+   ```
+   
+* 如果属性表示的是形容词意思，格式如：
+ 
+  \- (BOOL)isAdjective;
+  
+   \- (void)setAdjective:(BOOL)flag; (注意type是BOOL) 
+   
+   ```
+   - (BOOL)isEditable; 
+   - (void)setEditable:(BOOL)flag;
+   ```
+   
+* 如果属性表示的是动词意思 ， 格式如：
+
+   \- (BOOL)verbObject; 
+   \- (void)setVerbObject:(BOOL)flag; (注意type为BOOL)
+   
+   ```
+   - (BOOL)showsAlpha; 
+   - (void)setShowsAlpha:(BOOL)flag; 
+   动词是现在时；    
+* 在属性的名称中，不要通过用分词形式将动词转换为形容词；
+
+  ```
+  - (void)setAcceptsGlyphInfo:(BOOL)flag; 	正确
+  - (BOOL)acceptsGlyphInfo; 	正确
+  - (void)setGlyphInfoAccepted:(BOOL)flag; 	错误
+  - (BOOL)glyphInfoAccepted; 	错误
+```
 
 参考资料：
 
