@@ -1,10 +1,9 @@
-
 ---
 layout: post
 title: "Cocoa编码规范"
-description: Cocoa编码规范
+description: "Cocoa编码规范"
 date: 2015-05-25 02:15:48
-categorie: 效率开发
+category: 效率开发
 ---
 命名的心得，那就是多向苹果多学学。学学苹果的命名的方式
 
