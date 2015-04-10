@@ -157,21 +157,22 @@ NSLock     一看就是类名称
 * 方法名采用小驼峰命名。不使用前缀。有两个情况是例外的，方法用到了众所周知的缩写(例如TIFF或PDF)，还有就是你可能定义一些私有的方法
 * 如果方法代表对象的某个动作，方法用动词开头：
 
-  ```
-  - (void)invokeWithTarget:(id)target;
+	```
+	- (void)invokeWithTarget:(id)target;
 
-  - (void)selectTabViewItem:(NSTabViewItem *)tabViewItem
-  ```
-  不要使用`do`或`does`，它们没有什么含义，并且不要在动词之前使用副词或形容词
+	- (void)selectTabViewItem:(NSTabViewItem *)tabViewItem
+	```
+	
+	不要使用`do`或`does`，它们没有什么含义，并且不要在动词之前使用副词或形容词
 * 如果方法返回的是消息发送者(对象)的属性，用属性命名方法。get这个词不需要，除非有多个间接返回的值。
 
-  ```
-  - (NSSize)cellSize;        正确
+	```
+	- (NSSize)cellSize;        正确
 
-  - (NSSize)calcCellSize;    错误
+	- (NSSize)calcCellSize;    错误
 
-  - (NSSize)getCellSize;	  错误
-  ```
+	- (NSSize)getCellSize;	  错误
+	```
 * 在所有的参数前使用关键词
 
 	```
@@ -201,9 +202,9 @@ NSLock     一看就是类名称
 
 * 如果方法包含着俩个分开的动作，用and去连接它们；
 
-  ```
-  - (BOOL)openFile:(NSString *)fullPath withApplication:(NSString *)appName andDeactivate:(BOOL)flag;   NSWorkspace
-  ```
+	```
+	- (BOOL)openFile:(NSString *)fullPath withApplication:(NSString *)appName andDeactivate:(BOOL)flag;   NSWorkspace
+	```
 ###存取器（Set，Get）方法
 
 存取器放方法是指那些读/写对象属性的方法，根据属性意义的不同，它们有不同的通用格式。(备注：不同格式代表不同对应实例变量的写法，存取器方法形式就是intanceVariables 和 setIntanceVariables俩种形式) 
