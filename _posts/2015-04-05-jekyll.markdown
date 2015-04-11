@@ -4,6 +4,7 @@ title:  "搭建jekyll博客"
 category: jekyll
 date:   2015-04-03 02:15:48
 categories: jekyll 
+com.wowsai.${PRODUCT_NAME:rfc1034identifier}
 ---
 jekyll是什麼？？
 
@@ -66,6 +67,16 @@ down下來，運行，確保能用
 ~ $ jekyll serve
 ```
 3.3 上傳到的你倉庫，在這裡需要配置一下 git ，具體看這個鏈接，寫的不錯。[http://www.cnblogs.com/chiao/archive/2011/07/27/2117835.html][use-git]
+
+3.4 以后更新Blog文件，常用的三条git指令
+
+```
+~ $ git add --all
+
+~ $ git commit -m "备注"
+
+~ $ git push -u origin master
+```
 
 4.綁定你的域名
 
