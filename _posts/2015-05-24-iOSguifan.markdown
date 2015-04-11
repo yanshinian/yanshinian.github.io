@@ -89,6 +89,46 @@ NSDate *firstDate = [dates firstObject];
 
 ##用枚举表示状态、选项、状态码
 
+常量来表示错误状态码或可组合的选项时，极宜使用枚举为其命名枚举。枚举只是一种常量的命名方式。某个对象所经历的各种状态就可以定义为一个简单的枚举集（enumeration set）。比如，可以用下列枚举表示“套接字连接”（socket connection）的状态：
+
+```
+enum EOCConnectionState {
+    EOCConnectionStateDisconnected,
+    EOCConnectionStateConnecting,
+    EOCConnectionStateConnected,
+};
+```
+每种状态都用一个便于理解的值来表示，所以写出来的代码更容易读懂。编译器会为枚举分配一个独有的编号，从0开始，每个枚举递增1.
+
+指定底层数据类型的做法是：
+
+```
+enum EOCConnectionState : NSInteger{/* …… */}
+```
+Foundaiton 框架中定义了一些辅助的宏，用这些宏定义枚举类型时，也可以指定用于保存枚举的底层数据类型。
+
+```
+typedef NS_ENUM(NSInteger, UIViewAnimationTransition) {
+    UIViewAnimationTransitionNone,
+    UIViewAnimationTransitionFlipFromLeft,
+    UIViewAnimationTransitionFlipFromRight,
+    UIViewAnimationTransitionCurlUp,
+    UIViewAnimationTransitionCurlDown,
+};
+
+typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
+    UIViewAutoresizingNone                 = 0,
+    UIViewAutoresizingFlexibleLeftMargin   = 1 << 0,
+    UIViewAutoresizingFlexibleWidth        = 1 << 1,
+    UIViewAutoresizingFlexibleRightMargin  = 1 << 2,
+    UIViewAutoresizingFlexibleTopMargin    = 1 << 3,
+    UIViewAutoresizingFlexibleHeight       = 1 << 4,
+    UIViewAutoresizingFlexibleBottomMargin = 1 << 5
+};
+```
+
+`NS_OPTIONS`,这种方式常用于定义选项的时候。这种定义使得各项之间通过“按位或操作符”来组合。就像上面举列的。每个选项可`启用`或`禁用`还可以多个组合（通过按位与操作符）。
+
 ##为常用的块类型创建typedef
 
 ##多用块枚举，少用for循环
