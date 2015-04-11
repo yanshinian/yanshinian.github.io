@@ -51,7 +51,14 @@ NSDate *firstDate = [dates firstObject];
 
 不要用alloc、new、copy或者mutableCopy开头。因为以上述几个词汇开头，调用者拥有返回的对象，对象的引用计数器会加一，调用者必须负责释放。
 
+###为私有的方法加前缀
+
+有时候更改API，有的标记成私有方法，我们自然知晓用于类的内部，然后就不用再去更改。给私有方法加前缀，更容易跟公共的方法区分开
+
+不要用单用一个下划线做私有方法的前缀，这是苹果公司御用的。可以在方法的名字之前加`p_`
+
 ##属性跟实例变量
+
 ##多用字面量语法，少用与之等价的语法
 
 使用字面量语法来创建字符串、数值、数组、字典。与创建此类对象的常规方法相比，这么做更加简明扼要。
@@ -61,6 +68,23 @@ NSDate *firstDate = [dates firstObject];
 字面量语法创建数组或者字典时，若值中有nil，则会抛出异常。务必确保没有nil值。
 
 ##多用类型常量，少用#define预处理指令
+
+有时候，你想把播放动画的时间提取为常量，你也许是这么做的：
+
+
+	#define ANIMATION_DURATION 0.3
+
+
+这样的定义没有类型信息。假设此命令在某个头文件中，那么所有引入这头文件的代码，其ANIMATION_DURATION都会被替换。
+
+如果想解决这个问题，应该设法用编译器的某些特性才对。有个办法比用预处理指令来定义常量更好。
+
+	 static const NSTimeInterval kAnimationDuration = 0.3;
+	 
+
+用上面的方式，清晰描述了常量的含义。你也很明白这这个常量的类型。更加有助于编写开发文档。能让阅读代码的人更容易理解你的意图。
+
+常量的命名：若常量局限于某“编译单元”（translation unit，也就是实现的文件内 也就是.m文件呗），在前面加字母k；如果再类之外可见，则通常以类名为前缀了。
 
 
 ##用枚举表示状态、选项、状态码
@@ -137,12 +161,39 @@ OC中异常不是处理错误的方式。异常是用来处理那些永远不应
 
 不建议使用@trow 和 @catch这些异常的处理指令。如果希望抛出异常表明程序错误，最好是用NSAssert抛出`NSInternalInconsistencyException`异常，或者自定义的异常对象（继承自NSException）。通常使用NSAssert，毕竟简洁也更有用。
 
-#收集崩溃报告
+##收集崩溃报告
+
+iOS应用时，有几种收集崩溃转储的途径。
+
+###iTunes Connect
+
+iTunnes Connect 允许下载应用的崩溃报告。登陆后到应用的详细页面下载崩溃报告。从iTunes Connect中拿到的崩溃报告并没有经过符号化，你应该用构建提交的应用时生产呢过的dSYM文件来对其进行符号化。可以用xcode自动完成，或是动手进行（使用命令行工具symbolicatecrash）。
+
+###友盟Crash
+
+###腾讯Crash
+
+
+
+##源代码管理工具CocoaPods
+
+以后开发就使用CocoaPods，方便第三方框架的管理。
+
+使用参考链接：[http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/](http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/)
+
+
+##性能调优
+
+###Instruments
+
+####leaks
+
+####Time Profiler
 
 
 
 
-
+性能测试一定要在Release 模式（默认的是Debug）下进行，这样才能进行优化处理
 
 
 ##封装
@@ -156,5 +207,5 @@ OC中异常不是处理错误的方式。异常是用来处理那些永远不应
 
 * 《iOS编程实战》【美国】Rob Napier Mugunth Kumar 著 美团移动 译
 * 《编写高质量iOS与OS X 代码的 52个有效方法》（英国）Matt Galloway 著 爱飞翔 译
-* 
+* 《高效程序员的45各习惯：敏捷开发修炼之道》
 
