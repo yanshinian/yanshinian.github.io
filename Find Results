@@ -3,73 +3,73 @@ Searching 87 files for "raw.githubusercontent.com"
 /Users/chenjiang/Documents/yanshinian/yanshinian.github.io/yanshinian.github.io/_config.yml:
    32    googleplus: +十年
    33    bio: "我是言十年，互相学习，互相进步"
-   34:   uno-dbyll: https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png
+   34:   uno-dbyll: /avatar.jpg
    35  
 
 /Users/chenjiang/Documents/yanshinian/yanshinian.github.io/yanshinian.github.io/_site/categories.html:
    77       
    78        <a class="navbar-brand" href="http://yanshinian.com">
-   79:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" class="img-circle" style="height:35px;width:35px"/>
+   79:         <img src="/avatar.jpg" class="img-circle" style="height:35px;width:35px"/>
    80          言十年的博客
    81        </a>
 
 /Users/chenjiang/Documents/yanshinian/yanshinian.github.io/yanshinian.github.io/_site/index.html:
    77       
    78        <a class="navbar-brand" href="http://yanshinian.com">
-   79:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" class="img-circle" style="height:35px;width:35px"/>
+   79:         <img src="/avatar.jpg" class="img-circle" style="height:35px;width:35px"/>
    80          言十年的博客
    81        </a>
 
 /Users/chenjiang/Documents/yanshinian/yanshinian.github.io/yanshinian.github.io/_site/tags.html:
    77       
    78        <a class="navbar-brand" href="http://yanshinian.com">
-   79:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" class="img-circle" style="height:35px;width:35px"/>
+   79:         <img src="/avatar.jpg" class="img-circle" style="height:35px;width:35px"/>
    80          言十年的博客
    81        </a>
 
 /Users/chenjiang/Documents/yanshinian/yanshinian.github.io/yanshinian.github.io/_site/aboutme/index.html:
    77       
    78        <a class="navbar-brand" href="http://yanshinian.com">
-   79:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" class="img-circle" style="height:35px;width:35px"/>
+   79:         <img src="/avatar.jpg" class="img-circle" style="height:35px;width:35px"/>
    80          言十年的博客
    81        </a>
    ..
   232  
   233        <section class="col-sm-6 author">
-  234:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" style="height:100px;width:100px;" class="img-rounded author-image" />
+  234:         <img src="/avatar.jpg" style="height:100px;width:100px;" class="img-rounded author-image" />
   235          <h4 class="section-title author-name"><b>言十年的博客</b><br/><p style="color:#888;font-size:13px;">Jekyll Theme</p></h4>
   236          <p class="author-bio">我是言十年，互相学习，互相进步</p>
 
 /Users/chenjiang/Documents/yanshinian/yanshinian.github.io/yanshinian.github.io/_site/guojihua/index.html:
    77       
    78        <a class="navbar-brand" href="http://yanshinian.com">
-   79:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" class="img-circle" style="height:35px;width:35px"/>
+   79:         <img src="/avatar.jpg" class="img-circle" style="height:35px;width:35px"/>
    80          言十年的博客
    81        </a>
    ..
   432  
   433        <section class="col-sm-6 author">
-  434:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" style="height:100px;width:100px;" class="img-rounded author-image" />
+  434:         <img src="/avatar.jpg" style="height:100px;width:100px;" class="img-rounded author-image" />
   435          <h4 class="section-title author-name"><b>言十年的博客</b><br/><p style="color:#888;font-size:13px;">Jekyll Theme</p></h4>
   436          <p class="author-bio">我是言十年，互相学习，互相进步</p>
 
 /Users/chenjiang/Documents/yanshinian/yanshinian.github.io/yanshinian.github.io/_site/jekyll/index.html:
    77       
    78        <a class="navbar-brand" href="http://yanshinian.com">
-   79:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" class="img-circle" style="height:35px;width:35px"/>
+   79:         <img src="/avatar.jpg" class="img-circle" style="height:35px;width:35px"/>
    80          言十年的博客
    81        </a>
    ..
   279  
   280        <section class="col-sm-6 author">
-  281:         <img src="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png" style="height:100px;width:100px;" class="img-rounded author-image" />
+  281:         <img src="/avatar.jpg" style="height:100px;width:100px;" class="img-rounded author-image" />
   282          <h4 class="section-title author-name"><b>言十年的博客</b><br/><p style="color:#888;font-size:13px;">Jekyll Theme</p></h4>
   283          <p class="author-bio">我是言十年，互相学习，互相进步</p>
 
 10 matches across 7 files
 
 
-Searching 87 files for "https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png"
+Searching 87 files for "/avatar.jpg"
 
 0 matches across 0 files
 
