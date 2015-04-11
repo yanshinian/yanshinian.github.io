@@ -22,6 +22,7 @@ OC 程序中测试两个变量的是否相等有两种方式：isEqual 跟 “==
 
 
 当使用“==”比较类型上没有半毛钱关系的两个类型的指针变量（NSString的对象与NSData的对象）的时，编译器会警告。
+
 ```
 1.NSUInteger a = 65;
   NSUInteger b = 65;
@@ -36,12 +37,12 @@ OC 程序中测试两个变量的是否相等有两种方式：isEqual 跟 “==
 疑问：为啥都是 “言十年”，但是结果不对呢？
 答：str1跟str2 这种方式声明的“言十年”系统用“常量池”来管理这些字符串的。常量池保证相同的字符串直接量只有一个，不会产生多个副本。str1跟str2指向常量池中的同一个字符串对象。
 str3 呢，类方法创建出来的对象。运行时创建出来的，放在堆上的。。
-
 ```
 
 ### isEqual 的使用
 
 很多时候，程序判断指针变量是否相等，也有时候是判断值是否相等的规则，并不严格要求两个指针变量指向同一个对象。例如，对于两个字符串变量，可能只是要求它们指向的字符串对象里包含的字符序列相同即认为相等，此时就可以利用NSString对象的isEqual:方法来判断。
+
 ```
 1. [str1 isEqual: str3]; //返回的是 YES
 ```
@@ -65,16 +66,8 @@ NSString 中的isEqual方法，是重写了NSObject的isEqual 的方法。也就
 }
 ```
 
-
-
-参考资料：
-
 * 《疯狂iOS讲义（上）》
 
-* Objective-c中 isEqual ，isEqualToString ， == 三者的区别 http://www.cnblogs.com/skyming/p/3485605.html
+* Objective-c中 isEqual ，isEqualToString ， == 三者的区别 [http://www.cnblogs.com/skyming/p/3485605.html](http://www.cnblogs.com/skyming/p/3485605.html)
 
-* isEqual和==区别 http://blog.csdn.net/jerryvon/article/details/8224634
-
-
-
-
+* isEqual和==区别 [http://blog.csdn.net/jerryvon/article/details/8224634)](http://blog.csdn.net/jerryvon/article/details/8224634)
