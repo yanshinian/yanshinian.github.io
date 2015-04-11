@@ -104,7 +104,7 @@ Beyond Compare 是一款不可多得的专业级的文件夹和文件对比工�
 
 Tuxera NTFS是一款Windows NTFS 格式硬盘读写组件，有了它就可以轻松读写NTFS格式的移动硬盘，方便文件在两个OS平台间快速传送；另外还可以启用文件系统缓存，排错日志记录等操作。
 
-参考链接：http://www.waerfa.com/tuxera-ntfs](http://www.waerfa.com/tuxera-ntfs)[
+参考链接：[http://www.waerfa.com/tuxera-ntfs](http://www.waerfa.com/tuxera-ntfs)[
 
 ##须鼠管
 
