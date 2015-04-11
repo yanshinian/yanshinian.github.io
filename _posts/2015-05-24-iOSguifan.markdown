@@ -133,6 +133,10 @@ typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
 
 ##多用块枚举，少用for循环
 
+遍历collection（除了NSArray这些，你自定义的collection也算）有四种方式。最基本的办法是`for`循环，其次是`NSEnumerator`遍历法及快速遍历法，最新，最先进的是“块枚举法”。
+
+`块枚举法`本身就能通过GCD来并发执行遍历操作，无须另行编写代码。采用其他的遍历方式则无法轻易实现这点。
+
 ##instancetype
 
 为了保持一致性，init方法和快捷构造方法返回的类型最好都用instancetype

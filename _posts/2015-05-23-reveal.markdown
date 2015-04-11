@@ -149,7 +149,7 @@ cd 到 libReveal.plist 目录下
 
 参考资料：
 
-* 《iOS开发进阶》作者：唐巧
+* 《iOS开发进阶》唐巧 著
 *  Reveal：分析iOS UI的利器 [http://security.ios-wiki.com/issue-3-4/](http://security.ios-wiki.com/issue-3-4/)
 * 编译参数-ObjC的说明  [http://blog.csdn.net/gaoyp/article/details/38707117?utm_source=tuicool](http://blog.csdn.net/gaoyp/article/details/38707117?utm_source=tuicool)
 *  <iOS>关于Xcode上的Other linker flags [http://www.cnblogs.com/robinkey/archive/2013/05/27/3101095.html](http://www.cnblogs.com/robinkey/archive/2013/05/27/3101095.html)
