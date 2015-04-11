@@ -1,0 +1,80 @@
+---
+layout: post
+title:  "isEqual与==的区別"
+category: iOS知识碎片
+date:   2015-05-23 
+categories: jekyll 
+---
+
+# isEqual与==的区別
+
+OC 程序中测试两个变量的是否相等有两种方式：isEqual 跟 “==”
+
+###“==”的使用
+
+1.基本数据类型变量。
+
+两个变量都是基本类型，且都是数值型（不一定要求类型严格相同），两个变量的值如果相等，用“==”判断就会返回“真”。
+
+2.指针类型的变量。
+
+两个指针的变量，除非是指向同一个内存的地址（同一个对象），“==”的判断返回真。
+
+
+当使用“==”比较类型上没有半毛钱关系的两个类型的指针变量（NSString的对象与NSData的对象）的时，编译器会警告。
+```
+1.NSUInteger a = 65;
+  NSUInteger b = 65;
+  // a与b是相等的
+2.NSString *str1 = @"言十年";
+  NSString *str2 = @"言十年";
+  // str1与str2 是相等的。
+3.NSString *str1 = @"言十年";
+  NSString *str3 = [NSString stringWithFormat:@"言十年"];
+  // str1与str3是相等的。
+
+疑问：为啥都是 “言十年”，但是结果不对呢？
+答：str1跟str2 这种方式声明的“言十年”系统用“常量池”来管理这些字符串的。常量池保证相同的字符串直接量只有一个，不会产生多个副本。str1跟str2指向常量池中的同一个字符串对象。
+str3 呢，类方法创建出来的对象。运行时创建出来的，放在堆上的。。
+
+```
+
+### isEqual 的使用
+
+很多时候，程序判断指针变量是否相等，也有时候是判断值是否相等的规则，并不严格要求两个指针变量指向同一个对象。例如，对于两个字符串变量，可能只是要求它们指向的字符串对象里包含的字符序列相同即认为相等，此时就可以利用NSString对象的isEqual:方法来判断。
+```
+1. [str1 isEqual: str3]; //返回的是 YES
+```
+
+isEqual的来源。这个方法是NSObject类提供的实例方法，因此，所有的指针变量就可以调用该方法来判断是否与其他指针变量相等。但是这个方法判断对象相等的标准跟 “==”没有区别。因此，NSObject提供的这个方法是没有太大的实际意义。
+
+NSString 中的isEqual方法，是重写了NSObject的isEqual 的方法。也就是复写了父类的方法。只是判断规则是自定义的跟父类无关。判断规则：两个字符串的包含的字符序列相同，就是真，否则为假。
+
+### 重写isEqual
+
+父类的方法都是可以重写的。我们可以肆意的重写。可以让“狗类”等于“人类”。判断标准就通过name。狗有狗名。人有人名。狗名跟人名一样，都叫“安倍晋三”那就返回 YES。当然是开玩笑。这种比较不符合业务逻辑。那要判断也是同一类型的来判断是吧！人类跟人类。
+
+举个场景吧：
+
+我们实战中，比如归档对象，怎么判断有的对象已经归档过了呢？比如一件商品我们怎么判断已经归档呢？商品有goods_id。那么我们重写isEqual方法的时候，根据对象的goods_id属性来作为是一个对象的依据。
+
+```
+- (BOOL)isEqual:(XYGoods *)other
+{
+    return [self.goods_id isEqualToString:other.goods_id];
+}
+```
+
+
+
+参考资料：
+
+* 《疯狂iOS讲义（上）》
+
+* Objective-c中 isEqual ，isEqualToString ， == 三者的区别 http://www.cnblogs.com/skyming/p/3485605.html
+
+* isEqual和==区别 http://blog.csdn.net/jerryvon/article/details/8224634
+
+
+
+
