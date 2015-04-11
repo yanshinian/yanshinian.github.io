@@ -6,7 +6,7 @@ date: 2015-05-25 02:15:48
 categorie: 效率开发
 ---
 
-#Unicode编码转换工具 (网站)
+##Unicode编码转换工具 (网站)
 
 Unicode 中文 互转等等
 
@@ -117,11 +117,16 @@ Tuxera NTFS是一款Windows NTFS 格式硬盘读写组件，有了它就可以�
 >软件安装问题
 
 “Dash.app”已损坏,打不开。 您应该将它移到废纸篓。如果遇到这种问题。百度就行了。我找了个链接`Mac OS X 系统运行程序时出现「xxx.app已损坏,打不开.你应该将它移到废纸篓」错误信息的解决方法 | 玩转苹果` [http://www.ifunmac.com/2013/10/app-breakdown/](http://www.ifunmac.com/2013/10/app-breakdown/)
+
+
 参考资料：
  * 豆瓣 [http://www.douban.com/subject/11627846/](http://www.douban.com/subject/11627846/)
+
  * 玩法儿 [http://www.waerfa.com](http://www.waerfa.com)
+
  * macx [http://www.macx.cn/](http://www.macx.cn/)
- * 那些好用的iOS开发工具 [http://www.devtang.com/blog/2014/06/29/ios-dev-tools/](http://www.devtang.com/blog/2014/06/29/ios-dev-tools/)
+
+ * 那些好用的iOS开发工具 [http://www.devtang.com/blog/2014/06/29/ios-dev-tools/](http://www.devtang.com/blog/2014/06/29/ios-dev-tools/)（推荐看唐巧的这篇博客）
 
 
 
