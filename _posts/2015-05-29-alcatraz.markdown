@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Xcode插件管理库-Alcatraz"
+title: "Xcode插件管理插件-Alcatraz"
 description: "Xcode插件管理库-Alcatraz"
 date: 2015-05-29 21:45:48
 category: 开发工具
