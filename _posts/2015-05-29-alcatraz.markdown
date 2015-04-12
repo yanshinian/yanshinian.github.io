@@ -1,0 +1,94 @@
+---
+layout: post
+title: "Xcode插件管理库-Alcatraz"
+description: "Xcode插件管理库-Alcatraz"
+date: 2015-05-29 21:45:48
+category: 效率开发
+---
+
+
+##简介
+Alcatraz是一款开源的Xcode包管理器，由Marin Usalj、Delisa Mason和Jurre Stender共同开发，其用途很类似于管理利器CocoaPods。Alcatraz可以帮助开发者集中管理Xcode插件，让开发者无需手动拷贝文件，即可发现和安装插件、模板及配色方案。囊括了ClangFormat、GHUnit Templates等大多数开源插件，开发者也就无需再到GitHub上进行插件搜寻，如此，通过Alcatraz来使用插件的确是一件非常方便的事情。
+
+Alcatraz is available for OSX 10.9+ and Xcode 5+ only.`支持xcode6.3`
+
+安装卸载可以参见[Alcatraz官网](http://alcatraz.io/)
+
+
+
+##安装和删除
+
+**本人安装环境 OS X Yosemite 10.10.2,xcode 6.3**
+
+###安装
+上git上download一份，然后用xcode运行，就ok了！你也可以用命令行。
+```
+下载地址：https://github.com/supermarin/Alcatraz
+```
+
+###删除
+
+```
+rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin
+rm -rf ~/Library/Application\ Support/Alcatraz
+```
+
+##使用
+
+**安装插件总是需要重启xcode哦！**
+
+我们在xcode的菜单栏找到`Window`，发现了`Package Manager`。不错，这就是劳动的成果！那么我们开始插件之旅吧！
+
+![](/images/alcatraz/alcatraz01.png)
+
+----
+打开`Package Manager`映入眼帘的是所有的插件列表。列表上面有筛选的选项。也许当前列表中没有你想要的插件，不过没关系。我们可以搜索。
+
+![](/images/alcatraz/alcatraz02.png)
+
+----
+嗯，我想安装一个图片提示的插件。对，就是`KSImageNamed`。好，开始搜索。果然它很亲切的出现了。
+
+![](/images/alcatraz/alcatraz03.png)
+
+----
+点击`INSTALL`的让它为我们工作吧！
+
+![](/images/alcatraz/alcatraz04.png)
+
+----
+当然，如果你嫌弃它了，另有所爱了，就不留情的`REMOVE`休掉它。
+![](/images/alcatraz/alcatraz05.png)
+
+----
+
+**安装之后，重启xcode，方能使用**
+
+----
+
+##测试你的劳动成功
+
+**安装之后，重启xcode，方能使用**
+
+我测试的是刚刚安装的`KSImageNamed`，测试结果如图
+
+可以显示所有图片的列表，可以提醒你当前的`图片样子`，已经图片的`size 550 x 502`（这是像素哦）
+
+![](/images/alcatraz/alcatraz06.png)
+
+----
+如果你记不得图片的全名了，你也许记得开头的字母，对啦，它还是可以帮你搜索到包`含字母开头`的图片
+
+![](/images/alcatraz/alcatraz07.png)
+
+---
+
+参考资料：
+
+* 使用Alcatraz来管理Xcode插件[http://www.devtang.com/blog/2014/03/05/use-alcatraz-to-manage-xcode-plugins/](http://www.devtang.com/blog/2014/03/05/use-alcatraz-to-manage-xcode-plugins/)
+
+* 插件大集合！开源包管理器Alcatraz迎来Xcode 5更新[http://www.csdn.net/article/2014-03-04/2818613-Alcatraz-for-Xcode5](http://www.csdn.net/article/2014-03-04/2818613-Alcatraz-for-Xcode5)
+
+* iOS开发工具：Alcatraz、SVGKit、Lin以及Transformifier等[http://www.cocoachina.com/industry/20130606/6352.html](http://www.cocoachina.com/industry/20130606/6352.html)
+
+* 那些不能错过的Xcode插件[http://www.cocoachina.com/industry/20130918/7022.html](http://www.cocoachina.com/industry/20130918/7022.html)

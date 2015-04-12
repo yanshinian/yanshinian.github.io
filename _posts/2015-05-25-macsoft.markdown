@@ -106,11 +106,12 @@ Tuxera NTFS是一款Windows NTFS 格式硬盘读写组件，有了它就可以�
 
 参考链接：[http://www.waerfa.com/tuxera-ntfs](http://www.waerfa.com/tuxera-ntfs)[
 
-##须鼠管
+##须鼠管 输入法（强烈推荐）
 
 鼠须管（Squirrel）是一个 Mac 平台的输入法，它基于 RIME／中州韵输入法引擎。RIME 是一个跨平台的输入法框架，在 Linux 下，名为 中州韵，Windows 则为小狼毫。这套算法支持朙月拼音、仓颉五代、五笔86、粤拼、吴语、中古全拼／三拼、国际音标输入法及 emoji 表情等几乎所有音码和形码输入法。
 
 参考链接：[http://www.ifanr.com/156409](http://www.ifanr.com/156409)
+
 
 
 
