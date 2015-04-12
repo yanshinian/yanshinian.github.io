@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "iOS app 打包测试"
+title: "iOS app 打包测试流程"
 description: iOS app 打包测试
 date: 2015-05-28 17:15:48
 category: 开发规范
@@ -117,7 +117,7 @@ category: 开发规范
 快速测试应用程序, 极大简化了应用内测过程。通过遍布全国超过500家的CDN加速节点，提供飞一般的上传下载速度！
 
 
-> 参考资料：
+参考资料：
 
 * xcode APP 打包以及提交apple审核详细流程(新版本更新提交审核) [http://blog.csdn.net/mad1989/article/details/8167529](http://blog.csdn.net/mad1989/article/details/8167529)
 * ipa怎么安装到iPad ipa文件怎么打开
