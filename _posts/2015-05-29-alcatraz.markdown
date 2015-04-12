@@ -3,7 +3,7 @@ layout: post
 title: "Xcode插件管理库-Alcatraz"
 description: "Xcode插件管理库-Alcatraz"
 date: 2015-05-29 21:45:48
-category: 效率开发
+category: 开发工具
 ---
 
 

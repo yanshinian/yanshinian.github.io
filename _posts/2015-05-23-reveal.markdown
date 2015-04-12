@@ -3,7 +3,6 @@ layout: post
 title:  "UI分析利器 Reveal"
 category: iOS开发工具
 date:   2015-05-23 
-categories: jekyll 
 ---
 
 

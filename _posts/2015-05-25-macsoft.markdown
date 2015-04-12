@@ -3,7 +3,7 @@ layout: post
 title: "提高iOS开发效率的网站跟软件"
 description: 提高iOS开发效率的网站跟软件
 date: 2015-05-25 02:15:48
-categorie: 效率开发
+category: 效率开发
 ---
 
 ##Unicode编码转换工具 (网站)

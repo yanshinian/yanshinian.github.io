@@ -3,7 +3,7 @@ layout: post
 title: "iOS应用上架被拒理由（参考）"
 description: "iOS应用上架被拒理由（参考）"
 date: 2015-05-29 10:15:48
-category: 规范
+category: 开发规范
 ---
 #iOS应用提交上架被appstore拒绝的十大理由 
 
