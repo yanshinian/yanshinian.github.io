@@ -3,7 +3,7 @@
 
     <header class="post-header">
       <div class="post-meta">
-        <time datetime="{{ page.date | date: "%Y-%m-%d"}}" class="post-meta__date date">{{ page.date | date: "%Y-%m-%d"}}</time> &#8226; <span class="post-meta__tags tags">于{{ page.categories }}</span>
+        <time datetime="{{ page.date | date: "%Y-%m-%d"}}" class="post-meta__date date">{{ page.date | date: "%Y-%m-%d"}}</time> &#8226; <span class="post-meta__tags tags">{{ page.categories }}</span>
         <!--<span class="post-meta__author author"><img src="{{author.image}}" alt="profile image for {{author.name}}" class="avatar post-meta__avatar" /> by {{author.name}}</span>-->
       </div>
       <h1 class="post-title">{{ page.title }}</h1>
