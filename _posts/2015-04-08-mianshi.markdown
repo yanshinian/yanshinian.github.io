@@ -4,7 +4,10 @@ layout: post
 title:  "iOS面試題"
 category: iOS
 date:   2015-04-08
+categories: jekyll 
 ---
+
+
 1.回答person的retainCount值,并解释为什么
 
 ```
