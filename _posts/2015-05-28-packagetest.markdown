@@ -124,6 +124,6 @@ category: 开发规范
 * ipa怎么安装到iPad ipa文件怎么打开
 [http://jingyan.baidu.com/album/14bd256e320a00bb6d261235.html?picindex=1](http://jingyan.baidu.com/album/14bd256e320a00bb6d261235.html?picindex=1)
 
-*使用蒲公英来做iOS测试应用的分发[http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/](http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/)
+* 使用蒲公英来做iOS测试应用的分发[http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/](http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/)
 
 
