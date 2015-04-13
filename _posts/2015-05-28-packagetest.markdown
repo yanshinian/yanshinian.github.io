@@ -110,7 +110,7 @@ category: 开发规范
 
 ----
 
-###蒲公英
+###蒲公英（小`推荐`下）
 
 移动应用内测平台，如何使用看![官网](http://www.pgyer.com/)
 
@@ -120,7 +120,10 @@ category: 开发规范
 参考资料：
 
 * xcode APP 打包以及提交apple审核详细流程(新版本更新提交审核) [http://blog.csdn.net/mad1989/article/details/8167529](http://blog.csdn.net/mad1989/article/details/8167529)
+
 * ipa怎么安装到iPad ipa文件怎么打开
 [http://jingyan.baidu.com/album/14bd256e320a00bb6d261235.html?picindex=1](http://jingyan.baidu.com/album/14bd256e320a00bb6d261235.html?picindex=1)
+
+*使用蒲公英来做iOS测试应用的分发[http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/](http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/)
 
 
