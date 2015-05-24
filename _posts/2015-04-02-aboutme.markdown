@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "關於我"
-category: [life, 生活]
+category: [生活]
 date:   2015-04-02 
 
 ---
@@ -10,9 +10,11 @@ date:   2015-04-02
 <center>
 我是一個會iOS開發，php開發的IT青年。
 </center>
+
 <center>
 我喜歡唱歌，喜歡繁體字，喜欢思考。
 </center>
+
 <center> 
 我的联系方式：yan@yanshinian.com ，如果志同道合，我们邮件联系吧！
 </center>
