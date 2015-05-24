@@ -36,7 +36,7 @@ layout: default
     {% when 3 or 23 %}{{ d }}rd,
     {% else %}{{ d }}th,
     {% endcase %}
-    {{ post.date | date: "%Y" }}</time> &#8226; <span class="post-list__meta--tags tags">于 {{ post.categories}}</span><a class="btn-border-small" href="{{ site.BASE_PATH }}{{ post.url }}"}>继续阅读</a></div>
+    {{ post.date | date: "%Y" }}</time> &#8226; <span class="post-list__meta--tags tags"> {{ post.categories}}</span><a class="btn-border-small" href="{{ site.BASE_PATH }}{{ post.url }}"}>继续阅读</a></div>
         <hr class="post-list__divider" />
       </li>
       {% endfor %}
