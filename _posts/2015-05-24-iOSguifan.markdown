@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "UI分析利器 Reveal"
+title:  "开发规范（总结）"
 category: iOS进阶
 date:   2015-05-24
 ---

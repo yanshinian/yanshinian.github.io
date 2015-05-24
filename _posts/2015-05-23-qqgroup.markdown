@@ -6,7 +6,7 @@ date:   2015-05-23
 categories: 知识收纳箱 
 ---
 
-1.	动态修改UINavigationBar的背景色
+1.动态修改UINavigationBar的背景色
 
 ```
 [http://tech.glowing.com/cn/change-uinavigationbar-backgroundcolor-dynamically/](http://tech.glowing.com/cn/change-uinavigationbar-backgroundcolor-dynamically/)
@@ -14,14 +14,14 @@ categories: 知识收纳箱
 [https://github.com/ltebean/LTNavigationBar](https://github.com/ltebean/LTNavigationBar)
 ```
 
-2.	Emoji表情图标在iOS与PHP之间通信及MySQL存储
+2.Emoji表情图标在iOS与PHP之间通信及MySQL存储
 
 ```
 [http://wpceo.com/supporting-emoji-on-php-mysql/](http://wpceo.com/supporting-emoji-on-php-mysql/) 
 
 ```
 
-3.	收集了一些Api网站，关于天气、地图等等都有的Api大全网站。
+3.收集了一些Api网站，关于天气、地图等等都有的Api大全网站。
 
 ```
 [http://apistore.baidu.com/astore/index](http://apistore.baidu.com/astore/index)
@@ -29,27 +29,27 @@ categories: 知识收纳箱
 [http://www.juhe.cn/](http://www.juhe.cn/)
 ```
 
-4.	id<sendMsgToWeChatViewDelegate,NSObject>?
+4.id<sendMsgToWeChatViewDelegate,NSObject>?
 
 ```
 用协议定义变量, 只能调用改协议定义的方法
 ```
 
-5.	发现一个比较好的国外iOS网站，英语好的建议听下：[http://www.raywenderlich.com/](http://www.raywenderlich.com/)
+5.发现一个比较好的国外iOS网站，英语好的建议听下：[http://www.raywenderlich.com/](http://www.raywenderlich.com/)
 
-6.	app的tabbar跟navigation 在iphone6上 都变大了.字体.这个是怎么回事啊?有大神知道吗?
+6.app的tabbar跟navigation 在iphone6上 都变大了.字体.这个是怎么回事啊?有大神知道吗?
 
 ```
 加个3x的启动图就ok了
 ```
 
-7.	我想在xib中画根线. 怎么能UIView让高度变成0.5呢.设置0.5  直接默认为0了.有大神知道吗.（需要验证）
+7.我想在xib中画根线. 怎么能UIView让高度变成0.5呢.设置0.5  直接默认为0了.有大神知道吗.（需要验证）
 
 ```
 1/[UIScreen mainScreen].scale 
 ```
 
-8.	Git push 报错 error: failed to push some refs to
+8.Git push 报错 error: failed to push some refs to
 
 ```
 git pull一下就好了，远程仓库跟本地仓库不一样
@@ -62,7 +62,7 @@ git pull一下就好了，远程仓库跟本地仓库不一样
 第三方登陆大家注意一个事情，就是如果用户没有第三方登陆的那个应用，比如我就没安装qq，然后你第三方登陆会提示用户安装qq～这个在上架过程会被拒绝的
 ```
 
-10.	关于苹果手表开发[http://www.cocoachina.com/bbs/read.php?tid-295649.html](http://www.cocoachina.com/bbs/read.php?tid-295649.html)
+10.关于苹果手表开发[http://www.cocoachina.com/bbs/read.php?tid-295649.html](http://www.cocoachina.com/bbs/read.php?tid-295649.html)
 
 11.app进入后台  要无限时间定位  ！这个怎么实现，系统默认一段时间就关掉了
 
@@ -82,7 +82,7 @@ git pull一下就好了，远程仓库跟本地仓库不一样
 [https://github.com/Aufree/trip-to-iOS](https://github.com/Aufree/trip-to-iOS)
 ```
 
-14. IOS中http请求使用cookie 
+14.IOS中http请求使用cookie 
 
 ```
 (http://rainbird.blog.51cto.com/211214/805173/)[http://rainbird.blog.51cto.com/211214/805173/]
