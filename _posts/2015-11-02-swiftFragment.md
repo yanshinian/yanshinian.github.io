@@ -80,6 +80,27 @@ do {
     print(error.localizedDescription)
 }
 ```
+6.判断来源类
 
+```
+// 判断，如果是 从 登录的第一个页面过来，那么，是 pop 出去
+if navigationController?.childViewControllers.first?.classForCoder == RegisterFirstController.classForCoder(){
+    self.navigationController?.popToRootViewControllerAnimated(true)
+    return ;
+}
+```
+7.Swift 的代理的使用
 
+声明
+```
+protocol QuestionCenterSectionHeaderViewDelegate: NSObjectProtocol {
+    func sectionHeaderViewDidSelect(headView:QuestionCenterSectionHeaderView)
+}
+```
+
+调用
+
+```
+self.delegate?.sectionHeaderViewDidSelect(self)
+```
 
