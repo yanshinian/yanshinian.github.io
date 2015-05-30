@@ -98,6 +98,13 @@ protocol QuestionCenterSectionHeaderViewDelegate: NSObjectProtocol {
 }
 ```
 
+属性 声明
+
+```
+weak var delegate: QuestionCenterSectionHeaderViewDelegate? // 使用weak是为了防止循环引用
+
+```
+
 调用
 
 ```
