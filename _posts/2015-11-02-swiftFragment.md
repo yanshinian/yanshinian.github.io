@@ -111,3 +111,11 @@ weak var delegate: QuestionCenterSectionHeaderViewDelegate? // 使用weak是为�
 self.delegate?.sectionHeaderViewDidSelect(self)
 ```
 
+8.class跟static区别
+
+在C或Objective-C中，与某个类型关联的静态常量和静态变量是作为全局（global）静态变量定义的。但是Swift编程语言中，类型属性是作为类型的一部分，作用范围是在类型支持的范围内。
+
+使用关键字static定义类型属性。为类定义计算类型属性时，可以用关键词class 支持子类对父类的实现进行重写。class 不能用于 存储属性。
+
+class跟static都能修饰类方法。static 修饰的属性或者方法都是是不能被继承重写的。
+
