@@ -1,0 +1,101 @@
+---
+layout: post
+title: "学习iOS的网站&博客"
+description: 学习iOS的网站&博客
+date: 2015-06-01 09:15:48
+category: 效率开发（学习篇）
+---
+###题记：收集于互联网，我只是`知识的搬运工`！厚脸皮的`粘贴复制者`！后续发现还有`好玩`的博客就会追加！如有推荐发于我更新！
+
+
+
+###中文
+
+ 博客 | 新浪微博 |  Github | 微信公众号 | 其他
+---- |  
+[OneV's Den](http://onevcat.com) | [@onevcat](http://weibo.com/onevcat)
+[唐巧的技术博客](http://blog.devtang.com) | [@唐巧_boy](http://www.weibo.com/tangqiaoboy) | |iOS开发
+[破船之家](http://beyondvincent.com/) | [@BeyondVincent](http://weibo.com/beyondvincent)
+[MacTalk-池建强的随想录](http://macshuo.com/) | [@池建强](http://weibo.com/idreamland)| |MacTalk | 个人作品：[《MacTalk·人生元编程》](http://macshuo.com/?p=1008) 知乎专栏：<http://zhuanlan.zhihu.com/mactalk>
+[Limboy](http://blog.leezhong.com/) |
+[Xcode Dev](http://nianxi.net) | [@谌启亮](http://weibo.com/u/2135198615)
+[Ted's Homepage](http://wufawei.com/) | [@吴发伟_则平](http://weibo.com/wufawei) | |iOS技术分享 | 还维护一个网站<http://news.ios-wiki.com/news> 
+[念茜的博客](http://nianxi.net) | [@程序媛念茜](http://weibo.com/xixiflower)
+[Kevin Blog](http://blog.zhowkev.in/) | 
+[阿毛的蛋疼地](http://xiangwangfeng.com/) | [@沙城来客](http://weibo.com/epmao)
+[亚庆的 Blog](http://billwang1990.github.io/) | 
+[Tianyong Tang](http://tang3w.com/) | 
+[不会开机的男孩](http://studentdeng.github.io)  | 
+[Nico](http://blog.inico.me)   | [@七五三六九 ](http://weibo.com/demont)
+[阿峰的技术窝窝](http://hufeng825.github.io) | [@北京真爷们儿](http://weibo.com/hufengvip)
+[代码手工艺人](http://joeyio.com) | [@JoeyBlue_](http://weibo.com/2js3)
+[answer_huang](http://answerhuang.duapp.com) | [@answer-huang](http://weibo.com/u/1623064627)
+[webfrogs](http://blog.nswebfrog.com/) | [@ webfrogs](http://weibo.com/u/1713195262)
+[nixzhu](http://nixzhu.me) | 
+[Lancy's Blog](http://gracelancy.com) | [@晨钰Lancy](http://weibo.com/lancy1014)
+[Allen's Memos](http://www.imallen.com) | [@许小帅_allen](http://weibo.com/122678100)
+[王中周的技术博客](http://wangzz.github.io/) | [@foogry](http://weibo.com/foogry)
+[克伟的博客](http://wangkewei.cnblogs.com/) | [@王克伟1985](http://weibo.com/keweiwang)
+[摇滚诗人](http://cnblogs.com/biosli) |  
+[Travis' Blog](http://imi.im/)| 
+[Luke's Homepage](http://geeklu.com/) |[卢小克](http://weibo.com/kejinlu) | <https://github.com/kejinlu>
+[萧宸宇](http://iiiyu.com/) | [@Yu_我就想叫一个简单的昵称](http://weibo.com/iyunsn) | <https://github.com/iiiyu>
+[YIFEIYANG--易飞扬的博客](http://www.yifeiyang.net/) | | 
+[玉令天下的Blog](http://yulingtianxia.com) |  [@杨萧玉HIT](http://weibo.com/yulingtianxia)
+[码农人生](http://msching.github.io/) | [@程寅zju](http://www.weibo.com/msching)| 
+[里脊串的开发随笔](http://adad184.com) | [@里脊串](http://weibo.com/ljc1986) | 
+[煲仔饭](http://ivoryxiong.org/) | | <https://github.com/ivoryxiong>
+[Chun Tips](http://chun.tips/)| [@Chun_iOS](http://weibo.com/junbbcom) | | |[个人作品集](https://itunes.apple.com/cn/artist/chun/id568365741)
+[Why's blog - 汪海的实验室](http://blog.callmewhy.com/) | 
+[土土哥的技术Blog](http://tutuge.me/) |  
+[庞海礁的个人空间 ](http://www.olinone.com/) |  | | |天天动听IOS程序猿，QQ：275742376
+[Casa Taloyum](http://casatwy.com/)  |  |<https://github.com/casatwy> || QQ:235202889 
+[Kenshin Cui's Blog](http://www.cnblogs.com/kenshincui/) | ||||iOS技术交流群，欢迎大家加入：64555322（已满），132785059（已满），438027817（已满）欢迎加入新群： 249654078 
+[技术哥的博客](http://suenblog.duapp.com/) | | <https://github.com/lovesunstar>|
+[老谭笔记](http://www.tanhao.me/) | [@毫不透风](http://weibo.com/writecodes) | 
+[KooFrank's Blog](http://koofrank.com/) |[@KooFrank](http://weibo.com/phpmaple)|<https://github.com/phpmaple>||
+[hello it works](http://helloitworks.com) | 
+[Anselz's Blog](http://www.anselz.com/) | [@Janselz](http://weibo.com/517433742)
+[猫·仁波切](https://andelf.github.io/) | 
+[Wonderffee's Blog](http://wonderffee.github.io) | [@千飞若逸Fee](http://weibo.com/u/1217310237)
+[Nonomori](http://nonomori.farbox.com) | 
+[I'm TualatriX](http://imtx.me) | [@图拉鼎](http://weibo.com/tualatrix)
+[Cocoabit](http://blog.cocoabit.com) | [@6david9](http://weibo.com/6david9) | <https://github.com/6david9/>
+[Lex Tang](http://lexrus.com/) （这哥们没写几篇，还是用的英语）|　[@汤圣罡](http://weibo.com/lexrus)
+[iwangke.me](http://www.iwangke.me/) | [@王轲_IndieBros](http://www.weibo.com/indiebros)
+[云风的 BLOG](http://blog.codingnow.com/) | 
+
+
+-----
+
+ 网站 | 简介
+- |
+[NSHipster 中文版](http://nshipster.cn/) | NSHipster 关注被忽略的 Objective-C、Swift 和 Cocoa 特性。每周更新。
+[objc中国](http://www.objcio.cn/) | 为中国 Objective-C 社区带来最佳实践和先进技术
+[code4app](http://code4app.com/) | 开源代码库-iOS代码实例搜索-iOS特效示例-iOS代码例子下载
+
+
+----
+
+英文
+
+ 网站 | 简介
+- |
+
+
+
+
+
+
+
+
+
+
+
+
+
+参考链接：
+
+* iOS资源列表[http://nonstriater.github.io/ios%E5%BC%80%E5%8F%91/2014/01/22/ios-zi-yuan-lie-biao/](http://nonstriater.github.io/ios%E5%BC%80%E5%8F%91/2014/01/22/ios-zi-yuan-lie-biao/)
+* 唐巧精心整理了国内40多位iOS开发博主的博客地址列表[https://github.com/tangqiaoboy/iOSBlogCN](https://github.com/tangqiaoboy/iOSBlogCN)
+* iOS开发如何提高<http://www.devtang.com/blog/2014/07/27/ios-levelup-tips/>
