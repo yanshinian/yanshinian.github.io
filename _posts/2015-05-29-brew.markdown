@@ -1,0 +1,127 @@
+---
+layout: post
+title: "Homebrew OS X 不可或缺的套件管理器"
+description: Homebrew OS X 不可或缺的套件管理器
+date: 2015-05-29 17:15:48
+category: 效率开发（工具篇）
+---
+#Homebrew OS X 不可或缺的套件管理器
+
+##Homebrew 
+
+###简介
+Homebrew 是 OS X 的包管理工具，Ruby 社区的作品，功能类似 Ubuntu 下的apt-get。使用 Homebrew 可以非常容易的安装 OS X 中没有包含的 Unix 工具包和语言包，比如 wget，node，lua，rabbitmq，nginx 等。
+
+###安装 Homebrew  
+打开终端(官网很详细：Homebrew[http://brew.sh/index_zh-cn.html](http://brew.sh/index_zh-cn.html))
+
+```
+~ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+###功能：
+
+homebrew可以管理Mac下的命令行工具，例如imagemagick，nodejs，git，如下所示：
+
+```
+~ $ brew install imagemagick
+~ $ brew install node
+~ $ brew install git
+```
+###常用命令
+
+```
+brew brew search package_name 			搜索软件（也可以直接搜索“soft name”，也可以正则--/package_name*/）
+
+brew install package_name				安装软件
+
+brew uninstall package_name				卸载软件
+
+brew list								列出已安装的软件
+
+brew list | grep package_home			检查指定软件是否安装（这里用了linux的管道命令）  
+
+brew fetch package_name					下载安装包但不安装
+
+brew tap 								有个默认的仓库，你可以看成是第三方的仓库
+
+brew update								更新brew
+
+brew doctor								查看homebrew的环境是否正常
+
+brew home       						用浏览器打开brew的官方网站
+
+brew info package_name         			显示软件信息
+	
+brew deps package_name      			显示包依赖
+
+brew help								显示帮助内容
+```
+
+##brew cask 
+
+cask是基于homebrew的扩展命令，直接通过命令行去安装Mac的各种软件。免去之前通过下载链接下载DMG文件，然后拖动到Applitions目录，这种手动的安装方法。如果配置一部新的Mac机器，主要安装了cask，通过一个脚本就安装把用到软件一一安装上去，可以节约很多时间。
+
+###安装 brew cask 
+
+cask默认默认会把程序安装到/opt/homebrew-cask/Caskroom这个目录。并会在 ~/Applications 建立各个程序的软链。
+
+```
+~ $ brew tap phinze/homebrew-cask && brew install brew-cask
+```
+###功能
+
+可以方式安装Chrome 浏览器、离线迅雷、虾米、QQ 呢？答案是肯定的，程序员无所不能，他们开发了Homebrew-Cask用来一键安装应用软件，有了 Cask，再也不用手动下载软件包 DMG，打开，拖进应用程序文件夹了，一切都可以交给程序去做。
+
+###常用命令
+
+跟`brew`是类似的，只不过中间加了一个`cask`。列出已安装的软件是 `brew cask list`、那么搜索是`brew cask search`等等，以此类推，你懂得！
+
+###常用的软件的cask
+
+```
+#!/bin/bash
+brew cask install adobe-air
+brew cask install alfred
+brew cask install aliwangwang
+brew cask install appcleaner
+brew cask install dbeaver
+brew cask install dropbox
+brew cask install emacs
+brew cask install evernote
+brew cask install filezilla
+brew cask install firefox
+brew cask install genymotion
+brew cask install github
+brew cask install gitx-l
+brew cask install google-chrome
+brew cask install intellij-idea-ultimate
+brew cask install iterm2
+brew cask install itools
+brew cask install light-table
+brew cask install line
+brew cask install maxthon
+brew cask install mou
+brew cask install movist-fork
+brew cask install pycharm-pro
+brew cask install qq
+brew cask install skitch
+brew cask install skype
+brew cask install spectacle
+brew cask install sublime-text
+brew cask install the-unarchiver
+brew cask install thunder
+brew cask install virtualbox
+brew cask install vlc
+brew cask install vox
+```
+
+参考资料：
+
+* Mac 利器：brew、brew cask、zsh[http://my.oschina.net/evilgod528/blog/306548](http://my.oschina.net/evilgod528/blog/306548)
+* Mac 程序员的十种武器[http://chijianqiang.baijia.baidu.com/article/3733](http://chijianqiang.baijia.baidu.com/article/3733)
+* 使用brew cask来安装Mac应用[http://devtang.com/blog/2014/02/26/the-introduction-of-homebrew-and-brewcask/](http://devtang.com/blog/2014/02/26/the-introduction-of-homebrew-and-brewcask/)
+* Mac入门（三）使用brew安装软件[http://www.cnblogs.com/TankXiao/p/3247113.html](http://www.cnblogs.com/TankXiao/p/3247113.html)
+* Mac使用小tips——软件安装 [http://www.2cto.com/os/201302/191275.html](http://www.2cto.com/os/201302/191275.html)
+* 请教 brew tap 他的用途是什么？[http://www.v2ex.com/t/138142](http://www.v2ex.com/t/138142)
+* Homebrew-cask 命令行安装Mac软件[http://www.cngump.com/blog/2014/02/15/homebrew-cask/](http://www.cngump.com/blog/2014/02/15/homebrew-cask/)
+* Mac OS X新的软件包管理工具Fink,macports,Homebrew的比较区别安装与使用pkgsrc,gentoo-prefix,Rudix[http://blog.shouji-zhushou.com/macosx%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7finkmacportshomebrew%E6%AF%94%E8%BE%83%E5%8C%BA%E5%88%AB/](http://blog.shouji-zhushou.com/macosx%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7finkmacportshomebrew%E6%AF%94%E8%BE%83%E5%8C%BA%E5%88%AB/)
