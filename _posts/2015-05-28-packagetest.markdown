@@ -126,4 +126,9 @@ category: 开发规范
 
 * 使用蒲公英来做iOS测试应用的分发[http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/](http://www.devtang.com/blog/2015/01/22/pgy-usage-guide/)
 
+*  关于Certificate、Provisioning Profile、App ID的介绍及其之间的关系 <http://blog.csdn.net/joosonmao/article/details/21172835>
+
+*  iOS Provisioning Profile(Certificate)与Code Signing详解 <http://blog.csdn.net/phunxm/article/details/42685597>  
+
+
 
