@@ -93,6 +93,11 @@ git pull一下就好了，远程仓库跟本地仓库不一样
 http://zhidao.baidu.com/link?url=Da4SVPx2KbtFqcb4ZEao7822sIWx9apSzoWSkxS9vZts4kAqmyknzNnuchqKkROCdcKl-_syHnT0zW8qIcGCAsPHAMhHfRduRuWko1jidxC
 ```
 
+16.给大家推荐个好东西 1000个iOS常用的库  
+
+```
+https://github.com/LeaderQiu/ios_top_1000
+```
 
 
 
