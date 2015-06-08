@@ -12,3 +12,13 @@ AFNnetworking快速教程，官方入门教程译 <http://blog.sina.com.cn/s/blo
 ##设计模式
 
 IOS设计模式之四（备忘录模式，命令模式） <http://blog.csdn.net/sqc3375177/article/details/11772749>
+
+##开发工具
+
+RubyGems 镜像 <http://ruby.taobao.org/>
+
+iOS开发者工具功能详述 <http://www.cocoachina.com/ios/20130913/6993.html>
+
+每个Mac OS X 命令行用户应当知道的终端工具 <http://www.cocoachina.com/industry/20140519/8466.html>
+
+推荐给开发人员的6个实用命令行工具 <http://blog.jobbole.com/30251/>
