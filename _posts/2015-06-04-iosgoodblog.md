@@ -22,3 +22,9 @@ iOS开发者工具功能详述 <http://www.cocoachina.com/ios/20130913/6993.html
 每个Mac OS X 命令行用户应当知道的终端工具 <http://www.cocoachina.com/industry/20140519/8466.html>
 
 推荐给开发人员的6个实用命令行工具 <http://blog.jobbole.com/30251/>
+
+细数AutoLayout以来UIView和UIViewController新增的相关API <http://www.cocoachina.com/ios/20141026/10045.html>
+
+View Controller 生命周期的各个方法的用法<http://blog.sina.com.cn/s/blog_79a120e501018f0n.html>
+
+
