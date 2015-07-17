@@ -5,11 +5,15 @@ description: iOS好博文
 date: 2015-06-04 19:15:48
 category: 效率开发（学习篇）
 ---
-##OC语法
+##OC开发
 
 细数AutoLayout以来UIView和UIViewController新增的相关API <http://www.cocoachina.com/ios/20141026/10045.html>
 
 View Controller 生命周期的各个方法的用法<http://blog.sina.com.cn/s/blog_79a120e501018f0n.html>
+
+iPhone屏幕尺寸、分辨率及适配  <http://blog.csdn.net/phunxm/article/details/42174937>
+
+UIViewController中各方法调用顺序及功能详解 <http://blog.csdn.net/dizzthxl/article/details/14170047>
 
 ##开源框架
 网易新闻iOS版使用的18个开源组件<http://www.cocoachina.com/ios/20150522/11884.html>
