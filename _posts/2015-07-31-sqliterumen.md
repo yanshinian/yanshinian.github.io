@@ -1,4 +1,9 @@
-##Sqlite 入门学习
+---
+layout: post
+title:  "Sqlite 入门学习（01）"
+category: 报错
+date:   2015-06-26
+---
 
 #### 命令行程序
 
