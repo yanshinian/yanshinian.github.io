@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Sqlite 入门学习（01）"
-category: 报错
+category: SQLite
 date:   2015-08-03
 ---
 
