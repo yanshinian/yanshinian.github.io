@@ -19,6 +19,9 @@ UIViewController中各方法调用顺序及功能详解 <http://blog.csdn.net/di
 网易新闻iOS版使用的18个开源组件<http://www.cocoachina.com/ios/20150522/11884.html>
 
 AFNnetworking快速教程，官方入门教程译 <http://blog.sina.com.cn/s/blog_7a20962f0101qrsx.html>
+
+直接拿来用！最火的iOS开源项目<http://www.cnblogs.com/zhoujg/p/3682164.html>
+
 ##设计模式
 
 一些设计模式的博文 <http://www.cnblogs.com/qiqibo/category/412414.html>
