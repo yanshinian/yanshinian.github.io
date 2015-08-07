@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "swif归档"
+title:  "swift归档"
 category: swift
 date:   2015-08-03
 ---
