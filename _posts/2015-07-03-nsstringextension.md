@@ -261,6 +261,11 @@ date:   2015-08-03
     NSPredicate *regextestMobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
     return  [regextestMobile evaluateWithObject:self];
 }
+/**
+ *  数字 字符串 千位符 化  1,000 | 2,000,000
+ *
+ *  @return 千位符 化 后的 字符串
+ */
 - (NSString *)thousandCharacter {
     NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setFormatterBehavior: NSNumberFormatterBehavior10_4];
