@@ -15,6 +15,10 @@ iPhone屏幕尺寸、分辨率及适配  <http://blog.csdn.net/phunxm/article/de
 
 UIViewController中各方法调用顺序及功能详解 <http://blog.csdn.net/dizzthxl/article/details/14170047>
 
+iOS Objective-C 正则表达式指南 <http://blog.csdn.net/waterforest_pang/article/details/39153355>
+
+UIView与CALayer的区别，很详细 <http://www.cnblogs.com/pengyingh/articles/2381673.html>
+
 ##开源框架
 网易新闻iOS版使用的18个开源组件<http://www.cocoachina.com/ios/20150522/11884.html>
 

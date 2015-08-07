@@ -26,6 +26,13 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 2015-06-26 15:05:35.301 HYQ[38374:2409347] CUICatalog: Invalid asset name supplied: (null)
  http://blog.csdn.net/itianyi/article/details/8547902
  ```
+ ####3.在用cell的时候NSScanner: nil string argument  
+ 
+ ```
+检查控件的关联的属性
+ ```
+ 
+ 
 ###svn篇
 
 ####1..xccheckout' remains in conflict
