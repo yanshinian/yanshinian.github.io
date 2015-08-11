@@ -6,16 +6,20 @@ date: 2015-08-10
 ---
 
 ###控制语句
-```
+
 OC中是 YES/NO ，swift 中是 true / false， swift 没有非零即真的概念
+
+```
 var a = 1;
 var b = 1;
 if a == b{
 	print("a=b");
 }
+```
 
 if - let 语句 检查 一个可选类型变量是否包含值。如果包含，则将这个值指定给一个常量变量，然后运行某段代码。这样可以减少很多行代码，同时又能保证安全性，首先查看一个可选变量是否拥有要处理的值。
 
+```
 var name : String? = "swift2.0";
 
 if let tempName = name {
@@ -23,8 +27,10 @@ if let tempName = name {
 } else {
     print("name = nil")
 }
-
 ```
+if - let 嵌套，请看<http://nshipster.cn/swift-1.2/>
+
+
 
 ###循环
 
@@ -67,9 +73,12 @@ print(str1);	// 打印出来是 Optional("swift2.0")
 print(str1!); // 打印出来是 swift2.0 ! 是解包的意思 
 ```
 
+ 
 参考资料：
 
 * [译] Swift 2.0 简要介绍 <http://www.tuicool.com/articles/RZNJfqV>
+* 《Swift与Cocoa框架开发》[澳] 曼宁（Jonathon Manning），巴特菲尔德-艾迪生（Paris Buttfield-Addison），纽金特（Tim Nugent） 著；贾洪峰 译 
+* 《Swift 1.2》<http://nshipster.cn/swift-1.2/>
 
 
 
