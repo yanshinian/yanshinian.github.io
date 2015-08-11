@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "提高iOS开发效率的网站跟软件"
-description: 提高iOS开发效率的网站跟软件
+title: "提高iOS开发效率的网站跟工具"
+description: 提高iOS开发效率的网站跟工具
 date: 2015-05-25 02:15:48
 category: 效率开发
 ---
@@ -93,6 +93,12 @@ Beyond Compare 是一款不可多得的专业级的文件夹和文件对比工�
 
 参考链接：[http://baike.baidu.com/link?url=Wpa2i6UZS_EDpX1RFWgkLwxYy2P9qX1D5a4GBXkvTQovGNlK4h8jCKQsrFwXDPOiYcnKE9NTKofhwYmR-VCZm_](http://baike.baidu.com/link?url=Wpa2i6UZS_EDpX1RFWgkLwxYy2P9qX1D5a4GBXkvTQovGNlK4h8jCKQsrFwXDPOiYcnKE9NTKofhwYmR-VCZm_)
 
+##Vimdiff---VIM的比较和合并工具
+
+源程序文件（通常是纯文本文件）比较和合并工具一直是软件开发过程中比较重要的组成部分。现在市场上很多功能很强大的专用比较和合并工具，比如 BeyondCompare；很多IDE 或者软件配置管理系统，比如Eclipse, Rational ClearCase都提供了内建的功能来支持文件的比较和合并。
+
+参考链接：技巧：Vimdiff 使用<http://www.ibm.com/developerworks/cn/linux/l-vimdiff/>
+
 ##BetterZip
 
 快速的压缩工具. 支持多种格式
@@ -132,6 +138,7 @@ XnConvert是一款简单易用的批量图像格式转换软件（免费软件�
  * macx [http://www.macx.cn/](http://www.macx.cn/)
 
  * 那些好用的iOS开发工具 [http://www.devtang.com/blog/2014/06/29/ios-dev-tools/](http://www.devtang.com/blog/2014/06/29/ios-dev-tools/)（推荐看唐巧的这篇博客）
+
 
 
 
