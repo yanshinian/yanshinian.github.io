@@ -72,8 +72,56 @@ str1 = "swift2.0";
 print(str1);	// 打印出来是 Optional("swift2.0")
 print(str1!); // 打印出来是 swift2.0 ! 是解包的意思 
 ```
+### 字符串
 
- 
+Swift中String 用来声明字符串变量，不同于NSString的是，它是结构体，效率高，支持快速遍历。
+
+遍历
+
+```
+let letters = "abcdefghijklmn";
+
+for l in letters {
+    print(l)
+}
+```
+
+拼接
+
+```
+let a = "swfit"
+let b = "2.0"
+let c = a + b;
+```
+打印结构体
+
+```
+let frame = CGRectMake(10, 10, 10, 10)
+
+print(frame)
+```
+转换成
+
+### 数组
+
+```
+var arr = [String]() // 声明一个空数组
+let arr1 : [Int];
+arr1 = [1,2,3];
+//arr1.append(3) // 不可变不能追加元素
+print(arr1)
+
+```
+
+OC中的数组的元素都是对象，如果我们放数字 `3` ，必须搞成NSNumber，`@(3)`,swift 元素可以直接放`数字`。
+
+```
+var arr2 = [1, 2, "3", "4", 5]; 
+arr2.append("6")
+arr2.removeAll(keepCapacity: false) // keepCapacity 是否保持容量
+
+```
+
 参考资料：
 
 * [译] Swift 2.0 简要介绍 <http://www.tuicool.com/articles/RZNJfqV>
