@@ -1,9 +1,8 @@
-
 ---
 layout: post
 title:  "Swift2.0简单语法回顾"
+date:2015-08-10
 category: swift
-date:   2015-08-10
 ---
 ###控制语句
 ```
