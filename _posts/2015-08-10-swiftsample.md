@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "Swift2.0简单语法回顾"
-date:2015-08-10
 category: swift
+date: 2015-08-10
 ---
+
 ###控制语句
 ```
 OC中是 YES/NO ，swift 中是 true / false， swift 没有非零即真的概念
