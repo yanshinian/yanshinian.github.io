@@ -280,3 +280,4 @@ date:   2015-08-03
 参考资料：
 
 *  BeeFrameworkBeeFramework中的#import "NSString+BeeExtension.h"
+*  正则表达之----验证数字的正则表达式集 <http://blog.sina.com.cn/s/blog_71715bf8010142xx.html>

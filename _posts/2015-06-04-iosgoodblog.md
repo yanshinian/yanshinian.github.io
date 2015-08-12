@@ -19,6 +19,7 @@ iOS Objective-C 正则表达式指南 <http://blog.csdn.net/waterforest_pang/art
 
 UIView与CALayer的区别，很详细 <http://www.cnblogs.com/pengyingh/articles/2381673.html>
 
+10个加速Table Views开发的Tips<http://www.cocoachina.com/ios/20150729/12795.html>
 ##开源框架
 网易新闻iOS版使用的18个开源组件<http://www.cocoachina.com/ios/20150522/11884.html>
 
@@ -42,6 +43,9 @@ iOS开发者工具功能详述 <http://www.cocoachina.com/ios/20130913/6993.html
 
 推荐给开发人员的6个实用命令行工具 <http://blog.jobbole.com/30251/>
 
+###产品设计
+
+我们为什么需要动效设计 <http://www.cocoachina.com/design/20150803/12864.html>
 
 
 
