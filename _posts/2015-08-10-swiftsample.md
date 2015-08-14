@@ -34,6 +34,86 @@ Int
 * `Double`表示64位浮点数。适合存储很大或者很高精度的浮点数。
 * `Float`表示32位浮点数。适合存储精度要求不高的浮点数。
 
+### 类型安全和类型推断
+
+Swift 是类型安全的，它会在编译你的代码时进行类型检查（type checks），把不匹配的类型标记为错误。这样在写代码的时候，会尽快发现并修复错误。
+
+Swift使用类型推断（type inference）选择合适类型。原理很简单，只要检查你赋的值即可。
+
+### 数据类型转换
+
+Swift 不像OC那样支持隐式转换。类型不同无法运算。
+
+####整数转换
+
+```
+let twoThousand: UInt16 = 2_000
+let one: UInt8 = 1
+let twoThousandPlusOne = twoThousand + UInt16(one)
+```
+#### 整数和浮点数转换
+
+```
+let three = 3
+let pointOneFourOneFiveNine = 0.14159
+let pi = Double(three) + pointOneFourOneFiveNine
+```
+###类型别名
+
+类型别名（type aliases）就是给现有类型定义一个名字。使用`typealias`关键字来定义类型别名。是不是让你想起了OC中的，`typedef`了？
+
+```
+typealias int = Int
+```
+定义了一个类型的别名之后，你就可以在任何使用原始名的地方使用别名了。
+
+###元组
+
+元组(tuples)把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求相同类型
+
+元组访问，可以通过下标访问。也可以通过元素名访问。
+
+```
+let result = (true, "查询到的结果集")
+let receiveResult =  result
+print(receiveResult.0)
+print(receiveResult.1)
+```
+```
+let result = (status: false, data: "错误的状态码或者提示")
+print(result.0)
+print(result.data)
+
+````
+
+如果你只需要一部分的元组值，分解的时候可以把要忽略的部分用下划线（_）标记：
+
+```
+let (status, _) = result
+print(status)
+```
+
+使用元组交换变量
+
+```
+func swapMe<T>(inout a: T, inout b: T) {
+    (a, b) = (b, a);
+}
+```
+
+元组作为函数返回值非常有用。比如用元组做错误处理。
+
+```
+func doSomethingMightCauseError() -> (Bool, NSError?){
+    // 做某些操作，成功结果放在success中
+    if success {
+        return (true, nil);
+    } else {
+        return (false, NSError(domain: "domain", code: 1, userInfo: nil));
+    }
+}
+```
+
 ###控制语句
 
 OC中是 YES/NO ，swift 中是 true / false， swift 没有非零即真的概念
@@ -156,6 +236,7 @@ arr2.removeAll(keepCapacity: false) // keepCapacity 是否保持容量
 * [译] Swift 2.0 简要介绍 <http://www.tuicool.com/articles/RZNJfqV>
 * 《Swift与Cocoa框架开发》[澳] 曼宁（Jonathon Manning），巴特菲尔德-艾迪生（Paris Buttfield-Addison），纽金特（Tim Nugent） 著；贾洪峰 译 
 * 《Swift 1.2》<http://nshipster.cn/swift-1.2/>
+* 《Swifter - 100 个 Swift 必备 tips 》 作者王巍 <https://leanpub.com/swifter/read>
 
 
 
