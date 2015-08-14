@@ -2,7 +2,7 @@
 layout: post
 title:  "Swift2.0简单语法回顾"
 category: swift
-date: 2015-08-10
+date: 2015-08-14
 ---
 ###常量，变量
 
