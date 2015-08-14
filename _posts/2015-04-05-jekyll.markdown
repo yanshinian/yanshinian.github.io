@@ -95,8 +95,10 @@ down下來，運行，確保能用
 
 
 参考资料：
-* Jekyll变量 和 Jekyll模板语法教程(http://higrid.net/c-art-jeklly_template_data.htm)[http://higrid.net/c-art-jeklly_template_data.htm]
-* 静态网站生成器jekyll详解教程 (http://higrid.net/c-art-blog_jekyll.htm)[http://higrid.net/c-art-blog_jekyll.htm]
+
+* Jekyll变量 和 Jekyll模板语法教程<http://higrid.net/c-art-jeklly_template_data.htm> 
+* 静态网站生成器jekyll详解教程 <http://higrid.net/c-art-blog_jekyll.htm>
+* Markdown——入门指南<http://www.jianshu.com/p/1e402922ee32/>
 [studymarkdown]: http://sspai.com/25137
 [githubpages]:https://pages.github.com/
 [create a repository]:https://github.com/new
