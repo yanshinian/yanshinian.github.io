@@ -7,7 +7,7 @@ date: 2015-08-10
 
 ###Swift跟OC开发的不同
 
-貌似面试官会问，Swift 跟 OC的区别。我个人觉得，不同貌似很多，你比如说王巍的书100个tips，那肯定至少有100个不同。面试官也许想知道你对语言的看法来看你学习的深度吧？真的是这样么？
+> 貌似面试官会问，Swift 跟 OC的区别。我个人觉得，不同貌似很多，你比如说王巍的书100个tips，那肯定至少有100个不同。面试官也许想知道你对语言的看法来看你学习的深度吧？真的是这样么？不管怎么样。从OC转Swift开发，我们知道这些。有助于我们开发更加的顺利！不是么？
 
 1.swift 不支持 隐式转换，值永远不会被隐式转换为其他类型。如果你需要把一个值转换成其他类型，请显式转换。
 
@@ -23,9 +23,21 @@ date: 2015-08-10
 
 7.Swift中将宏定义彻底从语言中拿掉了。
 
-8.Swift 中 数组可以放数字。而OC中数字我们通常是弄成NSNumber才行。
+8.在Objective-C中，数组和字典可以包含任意你想要的类型。但是在Swift中，数组和字典是类型化的。并且是通过使用我们上面的朋友—泛型来类型化的！Swift 中 数组可以放数字。而OC中数字我们通常是弄成NSNumber才行。
 
 9.log输出。swift中是print（2.0 Beta版本里，没有了println, print默认状态就是换行的，如果想不换行，要这样写`print("测试 ", appendNewLine: false)）`。swift的print性能好过OC中的NSLog。
+
+10.Swift 中没有像OC中的NSArray ，NSMutable 的类型了。取而代之的是`let`和`var`。var声明的是变量。let 声明的是常量！let相当于之前的const。一旦声明就不可变。
+
+11.Swift支持全部Unicode字符集。你可以在字符串中使用任何Unicode码位，甚至是函数和变量的名字！
+
+12.Swift的另一个非常棒的扩展是字符串比较。你很清楚在Objective-C中使用==来比较字符串是不正确的。取而代之地，你应该使用isEqualToString:方法。因为前者是指针比较。Swift移除了这个间接的标准，相反地让你能够直接使用==比较字符串。这也意味着字符串可以用于switch语句。
+
+13.swift 的switch 必须写default 语句。每个case之下不用再写break！
+
+14.Swift支持泛型。
+
+15.Swift 没有提供显式的指针，参数传递根据数据类型的不同分为值类型和引用类型，值传递进行内存拷贝，引用传递最终传递的是一个指向原有对象的指针。这一点和 Java 的参数传递是类似的。
 <!--7.Swift支持引用传值。OC不支持。-->
   
 ### 学习资源
@@ -54,6 +66,9 @@ date: 2015-08-10
 
 * swift与OC之间不得不知道的21点 <http://www.cnblogs.com/dsxniubility/p/4294658.html>
 * 《The Swift Programming Language》中文版<https://www.gitbook.com/book/numbbbbb/-the-swift-programming-language-/details>
+* Objective-C开发者对Swift亮点的点评 <http://letsswift.com/2014/06/objective-c-developer-view-swift/>
+* 苹果新贵 Swift之前世今生<http://letsswift.com/2014/06/swift-past-and-future/>
+* 行走于 Swift 的世界中<http://www.onevcat.com/2014/06/walk-in-swift/>
 
 
 
