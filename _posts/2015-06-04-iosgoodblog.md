@@ -5,6 +5,12 @@ description: iOS好博文
 date: 2015-06-04 19:15:48
 category: 效率开发（学习篇）
 ---
+##Swift 开发
+
+74个Swift标准库函数<http://letsswift.com/2014/06/74-swift-library-functions/>
+
+
+
 ##OC开发
 
 细数AutoLayout以来UIView和UIViewController新增的相关API <http://www.cocoachina.com/ios/20141026/10045.html>

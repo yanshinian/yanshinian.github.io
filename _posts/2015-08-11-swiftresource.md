@@ -30,6 +30,7 @@ date: 2015-08-10
   
 ### 学习资源
 
+####国内
 1.梁杰 《The Swift Programming Language》中文版 <https://www.gitbook.com/@numbbbbb>
 
 2.花川学院 <http://www.hcxy.me>
@@ -40,6 +41,14 @@ date: 2015-08-10
 
 5.Let's Swift <http://letsswift.com>
 
+####国外
+1.We❤️Swift <http://www.weheartswift.com/>
+
+2.Swift Programming: Introduction <https://www.youtube.com/playlist?list=PLDj3dknzoPvMYvf3skevfJb3zV3qt1_Fp>
+
+3.Swift Video Tutorials <http://www.swiftvideotutorials.com/>
+
+4.practicalswift<http://practicalswift.com/>
 
 参考资料：
 
