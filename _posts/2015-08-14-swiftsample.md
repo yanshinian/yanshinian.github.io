@@ -146,6 +146,22 @@ Swift的nil和OC中的nil不同。OC中，nil是一个指向不存在对象的�
 
 这种类型的可选状态被定义为隐式解析可选类型（implicitly unwrapped optionals）。把想要用作可选的类型的后面的问号（`String`）改成感叹号（`String!`）来声明一个隐式解析可选类型。
 
+当可选类型被第一次赋值之后就可以确定之后一直有值的时候，隐式解析可选类型非常有用。`隐式解析可选类型主要被用在Swift中类的构造过程中`。
+
+一个隐式解析可选类型其实就是一个普通的可选类型，但是可以被当作非可选类型来使用，并不需要每次都使用解析来获取可选值。下面的例子展示了可选类型`String`和隐式解析可选类型`String`之间的区别：
+
+```
+let a: String?
+a = "letter a"
+print(a!) // 取值要解包 
+
+let b: String!
+b = "letter b"
+print(b)
+```
+
+ps.比较常见的隐式解包的Optional就是用IB创建的IBOutLet了，我们的代码其他部分，还是少用这样的隐式解包的Optional微妙。（`详情见王巍的书`）
+
 ###控制语句
 
 OC中是 YES/NO ，swift 中是 true / false， swift 没有非零即真的概念

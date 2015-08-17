@@ -7,6 +7,8 @@ date: 2015-08-10
 
 ###Swift跟OC开发的不同
 
+貌似面试官会问，Swift 跟 OC的区别。我个人觉得，不同貌似很多，你比如说王巍的书100个tips，那肯定至少有100个不同。面试官也许想知道你对语言的看法来看你学习的深度吧？真的是这样么？
+
 1.swift 不支持 隐式转换，值永远不会被隐式转换为其他类型。如果你需要把一个值转换成其他类型，请显式转换。
 
 2.OC没有命名空间，用了Swift再也不用总是引用头文件了。
@@ -18,6 +20,13 @@ date: 2015-08-10
 5.`类型推断`。Swift声明变量，对比OC很少需要声明类型了。
 
 6.Swift的nil和OC中的nil不同。OC中，nil是一个指向不存在对象的指针。Swift中，nil不是指针，它是一个确定的值，用来表示值缺失。
+
+7.Swift中将宏定义彻底从语言中拿掉了。
+
+8.Swift 中 数组可以放数字。而OC中数字我们通常是弄成NSNumber才行。
+
+9.log输出。swift中是print（2.0 Beta版本里，没有了println, print默认状态就是换行的，如果想不换行，要这样写`print("测试 ", appendNewLine: false)）`。swift的print性能好过OC中的NSLog。
+<!--7.Swift支持引用传值。OC不支持。-->
   
 ### 学习资源
 
@@ -29,6 +38,7 @@ date: 2015-08-10
 
 4.Swift 资源汇总 <http://dev.swiftguide.cn/>
 
+5.Let's Swift <http://letsswift.com>
 
 
 参考资料：
