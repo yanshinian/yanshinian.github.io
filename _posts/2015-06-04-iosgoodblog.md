@@ -26,9 +26,14 @@ iOS Objective-C 正则表达式指南 <http://blog.csdn.net/waterforest_pang/art
 UIView与CALayer的区别，很详细 <http://www.cnblogs.com/pengyingh/articles/2381673.html>
 
 10个加速Table Views开发的Tips<http://www.cocoachina.com/ios/20150729/12795.html>
+
+对象中的前8字节就是isa指针 <http://bbs.itheima.com/thread-137894-1-1.html>
+
 KVO的实现机理，随便解释一下isa-swizzling <http://blog.csdn.net/ydfok/article/details/4505282>
 
 深入理解Objective-C的Runtime机制 <http://www.csdn.net/article/2015-07-06/2825133-objective-c-runtime>
+
+Objective-C 对象和消息模型 <http://www.csdn123.com/html/blogs/20131101/92039.htm>
 ##开源框架
 网易新闻iOS版使用的18个开源组件<http://www.cocoachina.com/ios/20150522/11884.html>
 
