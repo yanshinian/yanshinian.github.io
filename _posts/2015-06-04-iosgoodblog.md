@@ -63,6 +63,8 @@ iOS开发者工具功能详述 <http://www.cocoachina.com/ios/20130913/6993.html
 
 我们为什么需要动效设计 <http://www.cocoachina.com/design/20150803/12864.html>
 
+常见文件类型识别<http://fuliang.iteye.com/blog/769680>
+
 
 
 
