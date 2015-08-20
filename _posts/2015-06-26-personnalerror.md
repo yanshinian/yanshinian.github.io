@@ -83,7 +83,7 @@ svn ci -m "update"
 ```
 ###发布app篇
 
-1.new apps and app updates submitted to the app store must be built with public(GM) versions of Xcode ……（具体看见下图）
+1.new apps and app updates submitted to the app store must be built with public(GM) versions of Xcode ……（具体看见下图）（另：GM版通常是正式版发布前，最后一个测试版。）
 
 ![image](/images/personnalerror/fabu_error01.png)
 
