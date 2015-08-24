@@ -448,7 +448,298 @@ if a == b{
 
 #####不存在隐式的贯穿（No Implicit Fallthrough）
 
-> 如果想要贯穿至特定的case分支
+> 如果想要贯穿至特定的case分支中，请使用`fallthorough`
+
+##### 区间匹配
+
+##### 元组
+
+可以是哟更元组在同一个`switch`语句中测试多个值。元组中的元素可以是值，也可以是区间。另外，使用下划线`_`来匹配所有的可能的值。
+
+```
+let screenPosition = (10,10)
+switch screenPosition {
+    case (10, 10):
+        print("在所在管理区域One")
+    case (0...10, 10...20):
+        print("在所在管理区域Two")
+    case (_,10):
+        print("在所在管理区域Three")
+    default:
+        print("默认处理")
+}
+虽然三个case都满足，但是只是执行满足的第一个case。
+
+```
+##### 值绑定（Value Bindings）
+case分支的模式允许将匹配的值绑定到一个临时的常量或变量，这些常量或变量在该case分支里就可以被引用了——这种行为被称为值绑定。
+
+```
+let screenPosition = (10,10)
+
+switch screenPosition {
+    case (let x, 10):
+        print("x=\(x)")
+    case (0, let y):
+        print("y=\(y)")
+    case (let x, let y):
+        print("x=\(x),y=\(y)")
+}
+
+```
+注意，这个`switch`语句不包含默认分支。这是因为最后一个case——`case let(x, y)`声明了一个可以匹配余下所有值的元组。这使得`switch`语句已经完备，因此不需要再书写默认分支。
+
+#####Where
+case 分支的了模式可以使用where 语句来判断额外的条件。
+
+### 控制转移语句（Control Transfer Statements）
+控制转移语句改变你代码的执行顺序，通过它你可以实现现代码的跳转。Swift有四种控制转移语句。
+
+* continue
+* break
+* fallthrough
+* return
+* throw
+
+#### Continue
+
+告诉一个循环体停止本次循环迭代，重新开始下次循环迭代。
+
+#### Break
+
+立即结束整个控制流的执行。当你想要更早的结束一个`switch`代码块或者一个循环体时，都可以使用break语句。
+
+#####循环语句中的break
+
+当在一个循环体中使用break时，会立刻中断该循环体执行。然后跳转到表示循环体结束的大括号`}`的第一行代码。不会再有本次循环迭代的代码被执行，也不会再有下次的循环迭代产生。
+
+#####Switch 语句中的break
+
+当在一个`Switch`代码块中使用break时，会立即中断该Switch代码块的执行，并且跳转到表示Switch代码块结束的大括号`}`后的第一行代码。
+
+#### 贯穿（FallThrough）
+
+#### 带标签的语句
+
+> label name:While condition {statements}
+
+#### 提前退出
+
+像`if`语句一样，`guard`的执行取决于一个表达式的布尔值。我们可以使用`guard`语句的代码。不同于`if`语句，一个`guard`语句总是有一个`else`分句，如果条件不为真则执行`else`分局中的代码。
+
+相比于可以实现同样功能的if语句，按需使用guard语句会提升我们代码的可靠性，它可以使你的代码连贯的被执行而不需要将它包在else块中，可以使你处理违反要求的代码接近要求。
+
+###函数（Functions）
+
+* 函数定义与调用
+* 函数参数与返回值
+* 函数参数名称
+* 函数类型
+* 函数嵌套
+
+函数使用来完成特定任务的独立代码块。Swift统一的函数语法足够灵活，可以用来表示任何函数，包括从最简单的没有参数名字的C风格函数，到复杂的带局部和外部参数名的OC风格函数。参数可以提供默认值，以简化函数调用。参数也可以既当传入参数，也当做传出参数，也就是说，一旦函数执行结束，传入的参数值可以被修改。
+
+在Swift中，每个函数都有一种类型，包括函数的参数值类型和返回值类型。你可以把函数类型当作任何其他普通变量类型一样处理，把函数当成别的函数的参数，或者从其他函数中返回函数。
+
+####函数的定义与调用
+
+
+#####无返回值函数
+> 无返回值函数，虽然没有返回值被定义，但是没有定义返回类型的函数会返回特殊的值，叫`void`。其实它是一个空的元组，没有任何元素，可以写成`()`。
+
+#####多重返回值函数
+可以使用元组让多个值作为一个复合值从函数中返回。
+
+需要注意的是，元组成员不需要在函数中返回时命名，因为他们的名字已经在函数返回类型中有了定义。
+
+#####可选元组返回类型
+如果函数返回的元组类型中有可能在整个元组中含有“没有值”，你可以使用可选的（Optional）元组返回类型反映整个元组可以是`nil`的事实。
+
+>注意：可选元组类型如`(Int, Int)?`与元组包含可选类型属性如`(Int?, Int?)`是不同的。可选的元组类型，整个数组是可选的，而不只是元组中的每个元素值。
+
+####函数参数名称
+函数参数都有个外部参数名和一个本定参数名。外部参数名用来标记给函数的参数，本地参数名在实现函数的时候使用。
+
+通常，第一个参数省略其外部参数名，第二个以后的参数使用其本地参数名作为自己的外部参数名。所有参数需要有不通过的本地参数名，可以共享外部参数名。
+
+#####指定外部参数名（Specifying External Parameter Names）
+
+可以在本地参数名前指定外部参数名，中间以逗号分隔。
+
+> 如果你提供了外部参数名，那么函数在被调用的时，必须使用外部参数。
+
+```
+func run(withName name:String, age: Int) {
+    print(name)
+}
+run(withName: "刘翔", age: 23)
+```
+#####忽略外部参数名（Omitting External Parameter Names）
+
+如果你不想为第二个及后续的参数设置参数名，用一个下划线`_`代替一个明确地参数名。
+
+```
+func run(withName name:String, _ age: Int) {
+    print(name)
+}
+run(withName: "刘翔", 23)
+```
+#####默认参数值
+> 默认参数放到参数列表的最后。
+
+##### 可变参数（Variadic Parameters）
+
+一个`可变参数`可以接受零个或多个值。函数调用时，你可以用可变参数来传入不确定数量的输入参数。通过在变量类型后面加入`...`的方式来定义可变参数。
+
+传入可变参数的值在函数体内当作这个类型的一个数组。
+
+> 最多可以有一个可变参数函数，和它必须出现在参数列表中，为了避免歧义在调用函数有多个参数。如果你的函数有一个或者多个参数有默认值，还可以有一个可变的参数将可变参数写在参数列表的最后。
+
+#####常量参数和变量参数
+
+函数参数默认是常量。试图在函数体中更改参数值将会导致编译错误。这意味着你不能错误地更改参数值。
+```
+func mathOperation(operation:(a: Int, b: Int) -> Int) {
+    let aa = 10;
+    let bb = 10;
+    print(operation(a: aa, b: bb))
+}
+
+mathOperation { (a, b) -> Int in
+    a + b
+}
+注意：aa必须是let ，因为传递给 operation使用，函数参数是常量
+```
+
+但是，有时候，如果函数中有传入参数的变量值副本将是很有用的。你可以通过指定一个或多个参数为变量参数，从而避免自己在函数中定义新的变量。变量参数不是常量，你可以在函数中把它当作心得可修改副本来使用。
+
+通过在参数名前加关键字`var`来定义变量参数：
+
+#####输入输出参数（In-Out parameters）
+
+变量参数，正如上面所述，仅仅能在函数体内被修改。如果你想要一个函数可以修改参数的值，并且想要在这些修改在函数调用结束之后仍然存在，那么就应该把这个参数定义为输入输出参数（In-Out Parameters）。
+
+定义一个输入输入参数时，在参数定义前加`inout`关键字。一个输入输出参数有传入函数的值，这个值被函数修改，然后被传出函数，替换原来的值。
+
+你只能将变量作为输入输出参数。你不能传入常量或者字面量（literal value），因为这些量是不能修改的。当传入的参数作为输入输出参数时，需要在参数前加`&`符，表示这个值可以被函数修改。
+
+> 注意：输入输出参数不能有默认值，而且可变参数不能用`inout`标记。如果你用`inout`标记一个参数，这个参数不能被`var`或者`let`标记。输入输出参数是函数对函数体外产生影响的另一种方式。
+
+####函数类型
+每个函数都有种特定的函数类型，由函数的参数类型和返回类型组成。
+
+```
+func plus(a: Int, _ b: Int) -> Int{
+    return a + b
+}
+print(plus(1, 2))
+```
+plus函数代码中`(Int, Int) -> Int`可以读做这个函数的类型。有两个`Int`型的参数并返回一个`Int`型的值。
+
+#####使用函数类型
+
+在Swift中，使用函数类型就像使用其他类型一样。例如，你可以定义一个类型为函数的常量或变量，并将函数赋值给它：
+
+```
+var add = plus
+
+print(add(3, 5))
+```
+##### 函数类型作为参数类型
+
+你可以用`(Int, Int) -> Int`这样的函数类型作为另一个参数的参数类型。这样你可以将函数的一部分实现交由给函数的调用者：
+```
+func mathOperation(operation:(Int, Int) -> Int, _ a: Int, _ b: Int) {
+    print(operation(a, b))
+}
+mathOperation(add, 30, 20)
+```
+mathOperation函数的作用就是输出另一个合适类型的数学函数的调用结果。不用关心函数是如何实现的，只关心这个传入的函数类型是正确的。这使得mathOperation可以以一种类型安全的方式来保证传入函数的调用是正确的。
+
+#####函数类型作为返回类型
+
+函数类型作为另一个函数的返回类型。需要做的是在返回箭头`->` 后写一个完整的函数类型。
+
+```
+func plus(a: Int, _ b: Int) -> Int{
+    return a + b
+}
+
+func minus(a: Int, _ b: Int) -> Int{
+    return a - b
+}
+func devide(a: Int, _ b: Int) -> Int{
+    return a / b
+}
+
+func manageOperation(symbol: String) ->(Int, Int)->Int {
+    switch symbol {
+        case "+":
+            return plus
+        case "-":
+            return minus
+        default:
+            return devide
+    }
+}
+
+manageOperation("*")(30, 30)
+```
+你可以通过 manageOperation获得一个函数，根据你的需要。
+
+####嵌套函数（Nested funcions）
+
+这章中你所见到的所有函数都叫全局函数（global functions），它们定义在全局域中。把函数定义在别的函数体中，称作嵌套函数（nested functions）。
+
+默认情况下，嵌套函数是对外界不可见的，但是可以被它们封闭函数（enclosing function）来调用。一个封闭函数也可以返回它的某一个嵌套函数，使得这个函数可以在其他域中被使用。
+
+
+```
+func manageOperation(symbol: String) ->(Int, Int)->Int {
+    func plus(a: Int, _ b: Int) -> Int{
+        return a + b
+    }
+    
+    func minus(a: Int, _ b: Int) -> Int{
+        return a - b
+    }
+    func devide(a: Int, _ b: Int) -> Int{
+        return a / b
+    }
+
+    switch symbol {
+        case "+":
+            return plus
+        case "-":
+            return minus
+        default:
+            return devide
+    }
+}
+manageOperation("*")(30, 30)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ###控制语句
 
@@ -477,34 +768,7 @@ if - let 嵌套，请看<http://nshipster.cn/swift-1.2/>
 
 
 
-###循环
-
-```
-// 注意：需要使用 var 而不是 let
-for var i = 0; i < 10; i++ {
-    print(i)  // 2.0 开始，合并了 print跟println
-}
-
-// for in 写法，in 0..<10 表示，取值大于等于0小于10
-for i in 0..<10 {
-    print(i)
-}
-
-for i in 0...10 {
-    print(i)
-}
-
-//  `_` 表示忽略，函数方法使用`_`表示忽略参数
-for _ in 0...10 {
-    print("swift2.0", appendNewline: true) //打印换行可以这么做
-}
-
-var i = 0
-repeat {
-    i++
-    print(i)
-} while i < 10 // do-while 更名成 repeat-while
-```
+ 
 ### 可选类型 Optional
 
 声明方式：类型+？ 
@@ -517,35 +781,7 @@ str1 = "swift2.0";
 print(str1);	// 打印出来是 Optional("swift2.0")
 print(str1!); // 打印出来是 swift2.0 ! 是解包的意思 
 ```
-### 字符串
-
-Swift中String 用来声明字符串变量，不同于NSString的是，它是结构体，效率高，支持快速遍历。
-
-遍历
-
-```
-let letters = "abcdefghijklmn";
-
-for l in letters {
-    print(l)
-}
-```
-
-拼接
-
-```
-let a = "swfit"
-let b = "2.0"
-let c = a + b;
-```
-打印结构体
-
-```
-let frame = CGRectMake(10, 10, 10, 10)
-
-print(frame)
-```
-转换成
+ 
 
 ### 数组
 
