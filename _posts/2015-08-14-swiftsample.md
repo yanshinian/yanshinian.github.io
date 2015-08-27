@@ -1211,6 +1211,274 @@ OC中这些类型均以类的形式实现。NSString、NSArray和NSDictionary在
 
 > 注意：Swift管理所有的值拷贝以确保性能最优化。所以，你也没有必要去避免赋值以保证最优性能。（实际赋值由系统管理优化）
 
+### 属性
+
+* 存储属性（Stored Properties）
+* 计算属性（Computed Properties）
+* 属性观察器（Property Observers）
+* 全局变量和局部变量（Global and Local Variables）
+* 类型属性（Type Properties）
+
+属性将值跟特定的类、结构或枚举关联。存储属性存储常量或变量作为实例的一部分，而计算属性计算（不是存储）一个值。计算属性可以用于类、结构体和枚举，存储属性只能用于类和结构体。
+
+存储属性和计算属性通常与特定类型的实例关联。但是，属性也可以直接作用于类型本身，这种属性称为类型属性。
+
+还可以定义属性观察器来监控属性值的变化，一次来触发一个自定义的操作。属性观察器可以添加到自己定义的存储属性上，也可以添加到从父类继承的属性上。
+
+####存储属性
+
+存储在特定类或结构体的实例里的一个常量或变量。可以在定义存储属性的时候指定默认值。也可以在构造过程中设置或修改存储属性的值，甚至修改常量存储属性的值。
+
+```
+struct FixedLengthRange {
+    var firsValue: Int
+    let length: Int
+}
+
+var rangeOfThreeItems = FixedLengthRange(firsValue: 0, length: 3)
+
+rangeOfThreeItems.firstValue = 6
+```
+length在创建实例的时候被初始化，它是一个常量存储属性，之后无法修改了。
+
+####常量结构体的存储属性
+
+如果创建了一个结构体的实例并将其赋值给一个常量，则无法修改该实例的任何属性，即使定义了变量存储属性：
+
+```
+let rangeOfFourItems = FixedLengthRange(firsValue: 0, length: 3)
+// rangeOfFourItems.firstValue = 6 这样赋值是会报错的
+```
+
+为什么呢？结构体是值类型属性。当值类型的实例被声明为常量的时候，它的所有的属性也成为了常量。
+
+属于引用类型的类则不一样。把一个引用类型的实例赋值给一个常量后，仍然可以修改该实例的变量属性。
+
+##### 延迟存储属性
+
+延迟存储属性是值当第一次被调用的时候才会计算其初始值的属性。在属性声明前使用`lazy`标示延迟存储属性。
+
+> 必须将延迟存储属性声明成变量，因为属性的初始值可能在实例构造完之后才会得到。而常量属性在构造完成之前必须要有初始值，因此无法声明成延迟属性。
+
+延迟属性，当属性的值依赖于在实例的构造过程结束后才会知道具体的外部因素时，或者获得属性的初始值需要复杂或大量计算时，可以只在需要的时候计算它。
+
+下面例子使用延迟存储属性来避免复杂类中不必要的初始化。
+
+```
+class DataImporter {
+    /*
+    DataImporter 是一个将外部文件中的数据导入的类。
+    这个类的初始化会消耗不少时间。
+    */
+    var fileName = "data.txt"
+    // 这是提供数据导入功能
+}
+
+class DataManager {
+    lazy var importer = DataImporter()
+    var data = [String]()
+    // 这是提供数据管理功能
+}
+
+let manager  = DataManager()
+
+manager.data.append("数据")
+manager.data.append("更多数据")
+
+// DataImporter 实例的importer 属性还没有被创建
+```
+
+`DataImporter`完成初始化需要消耗不少时间：因为它的实例在初始化时可能打开文件，还有读取文件内容到内存。所以，弄成lazy，用到它的时候，它才会被实例化。importer 才会被创建
+
+> 注意：如果一个被标记为`lazy`的属性没有初始化时就同时被多个线程访问，则无法保证该属性只会被初始化一次。
+
+####存储属性和实例变量
+
+OC为类实例存储值和引用提供两种方法。对于属性来说，可以使用实例变量作为属性值的后端存储。
+
+
+Swift编程语言中把这些理论统一用属性来实现。Swift中的属性没有对应的实例变量，属性的后端存储也无法直接访问。这就避免了不同场景下访问方式的困扰，同时也将属性的定义简化成一个语句。一个类型中属性的全部信息——包括命名、类型和内存管理特征——都在唯一一个地方（类型中定义中）定义。
+
+####计算属性
+
+除存储属性外，类、结构体和枚举可以定义计算属性。计算属性不直接存储值，而是提供一个个getter和一个可选的setter，来间接获取和设置其他属性或变量的值。
+
+```
+struct Point {
+	var x = 0.0,y = 0.0
+}
+struct Size {
+	var width = 0.0, height = 0.0
+}
+struct Rect {
+	var origin = Point()
+	var size = Size()
+	var center: Point {
+		get {
+			let centerX = origin.x + (size.width / 2)
+			let centerY = origin.y + (size.height / 2)
+			return Point(x: centerX, y: centerY)
+		}
+		set(newCenter) {
+			origin.x = newCenter.x - (size.width / 2)
+			origin.y = newCenter.x - (size.height / 2)
+		}
+	}
+}
+
+var square = Rect(origin: Point(x: 0.0, y: 0.0), size: Size(width: 10.0, height: 10.0))
+
+let initialSquareCenter = square.center
+
+square.center = Point(x: 15.0, y: 15.0)
+```
+这个例子定义了3个结构体来描述几何形状
+
+* Point 封装了一个（x, y）的座标
+* Size 封装了一个width和一个height
+* Rect 表示一个有原点和尺寸的规矩
+
+Rect 提供了一个center计算属性。一个巨型的中心点可以从原点`origin`和尺寸`size`算出，所以不需要将它以显示声明的`Point`来保存。`Rect`
+
+
+####便捷setter声明
+
+如果计算属性的setter没有定义新值的参数名，可以使用默认的名称`newValue`。下面是使用了便捷setter声明的`Rect`结构体代码：
+
+```
+struct Rect {
+	var origin = Point()
+	var size = Size()
+	var center: Point {
+		get {
+			let centerX = origin.x + (size.width / 2)
+			let centerY = origin.y + (size.height / 2)
+			return Point(x: centerX, y: centerY)
+		}
+		set {
+			origin.x = newVlaue.x - (size.width / 2)
+			origin.y = newValue - (size.height / 2)
+		}
+	}
+}
+```
+
+
+####只读计算属性
+
+> 注意：必须使用var关键字定义计算属性，包括只读计算属性，因为它们的值是不固定的。let关键字只用来声明常量属性，表示初始化后再也无法修改的值。
+
+只读计算属性的声明可以去掉`get`关键字和花括号：
+
+```
+struct Cuboid {
+    var width = 0.0, height = 0.0, depth = 0.0
+    var volume: Double {
+        return width * height * depth
+    }
+}
+
+let fourByFiveByTwo = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
+```
+
+####属性观察器
+
+属性观察器监控和响应属性值的变化，每次属性被设置值的时候都会调用属性观察器，甚至新的值和现在的值相同的时候也不例外。
+
+可以为除了延迟存储属性之外的其他存储属性添加属性观察器，也可以通过重载属性的方式为继承的属性（包括存储属性和计算属性）添加属性观察器。
+
+>注意：不需要为非重载的计算属性添加属性观察器，因为可以通过它的setter 直接监控和响应值的变化。
+
+可以为属性添加如下的一个或全部观察器：
+
+* `willSet`在新的值被设置之前调用
+* `didSet`在新的值被设置之后立即调用
+
+`willSet`观察器会将新的属性值作为常量参数传入，在`willSet`的实现代码中可以为这个参数指定一个名称，如果不指定则参数仍然可用，默认名称newValue来表示。
+
+`didSet`观察器会将旧的属性值作为参数传入，可以为该参数命名或者使用默认参数名`newValue`
+
+> 注意：父类的属性在子类的构造器中被赋值时，它在父类中的`willSet`和`didSet`观察器会被调用
+
+这里是一个`willSet`和`didSet`的实际例子，其中定义了一个名为`StepCounter`的类，用来统计当人步行时的总步数。这个类可以跟计步器或其他日常锻炼的统计装置的输入数据配合使用。
+
+```
+class StepCounter {
+    var totalSteps: Int = 0 {
+        willSet(newTotalSteps) {
+            print(newTotalSteps)
+        }
+        didSet {
+            if totalSteps > oldValue {
+                print(totalSteps - oldValue)
+            }
+        }
+    }
+}
+let stepCounter = StepCounter()
+
+stepCounter.totalSteps = 200
+
+stepCounter.totalSteps = 300
+```
+当`totalSteps`设置新值的时候，它的`willSet`和`didSet`观察器都会被调用，甚至当新的值和现在的值完全相同也会调用。
+
+例子中的`willSet`观察器将表示心智的参数自定义为`newTotalSteps`，这个观察器只是简单的将新的值输出。
+
+`didSet`观察器在`totalSteps`的值改变后被调用，它把新的值和旧的值进行对比。didSet如果没有为旧的值提供自定义名称，默认为oldValue
+
+> 注意： 如果在一个属性的didSet观察器里为它赋值，这个值会替换该观察器之前设置的值。
+
+####全局变量和局部变量
+
+计算属性和属性观察器所描述的模式可以用于全局变量和局部变量。全局变量是在函数、方法、闭包或任何类型之外定义的变量。局部变量是在函数、方法、闭包内部定义的的变量。
+
+前面章节提到的全局或局部变量都属于存储型变量，跟存储属性类似，提供特定类型额存储控件，并允许读取和写入。
+
+在全局或局部范围都可以定义计算型变量和为存储型变量定义为观察器。计算型变量跟计算属性一样，返回一个计算的值而不是存储值，格式声明也完全一样
+
+> 注意：全局的常量或变量都是延迟计算的，跟延迟存储属性相似，不同的地方在于，全局的常量或变量不需要标记`lazy`特定。局部范围的常量或变量不会延迟计算。
+
+####类型属性
+
+不管类型有多少个实例，这些属性都只有唯一一份。这种属性就是类型属性。
+
+类型属性用于定义特定类型所有实例共享的数据，比如所有实例都能用的一个常量（就像C语言中的静态常量），或者所有实例都能访问的一个变量（C语言中的静态变量）。
+
+> 注意：必须给存储类型属性指定默认值，因为类型本身无法在初始化工程中使用构造器给类属性赋值。
+
+
+### 方法
+
+* 实例方法
+* 类型方法 （Type Methods）
+
+方法是与某些特定类型相关联的函数。类、结构体和枚举都可以定义实例方法也可以定义类型方法。类型方法与OC中的类方法（class methods）相似。
+
+结构体和枚举能够定义方法是Swift与C/OC的主要区别之一。OC中类是唯一能够定义方法的类型。但是Swift中，你不仅能选择定义一个类/结构体/枚举，还能灵活的在你创建的类型（类/结构体/枚举）上定义方法。
+
+#### 方法的局部参数和外部参数名称（Local and External Parameter Names for Methods）
+
+函数参数可以同时有一个局部名称（在函数体内部使用）和一个外部名称（在调用函数时使用），
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###控制语句
 
 OC中是 YES/NO ，swift 中是 true / false， swift 没有非零即真的概念
