@@ -1457,25 +1457,159 @@ stepCounter.totalSteps = 300
 
 结构体和枚举能够定义方法是Swift与C/OC的主要区别之一。OC中类是唯一能够定义方法的类型。但是Swift中，你不仅能选择定义一个类/结构体/枚举，还能灵活的在你创建的类型（类/结构体/枚举）上定义方法。
 
+#### 实例方法
+
+实例方法是属于某个特定类、结构体或者枚举类型实例的方法。实例方法提供访问和修改实例属性的方法或提供与实例目的相关的功能。实例方法的语法与函数完全一致。
+
+```
+class Counter {
+    var count = 0
+    func increment() {
+        ++count
+    }
+    func incrementBy(amount: Int) {
+        count += amount
+    }
+    func reset() {
+        count = 0
+    }
+}
+let counter = Counter()
+
+counter.increment()
+```
+
+
+
 #### 方法的局部参数和外部参数名称（Local and External Parameter Names for Methods）
 
 函数参数可以同时有一个局部名称（在函数体内部使用）和一个外部名称（在调用函数时使用），
 
+#### 修改方法外部参数名称（Modifying External Parameter Name Behavior for Methods）
+
+有时为方法的第一个参数提供一个外部参数名是非常有用的，尽管这部是默认的行为。你可以自己添加一个显示的外部名称或者用一个`#`作为第一个参数的前缀来把这个局部名称当作外部名称使用。
+
+相反，如果你不想为方法的第二个及后续的参数提供一个外部名称，可以通过下划线`_`作为该参数的显式外部名称，这样做将覆盖默认行为。
+
+#### self属性
+
+类型的每个实例都有一个隐含属性——`self`，`self`完全等同于该实例本身。你可以在一个实例的实例方法中使用这个隐含的`self`属性来引用当前实例。
 
 
+上面例子中的`increment`方法还可以这样写：
 
+```
+func increment() {
+	self.count++
+}
+```
 
+实际上，你不必在代码中经常写`self`。不论何时，只要在一个方法中使用一个已知的属性或者方法名称，如果你没有明确写`self`，Swift假定你是指当前实例的属性或者方法。这种假定在上面的`Counter`中已经示范了：`Counter`中的三个实例方法中都使用的是`count`（而不是`self.count`）
 
+使用这条规则的主要场景是实例方法的某个参数名称与实例的某个属性名称相同的时候。这种情况下，参数名称享有优先权，并且在引用属性时必须使用一个更严格的方式。这时你可以使用`self`属性来区分参数名称和属性名称。
 
+下面的例子中，`self`消除方法参数`x`和实例属性`x`之间的歧义：
 
+```
+struct Point {
+    var x = 0.0, y = 0.0
+    func isToTheRightOfX(x: Double) -> Bool {
+        return self.x > x
+    }
+}
 
+let somePoint = Point(x: 4.0, y: 5.0)
 
+if somePoint.isToTheRightOfX(1.0) {
+    print("")
+}
+```
 
+如果不使用`self`前缀，Swift就认为两次使用的x都指的是名称为`x`的函数参数。
 
+#### 在实例方法中改值类型（Modifying Value Types From Within Instance Methods）
 
+结构体和枚举是值类型。一般情况下，值类型的属性不能在它的实例方法中被修改。
 
+但是，如果你确实需要在某个具体的方法中修改结构体或者枚举的属性，你可以选择`变异（mutating）`这个方法，然后方法就可以从方法内部改变它的属性；并且它做的任何改变在方法结束时还会保留在原始结构中。方法还可以给它隐含的self属性赋值一个全新的实例，这个新实例在方法结束后将替换原来的实例。
 
+```
+struct Point {
+    var x = 0.0, y = 0.0
+    mutating func moveByX(deltaX: Double, y deltaY: Double) {
+        x += deltaX
+        y += deltaY
+    }
+}
 
+var somePoint = Point(x: 1.0, y: 1.0)
+
+somePoint.moveByX(2.0, y: 3.0)
+
+print("x = \(somePoint.x),y = \(somePoint.y)")
+```
+
+> 注意：不能在结构体类型常量上调用变异方法，因为常量的属性不能被改变，即使改变的是常量的变量属性也不行。
+
+####在变异方法中给self赋值（Assigning to self Within a Mutating Method）
+
+变异方法能够赋给隐含属性`self`一个全新的实例。上面`Point`的例子可以用下面的方式改写：
+
+```
+struct Point {
+    var x = 0.0, y = 0.0
+    mutating func moveByX(deltaX: Double, y deltaY: Double) {
+        self = Point(x: x + deltaX, y: y + deltaY)
+    }
+}
+```
+新版的变异方法`moveByX(_:y:)`创建一个新的结构（它的x和y的值都被设定为目标值）。调用这个版本的方法和调用上个版本的结果是一样的。
+
+枚举的变异方法可以把`self`设置为相同的枚举类型中不同的成员：
+
+```
+enum TriStateSwitch {
+    case Off, Low, High
+    mutating func next() {
+        switch self {
+        case Off:
+            self = Low
+        case Low:
+            self = High
+        case .High:
+            self = Off
+        }
+    }
+}
+
+var ovenLight = TriStateSwitch.Low
+ovenLight.next()
+// ovenLight 现在等于 .High
+ovenLight.next()
+// ovenLight 现在等于 .Off
+
+```
+上面的例子中定义了一个三态开关的枚举。每次调用`next`方法时，开关在不同的电源状态（`Off`，`Low`，`High`）之前循环切换。
+
+#### 类型方法（Type Methods）
+
+类型方法：类型本身调用的方法。声明结构体和枚举的类型方法，在方法的`func`关键字之前加上关键字`static`。类可能会用关键字`Class`来允许子类重写父类的实现方法。
+
+> 注意：在OC里面，你只能为OC的类定义类型方法（type-level methods）。在Swift中，你可以为所有的类、结构体和枚举定义类型方法：每一个类型方法都被它所支持的类型显式包含。
+
+类型方法和实例方法一样用点语法调用。但是，你是在类型层面上调用这个方法，而不是在实例层面上调用。
+
+```
+
+class SomeClass {
+    class func someTypeMethod() {
+        
+    }
+}
+
+SomeClass.someTypeMethod()
+```
+在类型方法体（body）中，`self`指向这个类型本身，而不是类型的某个实例。对于结构体和枚举来说，这意味着你可以用`self`来消除静态属性和静态方法参数之间的歧义（类型于我们在前面处理实例属性和实例方法参数时做的那样）。
 
 
 
