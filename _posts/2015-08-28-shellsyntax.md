@@ -151,7 +151,8 @@ fi
 
 
 参考资料：
-
+*  linux公社 <http://www.linuxidc.com/>
+* 《Linux shell脚本全面学习》http://www.linuxidc.com/Linux/2007-06/4767p3.htm
 * 《Unix & Linux 大学教程 - 第十三章 学习笔记》 <http://su1216.iteye.com/blog/1631238>
 * 《Linux Shell脚本面试25问》<http://www.linuxidc.com/Linux/2015-04/116474.htm>
 
