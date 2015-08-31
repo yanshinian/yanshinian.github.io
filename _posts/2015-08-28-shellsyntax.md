@@ -4,6 +4,9 @@ title:  "shell的基本语法"
 category: Linux
 date:   2015-08-28 
 ---
+> 本文章根据手头资料跟网络资料整理，非原创。将就看吧
+> 编写环境 Mac电脑，也有可能是Ubuntu 麒麟
+
 
 文件开头：
 
@@ -104,7 +107,125 @@ grep "hello" file.txt | wc -l
 ```
 在file.txt中搜索包含有”hello“的行并计算其行数
 
-流程控制
+##控制流结构
+
+### 流程控制是什么
+
+```
+#!/bin/bash
+#创建一个目录
+	make /home/yanshinian/shell/txt
+#复制所有的txt文件到指定的目录
+	cp *.txt /home/yanshinian/shell/txt
+	rm -f *txt
+
+```
+上面的脚本会出现问题码吗？
+
+如果目录创建失败或成功如何处理
+
+文件拷贝失败如何处理
+
+###4.1条件测试
+
+有时判断字符串是否相等或检查文件状态或是数字测试等。Test命令用于测试字符串，文件状态和数字。
+
+####4.1.1
+
+格式 `test condition` 或 [ condition ](`使用方括号的时候，条件的两边一定要加空格`)
+
+文件测试状态：可以根据$?的值来判断，0表示成功，不等于0为失败
+
+命令符 | 释义 
+----| ----
+-d | 目录
+-f | 正规文件
+-L | 符号链接
+-r | 可读
+-s | 文件长度大于0、非空
+-w | 可写
+-u | 文件有suid 位设置
+-x | 可执行
+-z | 字符串为空
+
+具体的可以用`man test`了解
+
+
+#####脚本测试
+
+```
+iOSdeiMac:iLinux ios$ ls
+Linux视频				shell01
+expr.sh					shell01.sh
+linux+					ubuntu-14.04.2-64
+read.sh					ubuntukylin-14.04.2-desktop-amd64.iso
+
+iOSdeiMac:iLinux ios$ test -d  Linux视频/ 
+
+iOSdeiMac:iLinux ios$ echo $?
+0
+
+iOSdeiMac:iLinux ios$ 
+```
+##### 脚本练习
+
+```
+#!/bin/bash
+echo "test use 1"
+test -w shell01.sh
+echo $?
+echo "test use2 [] begin"
+[ -w shell01.sh ] #如果忘了空格报类似这样的错误，./test.sh: line 6: [: missing `]'
+echo $?       
+```
+
+对上面的bash 进行`if`控制
+
+```
+这个程序 有待到 linux上验证，跟视频中一样的写法，报错了
+#!/bin/bash
+
+test -w shell01.sh
+
+if[ $? -eq "0" ];then
+        echo "sucess\n";
+else
+        echo "failure";
+fi
+
+echo $?
+```
+测试时使用逻辑操作符
+
+-a 逻辑与，操作符两边均为真，结果为真，否则为假
+
+-o 逻辑或，操作符两边一边为真，结果为真，否则为假的
+
+! 逻辑否，条件为假，结果为真
+
+####4.1.2 字符串测试
+
+格式
+
+```
+test "string"
+
+test string_operator "string"
+
+test "string" string_operator "string"
+
+[ string_operator string ]
+
+[ string string_operator string ]
+```
+
+操作符 `string operator`
+
+= | 字符串相等
+--- |----
+!= | 字符串不等
+-z | 空字符串
+-n | 非空字符串
 
 ```
 if 条件;then
@@ -151,6 +272,7 @@ fi
 
 
 参考资料：
+
 *  linux公社 <http://www.linuxidc.com/>
 * 《Linux shell脚本全面学习》http://www.linuxidc.com/Linux/2007-06/4767p3.htm
 * 《Unix & Linux 大学教程 - 第十三章 学习笔记》 <http://su1216.iteye.com/blog/1631238>
