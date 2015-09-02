@@ -1,9 +1,41 @@
 ---
 layout: post
-title:  "swift归档"
+title:  "swift2.0，1.2归档"
 category: swift
 date:   2015-08-03
 ---
+开发环境：xcode7beta5,swift 2.0
+
+代码；
+```
+class Member: NSObject, NSCoding  {
+    /** 用户id **/
+    var uid: String?
+    /** 用户 昵称 **/
+    var userName: String?
+    var CoreLockPWDKey: String?
+    static private let filePath = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("member.plist")
+    // MRAK: - 归档那的操作
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(uid, forKey: "uid")
+        aCoder.encodeObject(userName, forKey: "userName")
+    }
+    // MRAK: - 解档的操作
+    required init?(coder aDecoder: NSCoder ) {
+        aDecoder.decodeObjectForKey("uid") as! String
+        aDecoder.decodeObjectForKey("userName") as! String
+    }
+    func saveMember() {
+        NSKeyedArchiver.archiveRootObject(self, toFile: Member.filePath)
+    }
+    func member()->Member {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Member.filePath) as! Member
+    }
+    
+}
+```
+
+
 开发环境：xcode6.3,swift 1.2
 
 代码：
