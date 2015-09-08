@@ -7,6 +7,8 @@ date:   2015-09-08
 匹配字符串至少有三种方式，看如下代码
 
 1.字符串处理函数
+
+
 ```
 //MARK: - 验证手机号
 func verifyPhoneNo() -> Bool? {
@@ -16,7 +18,9 @@ func verifyPhoneNo() -> Bool? {
     return false
 }
 ```
+
 2.NSPrediate（谓词）
+
 ```
 //MARK: - 验证是否是纯数字
 func verifyNumber() -> Bool {
@@ -27,7 +31,9 @@ func verifyNumber() -> Bool {
     return false
 }
 ```
+
 3.正则表达式
+
 
 ```
 //MARK: - 验证身份证
