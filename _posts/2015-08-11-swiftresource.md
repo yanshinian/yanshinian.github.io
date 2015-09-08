@@ -71,6 +71,7 @@ OC中这些类型均以类的形式实现。NSString、NSArray和NSDictionary在
 
 5.Let's Swift <http://letsswift.com>
 
+6.必须Mark！43个优秀的Swift开源项目推荐 <http://code.csdn.net/news/2823502>
 ####国外
 1.We❤️Swift <http://www.weheartswift.com/>
 
@@ -79,6 +80,8 @@ OC中这些类型均以类的形式实现。NSString、NSArray和NSDictionary在
 3.Swift Video Tutorials <http://www.swiftvideotutorials.com/>
 
 4.practicalswift<http://practicalswift.com/>
+
+
 
 参考资料：
 
