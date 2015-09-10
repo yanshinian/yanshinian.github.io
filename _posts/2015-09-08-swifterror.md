@@ -29,6 +29,19 @@ date:   2015-09-08
     /** 文章发布时间 **/
     var createTime: Int = 0
 ```
+3.Cannot subscript a value of type '[UIViewController]' with an index of type'()'
+
+![如图](/image/swifterror/error01.png)
+
+其实，问题也简单，编译器有时候会帮你解决。但是没有的话手动改。
+
+```
+navigationController!.childViewControllers[1]
+
+或者改成 
+
+(navigationController?.childViewControllers[1])!
+```
 
 参考链接：http://www.cnblogs.com/hw140430/p/4142195.html
 
