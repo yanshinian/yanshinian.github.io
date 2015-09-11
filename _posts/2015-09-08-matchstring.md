@@ -26,10 +26,7 @@ func verifyPhoneNo() -> Bool? {
 //MARK: - 验证是否是纯数字
 func verifyNumber() -> Bool {
     let pattern = "^[0-9]+$"
-    if NSPredicate(format: "SELF MATCHES %@", pattern).evaluateWithObject(self) {
-        return true
-    }
-    return false
+    return NSPredicate(format: "SELF MATCHES %@", pattern).evaluateWithObject(self) 
 }
 ```
 

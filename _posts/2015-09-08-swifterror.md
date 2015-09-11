@@ -53,6 +53,13 @@ navigationController!.childViewControllers[1]
 参考链接： tableView identifier问题    <http://www.cocoachina.com/bbs/read.php?tid=263211>
 
 
+5. `*** NSForwarding: warning: object 0x7fee43693d00 of class 'Regx.Car' does not implement methodSignatureForSelector: -- trouble ahead`
+
+
+原因是没有继承NSObject
+
+参考链接:Does not implement methodSignatureForSelector: — trouble ahead <http://handy-wang.iteye.com/blog/1162857>
+
 
 
 
