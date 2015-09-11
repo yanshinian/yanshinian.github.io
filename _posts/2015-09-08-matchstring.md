@@ -47,10 +47,11 @@ func verifyId() -> Bool {
     return false
 }
 ```
-
-参考资料：
+考资料：
 
 * Swift 的正则表达式<http://www.tuicool.com/articles/vu6JzmU>
+* 8 Regular Expressions You Should Know<http://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149>
+* 正则表达式30分钟入门教程<http://deerchao.net/tutorials/regex/regex.htm>
 
 	
 

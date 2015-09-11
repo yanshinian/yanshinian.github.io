@@ -42,8 +42,17 @@ navigationController!.childViewControllers[1]
 
 (navigationController?.childViewControllers[1])!
 ```
+参考链接：<http://www.cnblogs.com/hw140430/p/4142195.html>
 
-参考链接：http://www.cnblogs.com/hw140430/p/4142195.html
+4. xib 自定义 cell ，运行报错`invalid nib registered for identifier (CellTableIdentifier) - nib must contain exactly one top level object which must be a UITableViewCell instance'`
+
+```
+我在cell中不小心拖了其他的控件，所以报错，删了就好了
+```
+
+参考链接： tableView identifier问题    <http://www.cocoachina.com/bbs/read.php?tid=263211>
+
+
 
 
 
