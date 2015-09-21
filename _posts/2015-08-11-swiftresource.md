@@ -81,6 +81,7 @@ OC中这些类型均以类的形式实现。NSString、NSArray和NSDictionary在
 
 4.practicalswift<http://practicalswift.com/>
 
+5.Swift 语言指南<https://github.com/ipader/SwiftGuide>
 
 
 参考资料：

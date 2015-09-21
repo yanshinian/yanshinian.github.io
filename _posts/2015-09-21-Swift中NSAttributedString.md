@@ -143,6 +143,8 @@ Find an example in the image below.
 
 可以指定一个`NSTextAttachment`对象。默认为nil，也就是没有附件
 
+![](/images/NSSAttributeString/NSAttributedString_10000.png)
+
 
 ####NSLinkAttributeName（链接）
 
@@ -205,6 +207,8 @@ Find an example in the image below.
 * NSAttributedString in Swift <https://www.invasivecode.com/weblog/attributed-text-swift/>
 * iOS 字符属性NSAttributedString描述 <http://my.oschina.net/lanrenbar/blog/395909>
 * iOS- 详解文本属性Attributes - 清澈Saup<http://www.tuicool.com/articles/zquENb>
+* 
+iOS之富文本 <http://www.itnose.net/detail/6177538.html>
 
 
  
