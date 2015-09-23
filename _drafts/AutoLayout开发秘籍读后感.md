@@ -18,6 +18,7 @@ ps.当然这本书只是一个学习AutoLayout的一个方式，互联网是个�
 
 * 《Scrollview的Autolayout》<http://yanshinian.com/ScrollviewAutolayot/>
 * 《AutoLayout 练习》<http://yanshinian.com/autolayoutpractice/>
+* 《Auto Layout 约束的优先级》<http://yanshinian.com/piority/>
 
 
 
