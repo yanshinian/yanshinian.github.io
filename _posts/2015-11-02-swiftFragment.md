@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "swift碎片（swift 2.0）"
+title: "swift碎知识"
 category: Swift2.0
-date: 2015-10-15 12:45
+date: 2015-11-02 12:45
 ---
 1.swift 标记
 
@@ -13,8 +13,11 @@ date: 2015-10-15 12:45
 *  // FIXME: 
 
 参考链接：
+
 《#pragma mark in Swift?》<http://stackoverflow.com/questions/24017316/pragma-mark-in-swift#comment44291547_24037870>
+
 《Swift’s Answer to #pragma mark, FIXME and TODO》<http://iosdevelopertips.com/xcode/swift-replacement-pragma.html>
+
 《代码中特殊的注释技术——TODO、FIXME和XXX的用处》 <http://www.cnblogs.com/pengyingh/articles/2445826.html>
 
 2.通常情况下 `NSArray`跟`NSDictionary`，在类似如下情况下使用（通常Array跟Dictionary就够用了）：
@@ -41,7 +44,9 @@ print(a.substringWithRange(Range(start: advance(a.endIndex, -2),end: advance(a.e
 正式如下：
  print(a.substringWithRange(Range(start: a.endIndex.advancedBy(-2), end: a.endIndex.advancedBy(-1))))
  
-参考链接：http://stackoverflow.com/questions/28182441/swift-how-to-get-substring-from-start-to-last-index-of-character
 ```
+参考链接：
+
+http://stackoverflow.com/questions/28182441/swift-how-to-get-substring-from-start-to-last-index-of-character
 
 4.
