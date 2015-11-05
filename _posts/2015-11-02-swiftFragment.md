@@ -49,4 +49,37 @@ print(a.substringWithRange(Range(start: advance(a.endIndex, -2),end: advance(a.e
 
 http://stackoverflow.com/questions/28182441/swift-how-to-get-substring-from-start-to-last-index-of-character
 
-4.
+4.通过字符串实例化控制器
+
+实现这个功能，必须使用 `@objc`关键字。
+
+```
+@objc(AboutMeViewController) 
+class AboutMeViewController: UIViewController {
+	....
+}
+```
+
+```
+let value = "AboutMeViewController"
+let vc = NSClassFromString(value) as! UIViewController.Type
+                    
+navigationController?.pushViewController(vc.init(), animated: true)
+```
+
+5.UIWebView 加载文件（e.g html文件）
+
+
+```
+let filePath = NSBundle.mainBundle().pathForResource("index.html", ofType: nil)
+do {
+    let htmlString =  try NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
+    (self.view as! UIWebView).loadHTMLString(htmlString
+        as String, baseURL: NSURL(string: filePath!))
+} catch let error as NSError  {
+    print(error.localizedDescription)
+}
+```
+
+
+
