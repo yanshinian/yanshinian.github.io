@@ -43,8 +43,29 @@ beta如下：
 print(a.substringWithRange(Range(start: advance(a.endIndex, -2),end: advance(a.endIndex, -1))))
 正式如下：
  print(a.substringWithRange(Range(start: a.endIndex.advancedBy(-2), end: a.endIndex.advancedBy(-1))))
+ ```
  
+获取包含字符串位置，并截取
+
+例如 ：WebView交互
+
 ```
+let urlString = request.URL?.absoluteString.stringByRemovingPercentEncoding!
+if let u = urlString {
+    // 如果包含这个协议，开始做交互
+    if u.hasPrefix("protocol://") {
+        let range = u.rangeOfString("protocol://")
+        let protocolName = u.substringFromIndex((range?.endIndex)!)
+        
+        if let b = protocolBlock {
+            b(protocolName: protocolName)
+        }
+        return false
+    }
+}
+
+```
+
 参考链接：
 
 http://stackoverflow.com/questions/28182441/swift-how-to-get-substring-from-start-to-last-index-of-character
@@ -118,4 +139,22 @@ self.delegate?.sectionHeaderViewDidSelect(self)
 使用关键字static定义类型属性。为类定义计算类型属性时，可以用关键词class 支持子类对父类的实现进行重写。class 不能用于 存储属性。
 
 class跟static都能修饰类方法。static 修饰的属性或者方法都是是不能被继承重写的。
+
+9.class跟Struct 的相似处与不同处
+
+共同点：
+
+* 定义属性用于存储值
+* 定义方法用于提供功能
+* 定义附属脚本用于生成初始化值
+* 通过扩展以增加默认实现的功能
+* 实现协议以提供某种标准功能
+
+与结构体相比，类还有一下附加功能：
+
+* 继承允许一个类继承另一个类的特征
+* 类型转换允许在运行时检查和解释一个类实例的类型
+* 解构器允许一个类实例释放任何其被分配的资源
+* 引用计数允许对一个类的多次引用（结构体总是通过被复制的方式在代码中传递，因此不需要引用计数）
+结构体跟枚举是值类型。值类型被赋予给一个变量、常量或者本身被传递给一个函数的时候，实际上的操作的是其被拷贝。swift所有的基本类型都是值类型。以结构体的形式在后台实现。
 
