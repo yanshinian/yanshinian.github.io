@@ -138,9 +138,52 @@ self.delegate?.sectionHeaderViewDidSelect(self)
 
 使用关键字static定义类型属性。为类定义计算类型属性时，可以用关键词class 支持子类对父类的实现进行重写。class 不能用于 存储属性。
 
-class跟static都能修饰类方法。static 修饰的属性或者方法都是是不能被继承重写的。
+class跟static都能修饰类方法。static 修饰的属性或者方法都是不能被继承重写的。
 
-9.class跟Struct 的相似处与不同处
+9.XIB 加载失败的处理
+
+```
+override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+}
+deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+}
+required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+}
+convenience  init() {
+    let nibNameOrNil = String?("HomeViewController")
+    self.init(nibName: nibNameOrNil, bundle: nil)
+}
+```
+
+10.ATS（App Transport Security ）
+
+```
+在Info.plist中添加NSAppTransportSecurity类型Dictionary。
+在NSAppTransportSecurity下添加NSAllowsArbitraryLoads类型Boolean,值设为YES
+```
+
+参考链接：
+
+《iOS9 HTTP 不能正常使用的解决办法》 <http://segmentfault.com/a/1190000002933776>
+
+11.页面跳转技巧（数组操作）
+
+```
+var vcs:[UIViewController] = (self.navigationController?.viewControllers)!
+vcs[0].presentViewController(nvc, animated: true, completion:{
+    self.navigationController?.viewControllers = vcs
+    vcs[0].tabBarController?.selectedIndex = 0
+})
+```
+参考链接：
+<http://stackoverflow.com/questions/410471/how-can-i-pop-a-view-from-a-uinavigationcontroller-and-replace-it-with-another-i>
+
+12.class跟Struct 的相似处与不同处
+
+
 
 共同点：
 
