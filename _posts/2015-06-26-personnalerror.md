@@ -26,12 +26,19 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 2015-06-26 15:05:35.301 HYQ[38374:2409347] CUICatalog: Invalid asset name supplied: (null)
  http://blog.csdn.net/itianyi/article/details/8547902
  ```
- ####3.在用cell的时候NSScanner: nil string argument  
+####3.在用cell的时候NSScanner: nil string argument  
  
  ```
 检查控件的关联的属性
  ```
- 
+
+####4.ld: '/Users/xxx/Desktop/xxx1.6/xxx1.3/Class/Main/Lib/LLPay/libssl.a(s2_meth.o)' does not contain bitcode. You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. for architecture arm64
+
+参考链接：
+
+《iOS9适配》 <http://blog.csdn.net/lvxiangan/article/details/48675881>
+
+《理解Bitcode：一种中间代码》<http://www.cocoachina.com/ios/20150818/13078.html>
  
 ###svn篇
 
@@ -81,7 +88,7 @@ svn revert /Users/qrh/Desktop/work/svn/yb2.0/TVAPP/Images/share/moviePause@2x.pn
 
 svn ci -m "update"
 ```
-###发布app篇
+### XCode篇
 
 1.new apps and app updates submitted to the app store must be built with public(GM) versions of Xcode ……（具体看见下图）（另：GM版通常是正式版发布前，最后一个测试版。）
 
@@ -94,9 +101,16 @@ svn ci -m "update"
 
 为啥我不用xcode7发布呢？因为图中说，不能用beta软件发布。当然，我也没有尝试，因为急着发布。以后可以试下用 10.11beta + xcode7beta。毕竟下个项目要用swift2.0开发了。也希望苹果的正式版赶紧出来。
 ```
-
 参考资料：
+
 * iOS应用打包发布常见问题<http://chenhbc.iteye.com/blog/2106959>
+ 
+2.(null):  Couldn't codesign /Users/ios/Library/Developer/Xcode/DerivedData/hyq2.0-ghkupheqogsvdpeqhaprewzzqhfb/Build/Products/Debug-iphoneos/hyq2.0.app/Frameworks/libswiftCore.dylib: codesign failed with exit code 1
+
+解决办法：
+
+<http://www.raywenderlich.com/forums/viewtopic.php?f=45&t=20561>
+
 
 
 

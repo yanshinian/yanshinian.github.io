@@ -4,8 +4,7 @@ title:  "shell的基本语法"
 category: Linux
 date:   2015-08-28 
 ---
-> 本文章根据手头资料跟网络资料整理，非原创。将就看吧
-> 编写环境 Mac电脑，也有可能是Ubuntu 麒麟
+> 本文章根据手头资料跟网络资料整理，非原创。将就看吧！ 编写环境 Mac电脑，也有可能是Ubuntu 麒麟
 
 
 文件开头：
@@ -134,10 +133,10 @@ grep "hello" file.txt | wc -l
 
 格式 `test condition` 或 [ condition ](`使用方括号的时候，条件的两边一定要加空格`)
 
-文件测试状态：可以根据$?的值来判断，0表示成功，不等于0为失败
+文件测试状态：可以根据`$?`的值来判断，0表示成功，不等于0为失败
 
-命令符 | 释义 
-----| ----
+命令符|释义 
+----|----
 -d | 目录
 -f | 正规文件
 -L | 符号链接
@@ -222,7 +221,7 @@ test "string" string_operator "string"
 操作符 `string operator`
 
 = | 字符串相等
---- |----
+---|----
 != | 字符串不等
 -z | 空字符串
 -n | 非空字符串
@@ -238,6 +237,7 @@ fi
 ```
 可以使用测试命令来对条件进行测试。比如可以比较字符串、判断文件是否存在及是否可读等等..
 
+```
 [ -f "somefile"]： 判断是否是一个文件
 
 [ -x "/bin/ls"]：判断/bin/ls是否存在并有可执行权限
@@ -245,6 +245,7 @@ fi
 [ -n "$var" ]： 判断$var变量是否有值
 
 [ "$a"="$b" ]：判断$a和$b是否相等
+```
 
 执行`man test` 可以查看所有测试表达式可以比较和判断的类型。
 
@@ -274,7 +275,7 @@ fi
 参考资料：
 
 *  linux公社 <http://www.linuxidc.com/>
-* 《Linux shell脚本全面学习》http://www.linuxidc.com/Linux/2007-06/4767p3.htm
+* 《Linux shell脚本全面学习》<http://www.linuxidc.com/Linux/2007-06/4767p3.htm>
 * 《Unix & Linux 大学教程 - 第十三章 学习笔记》 <http://su1216.iteye.com/blog/1631238>
 * 《Linux Shell脚本面试25问》<http://www.linuxidc.com/Linux/2015-04/116474.htm>
 
