@@ -39,6 +39,36 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 《iOS9适配》 <http://blog.csdn.net/lvxiangan/article/details/48675881>
 
 《理解Bitcode：一种中间代码》<http://www.cocoachina.com/ios/20150818/13078.html>
+
+####5. 重新安装 cocopod 时候出现ERROR:  While executing gem ... (Errno::EPERM)Operation not permitted - /usr/bin/xcodeproj
+
+
+解决方案：
+
+```
+sudo gem install -n /usr/local/bin cocoapods
+```
+参考链接：
+
+《安装Cocoapods， 更新gem出现的问题。》<http://segmentfault.com/q/1010000002926243/a-1020000002928938>
+
+《Cannot install cocoa pods after uninstalling, results in error》<http://stackoverflow.com/questions/30812777/cannot-install-cocoa-pods-after-uninstalling-results-in-error/30851030#30851030>
+
+《解决OS X 10.11 升级 cocoapods带来的问题》 <http://www.tuicool.com/articles/AFVVvaE>
+ 
+####6.使用 `reloadRowsAtIndexPaths` 出现`reloadRowsAtIndexPaths  exception 'NSInternalInconsistencyException', reason: 'attempt to delete row 1 from section 1, but there are only 1 sections before the update'`报错
+
+原因是：指定的`section`跟`row`可能没有。修改对了就可以了。
+
+例如：刷新第一个section的第一个cell
+
+```
+[NSIndexPath indexPathForRow:0 inSection:0]; 
+```
+
+参考链接：
+
+《iOS开发小技巧：刷新UITableView》<http://worldligang.baijia.baidu.com/article/146837>
  
 ###svn篇
 
