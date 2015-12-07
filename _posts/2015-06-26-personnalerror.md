@@ -70,6 +70,14 @@ sudo gem install -n /usr/local/bin cocoapods
 
 《iOS开发小技巧：刷新UITableView》<http://worldligang.baijia.baidu.com/article/146837>
  
+####7. 提交到ApppStore出现的问题：`ERROR ITMS-90474: "Invalid Bundle. iPad Multitasking support requires these orientations: 'UIInterfaceOrientationPortrait,UIInterfaceOrientationPortraitUpsideDown,UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight'. Found 'UIInterfaceOrientationPortrait' in bundle 'xxx.xxx.xxx'."`还有一个`ERROR ITMS-90475: "Invalid Bundle. iPad Multitasking support requires launch story board in bundle 'xxx.xxx.xxx'."`
+
+解决方案：《iPad Multitaskingに対応したメモ》<http://qiita.com/jollyjoester/items/c8bb1592d01fdef663f9>
+ 
+####8. 提交到ApppStore出现的问题（是跟上面的同时出现的，但是跟上面的两个问题无关）： `Error ITMS-90535: Unexpected CFBundleExecutable Key - xxxx.bundle`
+
+解决方案：《Unexpected CFBundleExecutable key》<http://stackoverflow.com/questions/32096130/unexpected-cfbundleexecutable-key>
+ 
 ###svn篇
 
 ####1..xccheckout' remains in conflict
