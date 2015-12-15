@@ -5,6 +5,8 @@ category: Swift
 date:   2015-12-10 12:15 
 ---
 
+最簡單的繪圖步驟
+
 1. 獲取上下文
 
 2. 創建路徑(這裡需要設置一些你喜歡的參數)
@@ -115,6 +117,7 @@ image?.drawAtPoint(CGPointMake(100, 100))  // 指定座標點 ，默認就是圖
 image?.drawInRect(CGRectMake(100, 100, 50, 50)) // 指定 範圍
 ```
 或者使用混合模式
+
 ```
 image?.drawAtPoint(CGPointMake(100, 100), blendMode: CGBlendMode.Copy, alpha: 1.0)
 ```
@@ -122,6 +125,7 @@ image?.drawAtPoint(CGPointMake(100, 100), blendMode: CGBlendMode.Copy, alpha: 1.
 保存上下文，恢復上下文
 
 如果不保存，我們會看到兩個橢圓，第一個圓設置的放大，第二個也一樣被設置了。如果保存了上下文，設置第二園之前恢復上下文，那麼第二個還是圓。這就好比把以前的設置都作廢了。
+
 ```
 let context = UIGraphicsGetCurrentContext()
 CGContextSaveGState(context) // 保存上下文
