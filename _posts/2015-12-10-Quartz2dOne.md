@@ -2,7 +2,7 @@
 layout: post
 title:  "Quartz 2d繪圖的基本使用「One」"
 category: Swift
-date:   2015-12-10 
+date:   2015-12-10 12:15 
 ---
 
 1. 獲取上下文
