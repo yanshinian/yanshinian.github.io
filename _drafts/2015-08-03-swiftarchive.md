@@ -3,7 +3,7 @@ layout: post
 title:  "swift2.0，1.2归档"
 category: swift
 date:   2015-08-03
----
+---All you have is a blank screen with two bar buttons on top: the left one shows the NASA image credits and the right one invokes the method that shows or hides the gallery as appropriate.First, you’ll need to display all images on the screen and set them up so they’re ready for your “fan” animation.
 开发环境：xcode7beta5,swift 2.0
 
 代码；
@@ -14,7 +14,7 @@ class Member: NSObject, NSCoding  {
     /** 用户 昵称 **/
     var userName: String?
     var CoreLockPWDKey: String?
-    static private let filePath = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("member.plist")
+    static private let filePath = All you have is a blank screen with two bar buttons on top: the left one shows the NASA image credits and the right one invokes the method that shows or hides the gallery as appropriate.First, you’ll need to display all images on the screen and set them up so they’re ready for your “fan” animation.(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("member.plist")
     // MRAK: - 归档那的操作
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(uid, forKey: "uid")
