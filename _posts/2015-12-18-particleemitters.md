@@ -374,3 +374,14 @@ emitterCell.lifetimeRange = 1.0
 对于这个挑战没有对与错的解决方案，你可以玩到你满意为止。在本章，我已经涵盖了我喜欢的解决方案，你可以看看你改变的粒子系统：
 
 ![](/images/particleEmitters/particle28.png)
+
+
+扩展阅读：
+
+* CAEmitterLayer（粒子系统）学习笔记（含Demo） 》<http://blog.csdn.net/yongyinmg/article/details/38946311>
+
+* 《CAEmitterLayer和CAEmitterCell 》<http://blog.csdn.net/u012890196/article/details/21246751?utm_source=tuicool&utm_medium=referral>
+
+* 《Swift 2.1: Experimenting with CAEmitterLayer》<http://www.sthoughts.com/2015/11/02/swift-2-1-experimenting-with-caemitterlayer/>
+
+* 《UIKit上でパーティクルエフェクトを表示する》<http://d.hatena.ne.jp/shu223/20130315/1363298992>
