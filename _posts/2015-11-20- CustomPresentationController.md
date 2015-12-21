@@ -6,7 +6,7 @@ date: 2015-12-20 12:15
 ---
  
  
-你是否将相机视图控制，地址簿或者你自定义的模态屏幕调用它们都是通过`presentViewController(_: animated:completion:)`展示。`放弃`当前的屏幕到另一个视图控制器。将新的视图滑动覆盖到当前的视图。下图展示了一个`新建联系人`在`联系人列表`中的滑动：
+你是否展示相机视图控制器，地址簿或者你自定义的模态屏幕，调用它们都是通过`presentViewController(_: animated:completion:)`展示。`放弃`当前的屏幕到另一个视图控制器。将新的视图滑动覆盖到当前的视图。下图展示了一个`新建联系人`在`联系人列表`中的滑动：
 
 ![](/images/custompresent/custompresent01.png)
 
