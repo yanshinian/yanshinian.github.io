@@ -299,6 +299,70 @@ if operation == .Push {
 
 #### 挑战一：新视图控制器淡入
 
+现在这个过渡像一个锋利的剪影；新的视图控制器的内容可见的瞬间让整个动画看起来有些笨拙。
+
+你的挑战是reveal 动画执行时新的控制器淡入。
+
+为此，创建CABasicAnimation的淡入动画添加给VC.view的layer。这个新的动画使用跟过渡相同的执行时间，设置`fromValue`和`toValue`从完全透明到完全不透明。
+
+你调用的新的动画添加到reveal动画logo跟遮罩层的之后。
+
+当你完成了，你的过渡效果看起来如下图：
+
+![](/images/customnavvctransition/customnavvctransition12.png)
+
+看起来你的剪影随着它变大变得越来越透明。给整个过渡增添了神秘效果。
+
+####挑战二：添加Pop过渡
+
+添加一个pop过渡，简单的在`RevealAnimator`的`animateTransition()`方法给if添加一个else的分支。在else分支添加你想要的动画，但是完成之后别忘了`调用completeTransition()`。
+
+
+
+下面是如何创建一个简单的收缩过渡：
+
+1.在` animateTransition()`添加一个else分支
+
+2.在上下文中使用viewForKey方法得到“from”跟“to”view。因为这一次第你没有做任何与视图控制器属性的事情，你只能单独获取这些view。
+
+3.在过读容器上，把toView插入到fromView之下。提示：使用 insertSubview(_:belowSubview:_)。
+
+4.使用一个动画缩放fromView到0.01倍。不用使用0.0这会混淆UIKit。对于这个动画你可以使用一个普通的view动画——没有必要创建一个层动画。
+
+5.当这个动画结束之后，跟之前做的一样在过渡上下文上调用 call completeTransition() 
+
+
+这个优雅的收缩过渡效果如下：
+
+![](/images/customnavvctransition/customnavvctransition13.png)
+
+也许你可能猜到，你也可以创建UITabBarController的自定义的过渡。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
