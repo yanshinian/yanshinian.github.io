@@ -1,11 +1,10 @@
 ---
 layout: post
-title: "iOS_Animations_by_Tutorials 第十七章 粒子发射器[简译]"
+title: "iOS_Animations_by_Tutorials2.0 第19章 粒子发射器[简译]"
 date: 2015-12-18 
 category: iOS动画
 ---
 
-> 这本书有两个版本1.2跟2.0，本文根据1.2翻译。2.0貌似没变！只是变成了第19章，翻译能力欠佳！请谅解！
 
 在屏幕上模拟让我们惊讶的爆炸的火焰，暴雨以及烟雾效果。这章你将学习使用粒子发射器制作自己的特效。
 
@@ -38,7 +37,8 @@ category: iOS动画
 创建一个新的`CAEmitterLayer`，设置该layer的frame充满屏幕并且在顶层。打开`ViewController.swift`，把下面的代码添加到`viewDidLoad()`中（这章所有的代码都是在`viewDidLoad()`中，所以，下面我就不翻译了）：
 
 ```
-let rect = CGRect(x: 0.0, y: 100.0, width: view.bounds.width, height: 50.0)let emitter = CAEmitterLayer() emitter.frame = rect view.layer.addSublayer(emitter)
+let rect = CGRect(x: 0.0, y: 100.0, width: view.bounds.width, height: 50.0)let emitter = CAEmitterLayer() emitter.frame = rect 
+view.layer.addSublayer(emitter)
 ``` 
 设置粒子效果的发射类型
 
@@ -133,11 +133,11 @@ emitter.emitterCells = [emitterCell]
 
 接下来，我们花时间研究下`CAEmitterCell`的一些属性：
 
-####控制粒子
+###控制粒子
 
 在这一章，雪粒子出现，在太空中漂浮几秒钟，然后消失。一个粒子寿命为3.5秒让人感觉无聊。你的下个任务是给这些漫无目的的粒子在它们生命周期内指明方向。
 
-#####改变粒子的方向
+####改变粒子的方向
 
 在Y方向添加一个速度让粒子像雪一样漂移坠落。
 
@@ -263,7 +263,7 @@ emitterCell.blueRange = 0.1
 
 ![](/images/particleEmitters/particle22.png)
 
-随机粒子的外观
+####随机粒子的外观
 
 即使你自定义过后，雪花看起来是均匀的。那么，我想要每个粒子都有美丽而独特的雪花，就要给每个雪花赋一个随机的大小值。
 
@@ -328,7 +328,7 @@ emitterCell.alphaSpeed = -0.15
 
 你已经设置了大部分CAEmitterCell提供的属性了。接下来是关于添加磨光的动画。
 
-#####添加一些抛光的效果
+###添加一些抛光的效果
 
 找到之前设置的emissionLongitude，重新设置：
 
@@ -360,8 +360,9 @@ emitterCell.lifetimeRange = 1.0
 
 一旦你了解了粒子系统工作原理，设计和实现粒子效果是莫大的乐趣。为此目的，通过下面的挑战，你可以自定义你的降雪效果。
 
+###挑战
 
-####挑战1：向发射层添加更多的Cell
+####挑战一：向发射层添加更多的Cell
 
 这个挑战更自由；你的任务是开发一个添加一个多个cell的发射器。
 
