@@ -3,19 +3,13 @@ layout: post
 title:  "關於我"
 category: [生活]
 date:   2015-04-02 
-
 ---
-<center>我叫言十年。叫我小言就好了。我的Blog還需要裝修。寫Blog比較費時間。</center>
 
-<center>
-我是一個會iOS開發，php開發的IT青年。
-</center>
+大家好！我是言十年！请亲切的叫我小言。
 
-<center>
-我喜歡唱歌，喜歡繁體字，喜欢思考。
-</center>
+我喜欢看书。喜欢唱歌！
 
-<center> 
-我的联系方式：yan@yanshinian.com ，如果志同道合，我们邮件联系吧！
-</center>
+会写php，会写iOS
+
+
 

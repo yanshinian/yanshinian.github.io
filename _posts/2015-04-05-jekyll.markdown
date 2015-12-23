@@ -3,9 +3,9 @@ layout: post
 title:  "搭建jekyll博客"
 date:   2015-04-03 02:15:48
 categorie: jekyll 使用教程
-
 ---
-了解jekyll
+
+###了解jekyll
 
 ```
 免費的BLog生成工具
@@ -14,7 +14,7 @@ categorie: jekyll 使用教程
 開通`GitPages`，把你的`jekyll`（根目錄下所有文件））網站放上去託管，
 ```
 
-GitHub Pages + Jekyll = Your blog!(快速搭建)
+###GitHub Pages + Jekyll = Your blog!(快速搭建)
 
 
 1.先搞一個 [GitHub Pages][githubpages]，根據官網步驟來，請先登錄你的GitHub
@@ -93,12 +93,51 @@ down下來，運行，確保能用
 
 在 `網站中心`左側`代碼管理`這個模塊，百度告訴你怎麼弄。很詳細的。傻瓜式。本地添加好，上傳到遠程服務器
 
+###Jekyll的模板语法
+
+引入模板文件
+
+```
+{% includ xxx.html %}
+```
+变量
+
+```
+{{ 变量名 }}
+```
+
+判断 
+
+```
+{% if 条件 %}
+	……
+{% else %}
+	……
+{% endif %}
+```
+
+循环
+
+```
+{% for 临时变量 in 数组 %}
+	……	
+{% endfor %}
+```
+
+函数的使用
+
+* 日期格式化
+
+```
+{{ 日期 | date: "%Y-%m-%d"}}
+```
 
 参考资料：
 
 * Jekyll变量 和 Jekyll模板语法教程<http://higrid.net/c-art-jeklly_template_data.htm> 
 * 静态网站生成器jekyll详解教程 <http://higrid.net/c-art-blog_jekyll.htm>
 * Markdown——入门指南<http://www.jianshu.com/p/1e402922ee32/>
+* Jekyll博客搭建小记(附易用模板)  <http://www.tuicool.com/articles/qMzuyau>
 [studymarkdown]: http://sspai.com/25137
 [githubpages]:https://pages.github.com/
 [create a repository]:https://github.com/new
