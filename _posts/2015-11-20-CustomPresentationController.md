@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "iOS_Animations_by_Tutorials 第21章 自定义模态控制器&设备旋转动画[简译]"
+title: "iOS_Animations_by_Tutorials2.0 第21章 自定义模态控制器&设备旋转动画[简译]"
 category: iOS
 date: 2015-12-20 12:15
 ---

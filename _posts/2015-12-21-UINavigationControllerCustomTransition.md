@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "iOS_Animations_by_Tutorials 第22章 自定义导航过渡动画[简译]"
+title: "iOS_Animations_by_Tutorials2.0 第22章 自定义导航过渡动画[简译]"
 category: iOS
 date: 2015-12-21 12:15
 ---
