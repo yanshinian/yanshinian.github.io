@@ -5,10 +5,13 @@ category: iOS
 date: 2015-12-24 12:15
 ---
 
- Chapter 1: Coding Essentials &
+对于这本书，我是抱着复习还有总结的心态看的。把没见过的，或者感觉写的少的。摘录下来。
+
+
+###Chapter 1: Coding Essentials &
  
  
-###计算机是如何工作的
+####计算机是如何工作的
 
 计算机的核心是一个CPU。这基本上是一台数学机器。它执行加法，减法和其他算术操作数。你看到的一切当你操作计算机的时候都是建立在每秒百万次运算的CPU上。
 
@@ -16,6 +19,38 @@ CPU上面存储数字的最小存储器单元称之为寄存器。CPU能从计�
 
  Editor\Execute Playground
 
+### Chapter 4: Strings
+
+#### 两种转换成String的方法
+String 的显示转换
+
+```
+let exclamationMark: Character = "!"
+message += String(exclamationMark) // "Hello my name is Matt!"
+```
+
+插值
+
+```
+￼let name = "Matt"
+let message = "Hello my name is \(name)!" // "Hello my name is Matt!"
+```
+
+####Unicode
+
+计算机只能处理1跟0那么字符串都是 字符对应数字，于是有了字符集。双向映射。Unicode 它定义了几乎所有的计算机使用的字符集映射。
+
+有些语言认为下面的是不相等的，但是swift默认相等，因为它们在逻辑上是相等的
+
+```
+let stringA = "café"
+let stringB = "cafe\u{0301}"
+
+let equal = stringA == stringB  //equal = true
+// 它们的count、都是 4，这是因为显示出来都是四个
+stringA.characters.count
+stringB.characters.count
+```
 
 ### Chapter 6: Repeating Steps
 
@@ -176,10 +211,104 @@ if let name: String = authorName,
 let authorName: String? = "Matt Galloway"let authorAge: Int? = 30if let name: String = authorName,       age: Int = authorAge {  print("The author is \(name) who is \(age) years old.")} else {  print("No author or no age.")}
 ```
 
+###Chapter 10: Arrays
+
+#### 数组声明
+
+显示
+
+let numbers: Array<Int>
+
+推断
+
+let inferredNumbers = Array<Int>()
+
+let alsoInferredNumbers = [Int]()
+
+#####字面量
+
+```
+let evenNumbers = [2, 4, 6, 8]
+
+```
+
+```
+let allZeros = [Int](count: 5, repeatedValue: 0)// > [0, 0, 0, 0, 0]
+```
+#### 元素访问
+
+var players = ["Alice", "Bob", "Cindy", "Dan"]
+
+##### 常用方法
+
+返回最小值
+
+players.minElement()
 
 
+#####使用range
 
+```
+let upcomingPlayers = players[1...2]print(upcomingPlayers)
+```
 
+#### 枚举遍历
+
+如果你需要每个元素的索引，你可以遍历数据中的enumerate()方法返回的值，并返回一个数组中 的索引，每个元素的值的元组。
+
+```
+for (index, playerName) in players.enumerate() {
+    print("\(index + 1). \(playerName)")
+}
+```
+
+#### Sequence operations
+
+##### Reduce 
+
+reduce(_:combine:) 需要一个初始值作为第一个参数，并且返回积累的值。
+
+```
+var  scores = [75,86,89,99,100, 1]
+let sum = scores.reduce(0, combine: +)
+print(sum)
+```
+
+类似  let sum = 0 + scores[0] + scores[1] + ... + scores[5].
+ 
+
+##### Filter  
+
+返回一个过滤后的数组。唯一的参数是返回布尔值的闭包。并且它将在数组中的每个元素执行这个闭包。如果闭包返回true，把这个元素添加到返回数组中。否则忽略该元素。
+
+```
+print(scores.filter({ $0 > 5 }))
+```
+##### Map
+
+map(_:) 需要一个闭包参数。将每一个 值映射到一个新值。
+
+```
+let newScores = scores.map({ $0 * 2 })
+print(newScores) // "[150, 172, 178, 198, 200, 2]\n"
+```
+
+#### 时间复杂度
+
+访问元素： 复杂度O(1)
+
+插入元素：
+
+* 添加到开头，O(1)
+* 添加到中间，因为该索引之后的索引都会往后移动，O(N)
+* 末端添加一个，是O(1).如果没有控件，需要腾出控件，并在其他地方复制整个数组，然后添加。然后复杂度是O(N)。平均复杂度为O(1)
+    
+删除元素：
+  
+* 删除头跟尾部元素复杂度是O(1)
+* 如果删除中间元素，复杂度是O(N)
+ 
+搜索元素： 复杂度O(N)
 
 
 
