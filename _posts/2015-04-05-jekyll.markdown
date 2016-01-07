@@ -98,7 +98,7 @@ down下來，運行，確保能用
 引入模板文件
 
 ```
-{% includ xxx.html %}
+{% include xxx.html %}
 ```
 变量
 
