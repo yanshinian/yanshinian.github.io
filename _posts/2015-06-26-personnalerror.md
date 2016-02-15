@@ -77,6 +77,10 @@ sudo gem install -n /usr/local/bin cocoapods
 ####8. 提交到ApppStore出现的问题（是跟上面的同时出现的，但是跟上面的两个问题无关）： `Error ITMS-90535: Unexpected CFBundleExecutable Key - xxxx.bundle`
 
 解决方案：《Unexpected CFBundleExecutable key》<http://stackoverflow.com/questions/32096130/unexpected-cfbundleexecutable-key>
+
+####9.Unknown class HongBaoDetailCell in Interface Builder file.
+
+解决方案：《Xcode 6 Strange Bug: Unknown class in Interface Builder file》<http://stackoverflow.com/questions/24924966/xcode-6-strange-bug-unknown-class-in-interface-builder-file>
  
 ###svn篇
 
