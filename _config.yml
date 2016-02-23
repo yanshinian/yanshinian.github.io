@@ -6,6 +6,10 @@ permalink: /:title
 markdown: kramdown
 
 highlighter: pygments
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 #paginate: 20 # pagination based on number of posts
 [jekyll-paginate]: 20
 paginate_path: "page/:num"
