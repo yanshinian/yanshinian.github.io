@@ -1,11 +1,13 @@
 # This is the default format.
 # For more see: http://jekyllrb.com/docs/permalinks/
+gems: [jekyll-paginate, jekyll-gist]
 permalink: /:title
 # https://help.github.com/articles/migrating-your-pages-site-from-maruku
 markdown: kramdown
 
 highlighter: pygments
-paginate: 20 # pagination based on number of posts
+#paginate: 20 # pagination based on number of posts
+[jekyll-paginate]: 20
 paginate_path: "page/:num"
 
 # These paths are to the main pages Jekyll-Bootstrap ships with.
