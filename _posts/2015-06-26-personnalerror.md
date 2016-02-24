@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "个人报错以及解决办法"
+title:  "iOS开发报错以及解决办法"
 category: 报错
 date:   2015-06-26
 ---
@@ -82,6 +82,13 @@ sudo gem install -n /usr/local/bin cocoapods
 
 解决方案：《Xcode 6 Strange Bug: Unknown class in Interface Builder file》<http://stackoverflow.com/questions/24924966/xcode-6-strange-bug-unknown-class-in-interface-builder-file>
  
+####10.[!] Pods written in Swift can only be integrated as frameworks; add `use_frameworks!` to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa and Result
+
+解决办法：
+
+podfile中添加 `use_frameworks!`
+
+
 ###svn篇
 
 ####1..xccheckout' remains in conflict
@@ -130,6 +137,30 @@ svn revert /Users/qrh/Desktop/work/svn/yb2.0/TVAPP/Images/share/moviePause@2x.pn
 
 svn ci -m "update"
 ```
+
+###5.Images.xcassets/bank_logo/beijing_bank.imageset/beijing_bank@2x.png' is scheduled for addition, but is missing
+
+误原因： 用 svn revert 但是 beijing_bank@2x.png 会变成 beijing_bank。使用revert 文件夹，先revert 文件/
+
+因为文件中包含了 `@`
+
+解决办法：如何在svn中输入带＂@＂的文件名
+
+```
+svn info 'image@2x.png@'  
+or  
+svn info "image@2x.png@"  
+or  
+svn info image\@2x.png\@
+```
+
+###6.svn添加“?”文件
+
+解决办法：
+
+`svn st | awk '{if ( $1 == "?") { print $2}}' | xargs svn add`
+
+
 ### XCode篇
 
 1.new apps and app updates submitted to the app store must be built with public(GM) versions of Xcode ……（具体看见下图）（另：GM版通常是正式版发布前，最后一个测试版。）
