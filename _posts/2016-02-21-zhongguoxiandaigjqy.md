@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 读《中国现代国家起源》"
+title: 读《中国现代国家起源》
 category: 读书
 date: 2016-02-21 12:15
 ---

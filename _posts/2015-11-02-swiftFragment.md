@@ -70,9 +70,10 @@ if let u = urlString {
 
 http://stackoverflow.com/questions/28182441/swift-how-to-get-substring-from-start-to-last-index-of-character
 
-4.通过字符串实例化控制器
+4.`@objc`关键字
 
-实现这个功能，必须使用 `@objc`关键字。
+4.1通过字符串实例化控制器，实现这个功能，必须使用 `@objc`关键字。
+
 
 ```
 @objc(AboutMeViewController) 
@@ -86,6 +87,18 @@ let value = "AboutMeViewController"
 let vc = NSClassFromString(value) as! UIViewController.Type
                     
 navigationController?.pushViewController(vc.init(), animated: true)
+```
+
+4.私有的点击方法
+
+```
+// unrecognized selector sent to instance
+// OC 在运行时，向对象发送消息，但是对象没有响应消息，抛出的异常！
+// 一旦使用了 private，函数变成私有，运行循环无法找到此函数，如果发送消息，会抛出异常！
+// @objc 关键字能够在`编译`的时候，让函数能够使用 OC 的消息机制被调用到
+@objc private func clickMyButton() {
+    print("点击撰写按钮")
+}
 ```
 
 5.UIWebView 加载文件（e.g html文件）
