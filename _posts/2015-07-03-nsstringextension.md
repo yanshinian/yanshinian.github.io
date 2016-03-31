@@ -10,10 +10,10 @@ date:   2015-08-03
 ```
 //
 //  NSString+Extension.m
-//  hyq2048
+//  xxx
 //
 //  Created by iOS on 15/6/30.
-//  Copyright (c) 2015年 HYQ. All rights reserved.
+//  Copyright (c) 2015年 xxx. All rights reserved.
 //
 
 #import "NSString+Extension.h"
