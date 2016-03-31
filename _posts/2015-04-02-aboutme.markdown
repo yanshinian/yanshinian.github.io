@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "关于言十年"
-category: 生活杂记
-date:2015-04-02 
+category: 生活杂记 
+date:  2015-04-02 
 ---
 
 大家好！我是言十年（非真实姓名）！请亲切的叫我小言。
