@@ -5,6 +5,8 @@ category: 报错
 date:   2015-06-26
 ---
 
+工作中遇到的bug还有坑……
+
 ###代码篇
 
 ####1.2015-06-11 14:10:30.442 hyq2048[9621:2201840] *** Assertion failure in -[UITableView _configureCellForDisplay:forIndexPath:], /SourceCache/UIKit_Sim/UIKit-3318.16.14/UITableView.m:7344
