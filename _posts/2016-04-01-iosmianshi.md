@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "iOS面试汇总"
-date:   2016-04-1 02:15:48
+date:   2016-04-01 02:15:48
 categories: 学习笔记
 ---
 
