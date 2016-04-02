@@ -16,12 +16,12 @@ categories: 总结
 2.block访问外部变量，我觉得你只要区分加了`__block`跟不加`__block`的区别就可以了。如果你能再回答内存的变化。比如说是深浅拷贝这些东西。这就更好了。
 
 ```
-__block NSString *str = @"字符串";
+__block NSString *str = @"字符串"; 
 void (^ block1)(void) = ^{
     NSLog(@"==%@", str);
 };
 str = @"变了";
-block1();
+block1(); //使用了__block之后，block中调用的str就变成了"变了"，如果没有在外部使用__block 那就还是"字符串"。
 NSLog(@"%@", str);
 ````
 《iOS开发-语法篇-block详解》<http://www.tuicool.com/articles/vy2ARnj>
