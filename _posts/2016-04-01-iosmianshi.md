@@ -43,6 +43,16 @@ sunnyxx（孙源讲的视频）自己优酷搜下。孙源讲runloop讲的挺详
 
 我说懒加载（我其实不知道，但是觉得有懒加载技术）。面试官说不是。面试官讲了NSObjct中有什么什么属性列表，缓存列表。用过的就放到了缓存里面。（我忘记原话了，大概就是这个意思，他也记得不是很清楚）。
 
+6.iOS發送心跳包5秒發送一次，你怎麼做？
+
+我当时回答跑偏了，因为我在想倒计时的东西，我说累加 %5 等于 0 就发送一次。好脑残啊！
+
+```
+[NSTimer scheduledTimerWithTimeInterval:5
+target:self
+selector:@selector(doRequest)
+userInfo:nil repeats:YES]; 
+```
 
 1.变量的本质是什么？
 
