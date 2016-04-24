@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "打的，被坑，记"
-category: 算法
+category: 生活
 date: 2016-04-16 19:45
 ---
      
