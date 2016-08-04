@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 跟经济有关的词汇
-category: iOS
+category: 经济
 date: 2016-03-01 12:15
 ---
 书中摘抄的
@@ -13,3 +13,4 @@ date: 2016-03-01 12:15
 生产资料|也称作生产手段。定义为：劳动者进行生产时所需要使用的资源或工具。一般可包括土地、厂房、机器设备、工具、原料等等。生产资料是生产过程中的劳动资料和劳动对象的总和，它是任何社会进行物质生产所必备的物质条件。|<http://baike.baidu.com/link?url=t_9HBj3p143FoISUnayZ6LuqVB31D9a2esHylQBmtldO6id_tUHTf8jXQOHuR0DRZrFRezkMeyXLgDFv-gg2ka>
 金本位|金本位制就是以黄金为本位币的货币制度。|<http://baike.baidu.com/link?url=YB-JF3ftIBi_7KPAFXJHzTdqZ0nS8xdmlfmr2H8LGjreQ0SyT4FkxBW01du5h6zg3jsbVQoJnr2YbhnRv9EOa_>
 沉没成本|由于过去的决策已经发生了的，而不能由现在或将来的任何决策改变的成本。|<http://baike.baidu.com/link?url=n1yp-atUjJ3X2p3sAx2TAdoBjQ_DzAJRH4sllI7nB5VMD-Kwv6ITC013O7o1s15lreq0wZ9unqihem5opn4Raq>
+外汇储备|又称为外汇存底，指为了应付国际支付的需要，各国的中央银行及其他政府机构所集中掌握的外汇资产即外汇储备。|<http://baike.baidu.com/link?url=ARnYfnSBMrqUqGBt3gieRYDhT7xKVZ31o-MkL1EsfguAvxmrn1F08IiVfOMe7GmSyiUQUk0gwTFEKj_3ku6A-K>
