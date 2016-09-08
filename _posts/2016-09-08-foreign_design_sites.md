@@ -29,6 +29,9 @@ ps. 有的网站需要登录注册，比较强制，建议用Google，Facebook�
 参考资料（建议观看）:
 
 * 《모바일-앱-디자인을-위한-벤치마킹-사이트-모음》（韩语黏贴乱码，sorry）<https://medium.com/korean-design-posts/%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%B2%A4%EC%B9%98%EB%A7%88%ED%82%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%AA%A8%EC%9D%8C-7256232d58f4#.l2p5vseu7>
+
 *《アプリのUIデザインと配色パターンまとめ（非デザイナー向け）》<http://qiita.com/ShinChan/items/97849eed07a8d750a2cb>
+
 *《世界のクリエイターの作品を見てみよう》<https://lab.sonicmoov.com/design/appli-gallery/>
+
 * 《用途・デバイス別！スマホサイト、アプリのUIデザインパターン17選》<http://ohako-inc.jp/uiux-japan/ui-design/201410-uidesignpatterns.html>
